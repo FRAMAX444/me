@@ -1,0 +1,39 @@
+{
+  "profile": {
+    "name": "Francesco Marrocco",
+    "role": "Student of Mathematics Applied to Artificial Intelligence \n Conference Staff for FAO",
+    "homeQuote": "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future.",
+    "aboutIntro": "Experience, education, publications and selected information.",
+    "githubUsername": "FRAMAX444"
+  },
+  "images": {
+    "profilePhoto": "data/pictures/PROFILE.jpeg",
+    "homeBackground": "data/pictures/BACKGROUND.jpeg"
+  },
+  "socials": {
+    "linkedin": {
+      "label": "LinkedIn",
+      "handle": "Francesco Marrocco",
+      "href": "https://www.linkedin.com/in/francesco-marrocco-95257b212/",
+      "icon": "data/pictures/LinkedIn_icon.svg"
+    },
+    "github": {
+      "label": "GitHub",
+      "handle": "FRAMAX444",
+      "href": "https://github.com/FRAMAX444",
+      "icon": "data/pictures/Github_icon.svg"
+    },
+    "instagram": {
+      "label": "Instagram",
+      "handle": "@francesco.marrocco_",
+      "href": "https://instagram.com/francesco.marrocco_",
+      "icon": "data/pictures/Instagram_logo_2016.svg.png"
+    },
+    "scholar": {
+      "label": "Google Scholar",
+      "handle": "Scholar profile",
+      "href": "https://scholar.google.com/citations?user=8q4TKEIAAAAJ&hl=it",
+      "icon": "data/pictures/Google_Scholar_logo.svg.png"
+    }
+  }
+}

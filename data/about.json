@@ -1,0 +1,495 @@
+{
+  "experience": [
+{
+      "id": "exp-2",
+      "title": "Office Helper for CSGM division",
+      "organization": "Food and Agriculture Organization of the United Nations (FAO)",
+      "organizationImage": "data/pictures/FAO/FAO_logo.png",
+      "period": "September 2025 - Present",
+      "location": "FAO Headquarters, Viale delle Terme di Caracalla 00153 Rome, Italy",
+      "summary": "",
+      "notes": "• Managed and organized the work for all Conference Staff, ensuring smooth operations and effective communication. \n\n• Coordinated with various departments to facilitate logistics, scheduling, and resource allocation for conferences and events. \n\n• Developed and implemented efficient workflows and processes to enhance productivity and streamline tasks for the Conference Staff team. \n\n• Programmed small applications to automate routine tasks, such as scheduling and data management, improving efficiency and reducing manual workload. \n\n• Provided training and support to new Conference Staff members, fostering a collaborative and knowledgeable team environment.",
+      "images": [
+        "data/pictures/FAO/FAO_3.jpeg"
+      ],
+      "tags": []
+    }, 
+    {
+      "id": "exp-1",
+      "title": "Conference Staff",
+      "organization": "Food and Agriculture Organization of the United Nations (FAO)",
+      "organizationImage": "data/pictures/FAO/FAO_logo.png",
+      "period": "March 2023 - Present",
+      "location": "FAO Headquarters, Viale delle Terme di Caracalla 00153 Rome, Italy",
+      "summary": "",
+      "notes": "• Supported logistics and managed IT systems for nameplates and floor requests at 50+ high-level international events.\n\n• Collaborated with cross-functional teams to ensure seamless event execution and enhance attendee experience. \n\n• Received commendation for exceptional organizational skills and dedication to supporting successful conferences.",
+      "images": [
+        "data/pictures/FAO/FAO_1.jpeg",
+        "data/pictures/FAO/FAO_2.jpeg",
+        "data/pictures/FAO/FAO_4.jpeg",
+        "data/pictures/FAO/FAO_5.jpeg"
+      ],
+      "tags": []
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-4",
+      "title": "MSc, Applied Mathematics to Artificial Intelligence (LM-40)",
+      "institution": "La Sapienza University of Rome",
+      "organizationImage": "data/pictures/Uniroma1.png",
+      "period": "September 2025 - July 2027 (expected)",
+      "location": "Piazzale Aldo Moro 5, 00185 Rome, Italy",
+      "summary": "",
+      "notes": "",
+      "images": [
+        "assets/education-1.jpg"
+      ],
+      "exams": [
+        {
+          "name": "Institutions of Algebra and Geometry",
+          "grade": 30,
+          "gradeLabel": "30/30",
+          "credits": 9,
+          "skills": {
+            "Mathematical Proof and Rigor": 1.0,
+            "Abstract Algebra (Groups, Rings, Fields)": 0.95,
+            "Geometry and Topology": 0.9,
+            "Cryptographic Algorithms": 0.9
+          },
+          "repos": [
+            {
+              "label": "ECDSA Blockchain Implementation",
+              "url": "https://github.com/mich1803/ECDSA-Blockchain"
+            }
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "edu-3",
+      "title": "BSc, Mathematical Sciences for Artificial Intelligence (L-35)",
+      "institution": "La Sapienza University of Rome",
+      "organizationImage": "data/pictures/Uniroma1.png",
+      "period": "September 2022 - July 2025",
+      "location": "Piazzale Aldo Moro 5, 00185 Rome, Italy",
+      "summary": "",
+      "finalGrade": "110/110 with honours",
+      "thesis": [
+        {
+          "label": "Full thesis (English)",
+          "url": ""
+        },
+        {
+          "label": "Full thesis (Italian)",
+          "url": "https://drive.google.com/file/d/1Mf3OpAtN2m22QfXkw9AMF_ei_QUMeaIM/view?usp=sharing"
+        },
+        {
+          "label": "Repository with thesis code and materials",
+          "url": "https://github.com/FRAMAX444/PINNs"
+        }
+      ],
+      "notes": "",
+      "honors": [
+        {
+          "title": "Merit Scholarship",
+          "date": "2022",
+          "description": "Awarded for academic excellence for high school results."
+        },
+        {
+          "title": "Honours Program",
+          "date": "2023-2025",
+          "description": "Recognized for outstanding academic performance in the first year and later confirmed for the results obtained in the second year. The program provided access to advanced courses and research opportunities. In particular, I developed two projects with the corresponding professors: \n\n • \"Evaluating LLMs and Prompt Engineering Techniques with Codenames\" with Professor Alessandro Panconesi. \n\n • \"Explainable Machine Learning for Earthquakes: SHAP interpretation of CNNs to Distinguish Seismic Spectrograms of Foreshocks and Aftershocks\" with Professor Chris Marone."
+        }
+      ],
+      "images": [
+        "data/pictures/SAPIENZA/SAPIENZA_1.jpeg",
+        "data/pictures/SAPIENZA/SAPIENZA_2.jpeg",
+        "data/pictures/SAPIENZA/SAPIENZA_3.jpeg",
+        "data/pictures/SAPIENZA/SAPIENZA_4.jpeg",
+        "data/pictures/SAPIENZA/SAPIENZA_5.jpeg",
+        "data/pictures/SAPIENZA/SAPIENZA_6.jpeg"
+      ],
+      "tags": [],
+      "exams": [
+        {
+          "name": "Mathematical Analysis 1",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 9,
+          "skills": {
+            "Limit and Continuity Analysis": 0.95,
+            "Differential Calculus (Derivatives & Applications)": 0.9,
+            "Mathematical Proof and Rigor": 1.0
+          }
+        },
+        {
+          "name": "Linear Algebra and Algebraic Structures",
+          "grade": 27,
+          "gradeLabel": "27/30",
+          "credits": 12,
+          "skills": {
+            "Vector Space Theory & Linear Transformations": 0.95,
+            "Matrix Algebra & Eigenvalue Decomposition": 0.9,
+            "Abstract Algebra (Groups, Rings, Fields)": 1.0,
+            "Mathematical Proof and Rigor": 0.9
+          }
+        },
+        {
+          "name": "Programming Fundamentals with Laboratory",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 9,
+          "skills": {
+            "Python Programming": 0.95,
+            "Problem Solving (Algorithmic Thinking)": 0.9,
+            "Debugging & Code Correctness": 1.0
+          }
+        },
+        {
+          "name": "Fundamentals of Neuroscience",
+          "grade": 26,
+          "gradeLabel": "26/30",
+          "credits": 6,
+          "skills": {
+            "Neurophysiology & Neural Signaling": 0.9,
+            "Systems Neuroscience (Sensory & Motor Circuits)": 0.85,
+            "Experimental Methods & Data Interpretation in Neuroscience": 0.8
+          }
+        },
+        {
+          "name": "Probability and Statistics",
+          "grade": 24,
+          "gradeLabel": "24/30",
+          "credits": 9,
+          "skills": {
+            "Statistical Inference & Estimation": 0.95,
+            "Probability Theory & Random Variables": 0.9,
+            "Data Analysis & Interpretation": 0.9
+          }
+        },
+        {
+          "name": "Physics",
+          "grade": 30,
+          "gradeLabel": "30/30",
+          "credits": 9,
+          "skills": {
+            "Mathematical Modeling of Physical Systems": 0.9,
+            "Problem Solving": 0.9,
+            "Experimental Data Analysis & Error Estimation": 0.85
+          }
+        },
+        {
+          "name": "Programming Techniques with Laboratory",
+          "grade": 27,
+          "gradeLabel": "27/30",
+          "credits": 9,
+          "skills": {
+            "Python Programming": 0.95,
+            "Object-Oriented Programming (OOP)": 0.9,
+            "Debugging & Code Correctness": 0.95
+          }
+        },
+        {
+          "name": "Algorithms and Complexity",
+          "grade": 28,
+          "gradeLabel": "28/30",
+          "credits": 6,
+          "skills": {
+            "Algorithm Design & Analysis": 0.95,
+            "Computational Complexity Theory": 0.9,
+            "Problem Solving (Algorithmic Thinking)": 0.95
+          }
+        },
+        {
+          "name": "Mathematical Analysis 2",
+          "grade": 30,
+          "gradeLabel": "30/30",
+          "credits": 9,
+          "skills": {
+            "Multivariable Calculus & Vector Analysis": 0.95,
+            "Differential Equations": 0.9,
+            "Mathematical Proof and Rigor": 0.95
+          }
+        },
+        {
+          "name": "Mathematical Modelling for Physics",
+          "grade": 29,
+          "gradeLabel": "29/30",
+          "credits": 12,
+          "skills": {
+            "Mathematical Modeling of Physical Systems": 0.95,
+            "Differential Equations": 0.95,
+            "Numerical Methods & Simulation": 0.9
+          }
+        },
+        {
+          "name": "Numerical Methods",
+          "grade": 30,
+          "gradeLabel": "30/30",
+          "credits": 9,
+          "skills": {
+            "Numerical Methods & Simulation": 0.95,
+            "Error Analysis & Numerical Stability": 0.9,
+            "Python Programming": 0.9
+          },
+          "repos": [
+            {
+              "label": "QR Algorithms for Eigenvalue Problems",
+              "url": "https://github.com/FRAMAX444/Numerical-Algebra-QR-Algorithms"
+            }
+          ]
+        },
+        {
+          "name": "Machine Learning",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 9,
+          "skills": {
+            "Machine Learning Algorithms & Model Training": 0.95,
+            "Statistical Inference & Estimation": 0.9,
+            "Python Programming": 0.95
+          },
+          "repos": [
+            {
+              "label": "Knowledge Distillation",
+              "url": "https://github.com/FRAMAX444/Knowledge-Distillation"
+            }
+          ]
+        }, 
+        {
+          "name": "Fundamentals of Artificial Intelligence and Data Management",
+          "grade": 25,
+          "gradeLabel": "25/30",
+          "credits": 12,
+          "skills": {
+            "Machine Learning Algorithms & Model Training": 0.9,
+            "Data Management & Database Systems": 0.9,
+            "Problem Solving (Algorithmic Thinking)": 0.85
+          }
+        }, 
+        {
+          "name": "Computational Biology",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 6,
+          "skills": {
+            "Computational Modeling of Biological Systems": 0.95,
+            "Data Analysis & Interpretation": 0.9,
+            "Python Programming": 0.9
+          }
+        }, 
+        {
+          "name": "Earthquakes Physics and Machine Learning",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 6,
+          "skills": {
+            "Machine Learning Algorithms & Model Training": 0.9,
+            "Mathematical Modeling of Physical Systems": 0.9,
+            "Data Analysis & Interpretation": 0.9
+          },
+          "repos": [
+            {
+              "label": "CNN Explainability on Earthquakes",
+              "url": "https://github.com/mich1803/CNN-Explainability-on-Earthquakes"
+            }
+          ]
+        }, 
+        {
+          "name": "Stochastic Processes",
+          "grade": 30,
+          "gradeLabel": "30/30",
+          "credits": 6,
+          "skills": {
+            "Stochastic Processes & Markov Models": 0.95,
+            "Probability Theory & Random Variables": 0.95,
+            "Statistical Inference & Estimation": 0.9
+          }
+        }, 
+        {
+          "name": "Applications of Machine Learning in Computer Science",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 6,
+          "skills": {
+            "Machine Learning Algorithms & Model Training": 0.95,
+            "Python Programming": 0.9,
+            "Data Analysis & Interpretation": 0.9
+          },
+          "repos": [
+            {
+              "label": "Textual Entailment",
+              "url": "https://github.com/FRAMAX444/Textual-Entailment"
+            }
+          ]
+        }, 
+        {
+          "name": "Scientific Computing",
+          "grade": 31,
+          "gradeLabel": "30 with honours/30",
+          "credits": 6,
+          "skills": {
+            "Numerical Methods & Simulation": 0.95,
+            "Partial Differential Equations": 0.95,
+            "Error Analysis & Numerical Stability": 0.9
+          },
+          "repos": [
+            {
+              "label": "PINNs for Burgers' Equation",
+              "url": "https://github.com/FRAMAX444/PINNs/blob/main/burgers/Progetto_Marrocco.ipynb"
+            }
+          ]
+        }, 
+        {
+          "name": "Statistics",
+          "grade": 28,
+          "gradeLabel": "28/30",
+          "credits": 6,
+          "skills": {
+            "Statistical Inference & Estimation": 0.95,
+            "Data Analysis & Interpretation": 0.9,
+            "Probability Theory & Random Variables": 0.9
+          }
+        }, 
+        {
+          "name": "English",
+          "grade": 0,
+          "gradeLabel": "qualified",
+          "credits": 0,
+          "skills": {}
+        }, 
+        {
+          "name": "Scientific Communication",
+          "grade": 0,
+          "gradeLabel": "qualified",
+          "credits": 0,
+          "skills": {}
+        },         
+        {
+          "name": "Ethics of Artificial Intelligence",
+          "grade": 0,
+          "gradeLabel": "qualified",
+          "credits": 0,
+          "skills": {}
+        }
+
+      ]
+    },
+    {
+      "id": "edu-2",
+      "title": "Founder and Board Member of the Highlands Alumni Foundation",
+      "institution": "Highlands Institute Rome",
+      "organizationImage": "data/pictures/HIGHLANDS/LOGO.png",
+      "period": "February 2023 - Present",
+      "location": "Viale della Scultura, 15, 00144 Rome, Italy",
+      "summary": "",
+      "notes": "• Co-founded the Highlands Alumni Foundation, dedicated to fostering a strong and supportive community among the alumni of the Highlands Institute Rome. \n\n• As a board member, I have been actively involved in strategic planning, event organization, and community engagement initiatives to strengthen the alumni network and promote collaboration among members. \n\n• Organized various events and activities, including workshops, and social gatherings, to facilitate connections and knowledge sharing among alumni. \n\n• Developed and maintained the foundation's online presence through social media platforms and a dedicated website, enhancing communication and engagement with the alumni community.",
+      "images": [
+        "data/pictures/HIGHLANDS/HIGHLANDS_10.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_9.jpeg"
+      ],
+      "tags": [],
+      "links": [
+        {
+          "label": "Highlands Alumni Foundation Instagram",
+          "url": "https://www.instagram.com/highlandsalumni/"
+        }
+      ]
+    },
+    {
+      "id": "edu-1",
+      "title": "High School Diploma, Scientific High School",
+      "institution": "Highlands Institute Rome",
+      "organizationImage": "data/pictures/HIGHLANDS/LOGO.webp",
+      "period": "September 2017 - July 2022",
+      "location": "Viale della Scultura, 15, 00144 Rome, Italy",
+      "summary": "",
+      "finalGrade": "100/100 with honours",
+      "notes": "• Integer Homo: highest academic and personal honor; one recipient per graduating class (US Valedictorian equivalent). \n\n• Student Body President: represented students in institute assembly; launched popular projects like an internal radio show. \n\n• Cambridge Assessment International Education (IGCSE Exams): Global Perspectives (A); Biology, ICT, Geography (B)",
+      "images": [
+        "data/pictures/HIGHLANDS/HIGHLANDS_1.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_2.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_3.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_4.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_5.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_6.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_7.jpeg",
+        "data/pictures/HIGHLANDS/HIGHLANDS_8.jpeg"
+      ],
+      "tags": []
+    }
+  ], 
+   "otherExperiences": [
+    {
+      "id": "other-1",
+      "title": "Silicon Valley Fellowship",
+      "type": "Fellowship",
+      "organization": "Silicon Valley Fellowship",
+      "organizationImage": "data/pictures/svf.jpg",
+      "location": "San Francisco, CA, USA",
+      "period": "October 2024 - November 2024",
+      "summary": "Intensive program providing mentorship and resources for aspiring entrepreneurs in the tech industry.",
+      "notes": "",
+      "images": [
+        "data/pictures/SVF/SVF_1.jpeg",
+        "data/pictures/SVF/SVF_2.jpeg",
+        "data/pictures/SVF/SVF_3.jpeg",
+        "data/pictures/SVF/SVF_4.jpeg",
+        "data/pictures/SVF/SVF_5.jpeg"
+      ]
+    },
+    {
+      "id": "other-2",
+      "title": "CyberHack4AI",
+      "type": "Hackathon",
+      "organization": "CyberHack4AI",
+      "organizationImage": "data/pictures/Social-5.jpeg",
+      "location": "Rome, Italy",
+      "period": "1-2-3 October 2024",
+      "summary": "Participated in a 48-hour hackathon focused on developing innovative AI solutions for modern challenges.",
+      "images": ["data/pictures/SAPIENZA/SAPIENZA_5.jpeg"],
+      "links": [
+        {
+          "label": "Final project",
+          "url": "https://github.com/anonym8s/DoodleHTR-AI-for-Education-APP"
+        }
+      ]
+    },
+    {
+      "id": "other-3",
+      "title": "Scuola di Politiche (School of Politics)",
+      "organization": "Scuola di Politiche (School of Politics)",
+      "type": "Annual Course",
+      "organizationImage": "data/pictures/SDP.png",
+      "location": "Rome, Italy",
+      "period": "September 2022 - July 2023",
+      "summary": "Completed a comprehensive annual course on politics, policy-making, and leadership, gaining insights into political systems and effective governance."
+    }
+  ],
+  "languageSkills": [
+    {
+      "id": "lang-1",
+      "organization": "Italian",
+      "location": "Native",
+      "organizationImage": "data/pictures/italianflag.png"
+    },
+    {
+      "id": "lang-2",
+      "title": "Cambridge English Proficiency (CPE)",
+      "organization": "English",
+      "organizationImage": "data/pictures/ukflag.png",
+      "location": "C2 Level",
+      "period": "26 February 2022"
+    },
+    {
+      "id": "lang-3",
+      "title": "DELE B1",
+      "organization": "Spanish",
+      "organizationImage": "data/pictures/spanishflag.jpg",
+      "location": "B1 Level",
+      "period": "06 November 2021"
+    }
+  ]
+}
