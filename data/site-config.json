@@ -15,25 +15,38 @@
       "label": "LinkedIn",
       "handle": "Francesco Marrocco",
       "href": "https://www.linkedin.com/in/francesco-marrocco-95257b212/",
-      "icon": "data/pictures/LinkedIn_icon.svg"
+      "icon": "data/pictures/LinkedIn_icon.svg",
+      "color": "#0a66c2"
+    },
+    "mail": {
+      "label": "Email",
+      "handle": "frmarrocco03@gmail.com",
+      "href": "mailto:frmarrocco03@gmail.com",
+      "icon": "data/pictures/Gmail_icon.png",
+      "color": "#FFFFFF"
     },
     "github": {
       "label": "GitHub",
       "handle": "FRAMAX444",
       "href": "https://github.com/FRAMAX444",
-      "icon": "data/pictures/Github_icon.svg"
+      "icon": "data/pictures/Github_icon.svg",
+      "color": "#24292f"
+
     },
     "instagram": {
       "label": "Instagram",
       "handle": "@francesco.marrocco_",
       "href": "https://instagram.com/francesco.marrocco_",
-      "icon": "data/pictures/Instagram_logo_2016.svg.png"
+      "icon": "data/pictures/Instagram_logo_2016.svg.png",
+      "color": "linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4)"
+
     },
     "scholar": {
       "label": "Google Scholar",
       "handle": "Scholar profile",
       "href": "https://scholar.google.com/citations?user=8q4TKEIAAAAJ&hl=it",
-      "icon": "data/pictures/Google_Scholar_logo.svg.png"
+      "icon": "data/pictures/Google_Scholar_logo.svg.png",
+      "color": "#4285f4"  
     }
   }
 }

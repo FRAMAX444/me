@@ -15,6 +15,7 @@
       --text: #1f2328;
       --muted: #5f6b7a;
       --linkedin: #0a66c2;
+      --mail: #007bff;
       --github: #24292f;
       --instagram-1: #f58529;
       --instagram-2: #dd2a7b;
@@ -1518,15 +1519,16 @@
       const profileImageWrap = document.getElementById("home-profile-image-wrap");
       const profileImg = document.getElementById("home-profile-image");
       const quoteBox = document.getElementById("home-quote-box");
+      const socialGrid = document.getElementById("home-social-grid");
 
-      const homeBackground = SITE_CONFIG?.images?.homeBackground || "";
-      const name = SITE_CONFIG?.profile?.name || "";
-      const role = SITE_CONFIG?.profile?.role || "";
-      const quote = SITE_CONFIG?.profile?.homeQuote || "";
-      const summary =
-        SITE_CONFIG?.profile?.aboutIntro ||
-        "Experience, education, languages and other selected information.";
-      const profilePhoto = SITE_CONFIG?.images?.profilePhoto || "";
+      const home = SITE_CONFIG?.home || {};
+
+      const homeBackground = home.backgroundImage || "";
+      const name = home.name || "";
+      const role = home.role || "";
+      const quote = home.quote || "";
+      const profilePhoto = home.profilePhoto || "";
+      const socials = Array.isArray(home.socials) ? home.socials : [];
 
       if (hasValidImage(homeBackground)) {
         hero.style.backgroundImage = `url('${homeBackground}')`;
@@ -1538,11 +1540,10 @@
 
       document.getElementById("home-name").textContent = name;
       document.getElementById("home-role").textContent = role;
-      document.getElementById("about-intro").textContent = summary;
 
       if (isNonEmptyString(quote)) {
         document.getElementById("home-quote").textContent = `“${quote}”`;
-      } else {
+      } else if (quoteBox) {
         quoteBox.remove();
       }
 
@@ -1558,51 +1559,49 @@
         profileCard.classList.add("no-photo");
       }
 
-      const socialOrder = ["linkedin", "github", "instagram", "scholar"];
+      const socialsHtml = socials
+        .filter((item) => item && item.href)
+        .map((item) => {
+          const type = isNonEmptyString(item.type) ? item.type.trim().toLowerCase() : "custom";
+          const label = item.label || type;
+          const subtitle =
+            item.subtitle || item.handle || item.username || "";
+          const hasIcon = hasValidImage(item.icon);
 
-      const renderSocials = (targetId) => {
-        const el = document.getElementById(targetId);
-        if (!el) return;
+          return `
+            <a
+              class="home-social-card ${escapeHtml(type)} ${hasIcon ? "" : "no-icon"}"
+              href="${escapeHtml(item.href)}"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ${
+                hasIcon
+                  ? `
+                    <span class="home-social-icon-wrap">
+                      <img
+                        class="home-social-icon"
+                        src="${escapeHtml(item.icon)}"
+                        alt="${escapeHtml(label)}"
+                        data-social-icon
+                      >
+                    </span>
+                  `
+                  : ""
+              }
+              <span class="home-social-text">
+                <strong>${escapeHtml(label)}</strong>
+                <span>${escapeHtml(subtitle)}</span>
+              </span>
+            </a>
+          `;
+        })
+        .join("");
 
-        const html = socialOrder
-          .map((key) => {
-            const item = SITE_CONFIG?.socials?.[key];
-            if (!item || !item.href) return "";
+      if (socialsHtml.trim()) {
+        socialGrid.innerHTML = socialsHtml;
 
-            const label = item.label || key;
-            const handle = item.handle || item.username || item.subtitle || "";
-            const hasIcon = hasValidImage(item.icon);
-
-            return `
-              <a class="home-social-card ${escapeHtml(key)} ${hasIcon ? "" : "no-icon"}" href="${escapeHtml(
-                item.href
-              )}" target="_blank" rel="noreferrer">
-                ${
-                  hasIcon
-                    ? `
-                      <span class="home-social-icon-wrap">
-                        <img class="home-social-icon" src="${escapeHtml(item.icon)}" alt="${escapeHtml(label)}" data-social-icon>
-                      </span>
-                    `
-                    : ""
-                }
-                <span class="home-social-text">
-                  <strong>${escapeHtml(label)}</strong>
-                  <span>${escapeHtml(handle)}</span>
-                </span>
-              </a>
-            `;
-          })
-          .join("");
-
-        if (!html.trim()) {
-          el.remove();
-          return;
-        }
-
-        el.innerHTML = html;
-
-        [...el.querySelectorAll("[data-social-icon]")].forEach((img) => {
+        [...socialGrid.querySelectorAll("[data-social-icon]")].forEach((img) => {
           installSingleImageRemoval(img, (node) => {
             const wrap = node.closest(".home-social-icon-wrap");
             const card = node.closest(".home-social-card");
@@ -1610,21 +1609,25 @@
             if (card) card.classList.add("no-icon");
           });
         });
-      };
-
-      renderSocials("home-social-grid");
-
-      if (SITE_CONFIG?.socials?.scholar?.href) {
-        const btn = document.getElementById("scholar-button-publications");
-        if (btn) btn.href = SITE_CONFIG.socials.scholar.href;
+      } else {
+        socialGrid.remove();
       }
 
-      if (SITE_CONFIG?.socials?.github?.href) {
-        const githubBtn = document.getElementById("github-profile-button");
-        if (githubBtn) githubBtn.href = SITE_CONFIG.socials.github.href;
+      const scholarBtn = document.getElementById("scholar-button-publications");
+      const githubBtn = document.getElementById("github-profile-button");
+
+      const scholarSocial = socials.find((item) => (item?.type || "").toLowerCase() === "scholar");
+      const githubSocial = socials.find((item) => (item?.type || "").toLowerCase() === "github");
+
+      if (scholarBtn && scholarSocial?.href) {
+        scholarBtn.href = scholarSocial.href;
+      }
+
+      if (githubBtn && githubSocial?.href) {
+        githubBtn.href = githubSocial.href;
       }
     }
-
+    
     function stopLightboxAutoplay() {
       if (lightboxAutoTimer) clearTimeout(lightboxAutoTimer);
       if (lightboxProgressTimer) cancelAnimationFrame(lightboxProgressTimer);
