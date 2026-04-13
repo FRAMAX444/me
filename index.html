@@ -278,29 +278,7 @@
       transform: translateY(-2px);
       box-shadow: 0 22px 38px rgba(15, 23, 42, 0.18);
     }
-
-    .home-social-card.linkedin {
-      background: var(--linkedin);
-    }
-
-    .home-social-card.github {
-      background: var(--github);
-    }
-
-    .home-social-card.instagram {
-      background: linear-gradient(
-        135deg,
-        var(--instagram-1),
-        var(--instagram-2),
-        var(--instagram-3),
-        var(--instagram-4)
-      );
-    }
-
-    .home-social-card.scholar {
-      background: var(--scholar);
-    }
-
+    
     .home-social-card.no-icon {
       padding-left: 1.35rem;
     }
@@ -1538,6 +1516,20 @@
       };
     }
 
+
+    function getTextColor(bg) {
+      if (!bg) return "#ffffff";
+
+      // se è gradient → testo bianco
+      if (bg.includes("gradient")) return "#ffffff";
+
+      // se è bianco → testo scuro
+      if (bg.toLowerCase() === "#ffffff") return "#1f2328";
+
+      return "#ffffff";
+    }
+
+
     function renderConfigDrivenUI() {
       const hero = document.getElementById("home-hero-card");
       const profileCard = document.getElementById("home-profile-card");
@@ -1600,7 +1592,7 @@
           const subtitle = item.handle || "";
           const hasIcon = hasValidImage(item.icon);
           const colorStyle = isNonEmptyString(item.color)
-            ? `style="background:${item.color};"`
+            ? `style="background:${item.color}; color:${getTextColor(item.color)};"`
             : "";
 
           return `
