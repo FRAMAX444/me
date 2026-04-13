@@ -271,6 +271,7 @@
       box-shadow: var(--shadow);
       transition: transform 0.18s ease, box-shadow 0.18s ease;
       color: white;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
     }
 
     .home-social-card:hover {
@@ -1462,6 +1463,12 @@
         .replace(/'/g, "&#039;");
     }
 
+    function escapeAttribute(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;");
+    }
+
     function setRoute() {
       const hash = window.location.hash.replace("#", "") || "home";
 
@@ -1489,7 +1496,7 @@
       const slides = [...wrapper.querySelectorAll("[data-gallery-slide]")];
       if (!galleryBlock || !slides.length) return;
 
-      slides.forEach((slide, index) => {
+      slides.forEach((slide) => {
         const img = slide.querySelector("[data-gallery-image]");
         if (!img) return;
 
@@ -1513,6 +1520,24 @@
       });
     }
 
+    function getHomeConfig() {
+      const home = SITE_CONFIG?.home || {};
+      const profile = SITE_CONFIG?.profile || {};
+
+      return {
+        name: home.name || profile.name || "",
+        role: home.role || profile.role || "",
+        quote: home.quote || profile.homeQuote || "",
+        backgroundImage: home.backgroundImage || SITE_CONFIG?.images?.homeBackground || "",
+        profilePhoto: home.profilePhoto || SITE_CONFIG?.images?.profilePhoto || "",
+        socials: Array.isArray(home.socials) ? home.socials : [],
+        aboutIntro:
+          home.aboutIntro ||
+          profile.aboutIntro ||
+          "Experience, education, languages and other selected information."
+      };
+    }
+
     function renderConfigDrivenUI() {
       const hero = document.getElementById("home-hero-card");
       const profileCard = document.getElementById("home-profile-card");
@@ -1520,15 +1545,24 @@
       const profileImg = document.getElementById("home-profile-image");
       const quoteBox = document.getElementById("home-quote-box");
       const socialGrid = document.getElementById("home-social-grid");
+      const aboutIntro = document.getElementById("about-intro");
 
-      const home = SITE_CONFIG?.home || {};
+      const profile = SITE_CONFIG?.profile || {};
+      const images = SITE_CONFIG?.images || {};
+      const socialsObject = SITE_CONFIG?.socials || {};
+      const socials = Object.values(socialsObject);
 
-      const homeBackground = home.backgroundImage || "";
-      const name = home.name || "";
-      const role = home.role || "";
-      const quote = home.quote || "";
-      const profilePhoto = home.profilePhoto || "";
-      const socials = Array.isArray(home.socials) ? home.socials : [];
+      const name = profile.name || "";
+      const role = profile.role || "";
+      const quote = profile.homeQuote || "";
+      const homeBackground = images.homeBackground || "";
+      const profilePhoto = images.profilePhoto || "";
+
+      if (aboutIntro) {
+        aboutIntro.textContent =
+          profile.aboutIntro ||
+          "Experience, education, publications and selected information.";
+      }
 
       if (hasValidImage(homeBackground)) {
         hero.style.backgroundImage = `url('${homeBackground}')`;
@@ -1562,18 +1596,20 @@
       const socialsHtml = socials
         .filter((item) => item && item.href)
         .map((item) => {
-          const type = isNonEmptyString(item.type) ? item.type.trim().toLowerCase() : "custom";
-          const label = item.label || type;
-          const subtitle =
-            item.subtitle || item.handle || item.username || "";
+          const label = item.label || "";
+          const subtitle = item.handle || "";
           const hasIcon = hasValidImage(item.icon);
+          const colorStyle = isNonEmptyString(item.color)
+            ? `style="background:${item.color};"`
+            : "";
 
           return `
             <a
-              class="home-social-card ${escapeHtml(type)} ${hasIcon ? "" : "no-icon"}"
+              class="home-social-card ${hasIcon ? "" : "no-icon"}"
               href="${escapeHtml(item.href)}"
               target="_blank"
               rel="noreferrer"
+              ${colorStyle}
             >
               ${
                 hasIcon
@@ -1609,25 +1645,23 @@
             if (card) card.classList.add("no-icon");
           });
         });
-      } else {
+      } else if (socialGrid) {
         socialGrid.remove();
       }
 
       const scholarBtn = document.getElementById("scholar-button-publications");
       const githubBtn = document.getElementById("github-profile-button");
 
-      const scholarSocial = socials.find((item) => (item?.type || "").toLowerCase() === "scholar");
-      const githubSocial = socials.find((item) => (item?.type || "").toLowerCase() === "github");
-
-      if (scholarBtn && scholarSocial?.href) {
-        scholarBtn.href = scholarSocial.href;
+      if (scholarBtn && socialsObject.scholar?.href) {
+        scholarBtn.href = socialsObject.scholar.href;
       }
 
-      if (githubBtn && githubSocial?.href) {
-        githubBtn.href = githubSocial.href;
+      if (githubBtn && socialsObject.github?.href) {
+        githubBtn.href = socialsObject.github.href;
       }
     }
-    
+
+
     function stopLightboxAutoplay() {
       if (lightboxAutoTimer) clearTimeout(lightboxAutoTimer);
       if (lightboxProgressTimer) cancelAnimationFrame(lightboxProgressTimer);
@@ -2741,7 +2775,10 @@
         SITE_CONFIG = siteConfig;
         ABOUT_DATA = aboutData;
         PUBLICATIONS_DATA = publicationsData;
-        GITHUB_USERNAME = SITE_CONFIG?.profile?.githubUsername || "";
+        GITHUB_USERNAME =
+          SITE_CONFIG?.profile?.githubUsername ||
+          SITE_CONFIG?.home?.githubUsername ||
+          "";
 
         renderConfigDrivenUI();
         await loadRepos();
