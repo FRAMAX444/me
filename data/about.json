@@ -37,7 +37,7 @@
       "id": "edu-4",
       "title": "MSc, Applied Mathematics to Artificial Intelligence (LM-40)",
       "institution": "La Sapienza University of Rome",
-      "organizationImage": "data/pictures/Uniroma1.png",
+      "organizationImage": "data/pictures/about-icons/Uniroma1.png",
       "period": "September 2025 - July 2027 (expected)",
       "location": "Piazzale Aldo Moro 5, 00185 Rome, Italy",
       "summary": "",
@@ -427,7 +427,7 @@
       "title": "Silicon Valley Fellowship",
       "type": "Fellowship",
       "organization": "Silicon Valley Fellowship",
-      "organizationImage": "data/pictures/svf.jpg",
+      "organizationImage": "data/pictures/about-icons/svf.jpg",
       "location": "San Francisco, CA, USA",
       "period": "October 2024 - November 2024",
       "summary": "Intensive program providing mentorship and resources for aspiring entrepreneurs in the tech industry.",
@@ -445,7 +445,7 @@
       "title": "CyberHack4AI",
       "type": "Hackathon",
       "organization": "CyberHack4AI",
-      "organizationImage": "data/pictures/Social-5.jpeg",
+      "organizationImage": "data/pictures/about-icons/Social-5.jpeg",
       "location": "Rome, Italy",
       "period": "1-2-3 October 2024",
       "summary": "Participated in a 48-hour hackathon focused on developing innovative AI solutions for modern challenges.",
@@ -462,7 +462,7 @@
       "title": "Scuola di Politiche (School of Politics)",
       "organization": "Scuola di Politiche (School of Politics)",
       "type": "Annual Course",
-      "organizationImage": "data/pictures/SDP.png",
+      "organizationImage": "data/pictures/about-icons/SDP.png",
       "location": "Rome, Italy",
       "period": "September 2022 - July 2023",
       "summary": "Completed a comprehensive annual course on politics, policy-making, and leadership, gaining insights into political systems and effective governance."
@@ -473,13 +473,13 @@
       "id": "lang-1",
       "organization": "Italian",
       "location": "Native",
-      "organizationImage": "data/pictures/italianflag.png"
+      "organizationImage": "data/pictures/about-icons/italianflag.png"
     },
     {
       "id": "lang-2",
       "title": "Cambridge English Proficiency (CPE)",
       "organization": "English",
-      "organizationImage": "data/pictures/ukflag.png",
+      "organizationImage": "data/pictures/about-icons/ukflag.png",
       "location": "C2 Level",
       "period": "26 February 2022"
     },
@@ -487,7 +487,7 @@
       "id": "lang-3",
       "title": "DELE B1",
       "organization": "Spanish",
-      "organizationImage": "data/pictures/spanishflag.jpg",
+      "organizationImage": "data/pictures/about-icons/spanishflag.jpg",
       "location": "B1 Level",
       "period": "06 November 2021"
     }
