@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Francesco Marrocco</title>
-  <meta
-    name="description"
-    content="Francesco Marrocco's personal portfolio."
-  />
+  <meta name="description" content="Francesco Marrocco's personal portfolio." />
+
   <style>
     :root {
       --bg: #f4f2ee;
@@ -15,13 +13,7 @@
       --text: #1f2328;
       --muted: #5f6b7a;
       --linkedin: #0a66c2;
-      --mail: #007bff;
       --github: #24292f;
-      --instagram-1: #f58529;
-      --instagram-2: #dd2a7b;
-      --instagram-3: #8134af;
-      --instagram-4: #515bd4;
-      --scholar: #4285f4;
       --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
       --radius: 28px;
       --max: 1180px;
@@ -124,6 +116,13 @@
       background: var(--linkedin);
       color: white;
       border-color: var(--linkedin);
+    }
+
+    .nav a:hover,
+    .pill-btn:hover,
+    .lightbox-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.1);
     }
 
     .entry-shell {
@@ -278,7 +277,7 @@
       transform: translateY(-2px);
       box-shadow: 0 22px 38px rgba(15, 23, 42, 0.18);
     }
-    
+
     .home-social-card.no-icon {
       padding-left: 1.35rem;
     }
@@ -526,6 +525,10 @@
       box-shadow: 0 0 0 1px #d9e3ef;
     }
 
+    .timeline-item + .timeline-item {
+      border-top: 1px solid #edf1f5;
+    }
+
     .feed-card {
       overflow: hidden;
       border: 0;
@@ -533,10 +536,6 @@
       box-shadow: none;
       background: transparent;
       min-width: 0;
-    }
-
-    .timeline-item + .timeline-item {
-      border-top: 1px solid #edf1f5;
     }
 
     .feed-head {
@@ -1103,6 +1102,21 @@
       content: "Read full abstract";
     }
 
+    .publication-actions {
+      margin: 1rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .publication-extra-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
     @media (max-width: 900px) {
       .home-profile-card {
         grid-template-columns: 1fr;
@@ -1234,20 +1248,25 @@
         border-radius: 20px;
       }
 
-      .entry-shell {
+      .entry-shell,
+      .home-hero {
         min-height: calc(100vh - 76px);
       }
 
-      .home-hero {
-        min-height: calc(100vh - 76px);
+      .publication-actions,
+      .publication-extra-links,
+      .publication-actions .pill-btn,
+      .publication-extra-links .pill-btn {
+        width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <nav class="nav">
+      <nav class="nav" aria-label="Navigazione principale">
         <a href="#home" data-route="home">Home</a>
         <a href="#about" data-route="about">About me</a>
         <a href="#publications" data-route="publications">Publications</a>
@@ -1330,7 +1349,7 @@
               </p>
             </div>
 
-            <p style="margin:1rem 0 0;">
+            <div class="publication-actions">
               <a
                 class="pill-btn primary"
                 id="scholar-button-publications"
@@ -1340,7 +1359,13 @@
               >
                 Open Google Scholar
               </a>
-            </p>
+
+              <div
+                class="publication-extra-links"
+                id="publication-extra-links"
+                aria-label="Additional publication links"
+              ></div>
+            </div>
           </div>
 
           <div id="publications-list" class="stack-col"></div>
@@ -1441,20 +1466,13 @@
         .replace(/'/g, "&#039;");
     }
 
-    function escapeAttribute(value) {
-      return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/"/g, "&quot;");
-    }
-
     function setRoute() {
       const hash = window.location.hash.replace("#", "") || "home";
 
       document.querySelectorAll(".page").forEach((page) => page.classList.remove("active"));
-      (
-        document.getElementById(`page-${hash}`) ||
-        document.getElementById("page-home")
-      ).classList.add("active");
+
+      const page = document.getElementById(`page-${hash}`) || document.getElementById("page-home");
+      page.classList.add("active");
 
       document
         .querySelectorAll(".nav a")
@@ -1469,66 +1487,67 @@
       }, { once: true });
     }
 
-    function attachGalleryFailHandlers(wrapper, images, title) {
-      const galleryBlock = wrapper.querySelector("[data-gallery-block]");
-      const slides = [...wrapper.querySelectorAll("[data-gallery-slide]")];
-      if (!galleryBlock || !slides.length) return;
-
-      slides.forEach((slide) => {
-        const img = slide.querySelector("[data-gallery-image]");
-        if (!img) return;
-
-        img.addEventListener("error", () => {
-          slide.remove();
-
-          const remainingSlides = wrapper.querySelectorAll("[data-gallery-slide]").length;
-          if (remainingSlides === 0) {
-            galleryBlock.remove();
-            return;
-          }
-
-          const remainingImages = [...wrapper.querySelectorAll("[data-gallery-image]")]
-            .map((node) => node.getAttribute("src"))
-            .filter(hasValidImage);
-
-          if (remainingImages.length) {
-            createStoryGallery(wrapper, remainingImages, title || "Gallery");
-          }
-        }, { once: true });
-      });
-    }
-
-    function getHomeConfig() {
-      const home = SITE_CONFIG?.home || {};
-      const profile = SITE_CONFIG?.profile || {};
-
-      return {
-        name: home.name || profile.name || "",
-        role: home.role || profile.role || "",
-        quote: home.quote || profile.homeQuote || "",
-        backgroundImage: home.backgroundImage || SITE_CONFIG?.images?.homeBackground || "",
-        profilePhoto: home.profilePhoto || SITE_CONFIG?.images?.profilePhoto || "",
-        socials: Array.isArray(home.socials) ? home.socials : [],
-        aboutIntro:
-          home.aboutIntro ||
-          profile.aboutIntro ||
-          "Experience, education, languages and other selected information."
-      };
-    }
-
-
     function getTextColor(bg) {
       if (!bg) return "#ffffff";
-
-      // se è gradient → testo bianco
       if (bg.includes("gradient")) return "#ffffff";
-
-      // se è bianco → testo scuro
       if (bg.toLowerCase() === "#ffffff") return "#1f2328";
-
       return "#ffffff";
     }
 
+    function getPublicationExtraLinks() {
+      const directLinks = SITE_CONFIG?.publications?.links;
+      const extraLinks = SITE_CONFIG?.publications?.extraLinks;
+      const relatedLinks = SITE_CONFIG?.publications?.relatedLinks;
+
+      if (Array.isArray(directLinks)) return directLinks;
+      if (Array.isArray(extraLinks)) return extraLinks;
+      if (Array.isArray(relatedLinks)) return relatedLinks;
+      return [];
+    }
+
+    function renderPublicationExtraLinks() {
+      const container = document.getElementById("publication-extra-links");
+      if (!container) return;
+
+      const links = getPublicationExtraLinks()
+        .map((item) => {
+          if (!item) return null;
+
+          if (typeof item === "string") {
+            return {
+              label: item,
+              href: item
+            };
+          }
+
+          return {
+            label: item.label || item.name || item.title || item.href || item.url || "",
+            href: item.href || item.url || "",
+            primary: Boolean(item.primary)
+          };
+        })
+        .filter((item) => item && item.label && item.href);
+
+      if (!links.length) {
+        container.remove();
+        return;
+      }
+
+      container.innerHTML = links
+        .map(
+          (link) => `
+            <a
+              class="pill-btn ${link.primary ? "primary" : ""}"
+              href="${escapeHtml(link.href)}"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ${escapeHtml(link.label)}
+            </a>
+          `
+        )
+        .join("");
+    }
 
     function renderConfigDrivenUI() {
       const hero = document.getElementById("home-hero-card");
@@ -1651,8 +1670,9 @@
       if (githubBtn && socialsObject.github?.href) {
         githubBtn.href = socialsObject.github.href;
       }
-    }
 
+      renderPublicationExtraLinks();
+    }
 
     function stopLightboxAutoplay() {
       if (lightboxAutoTimer) clearTimeout(lightboxAutoTimer);
@@ -1682,9 +1702,7 @@
       stopLightboxAutoplay();
       if (lightboxImages.length <= 1) return;
 
-      const fill = document.querySelector(
-        `[data-lightbox-progress-fill="${lightboxIndex}"]`
-      );
+      const fill = document.querySelector(`[data-lightbox-progress-fill="${lightboxIndex}"]`);
       const start = performance.now();
 
       const tick = (now) => {
@@ -1903,6 +1921,35 @@
       startAutoplay();
     }
 
+    function attachGalleryFailHandlers(wrapper, title) {
+      const galleryBlock = wrapper.querySelector("[data-gallery-block]");
+      const slides = [...wrapper.querySelectorAll("[data-gallery-slide]")];
+      if (!galleryBlock || !slides.length) return;
+
+      slides.forEach((slide) => {
+        const img = slide.querySelector("[data-gallery-image]");
+        if (!img) return;
+
+        img.addEventListener("error", () => {
+          slide.remove();
+
+          const remainingSlides = wrapper.querySelectorAll("[data-gallery-slide]").length;
+          if (remainingSlides === 0) {
+            galleryBlock.remove();
+            return;
+          }
+
+          const remainingImages = [...wrapper.querySelectorAll("[data-gallery-image]")]
+            .map((node) => node.getAttribute("src"))
+            .filter(hasValidImage);
+
+          if (remainingImages.length) {
+            createStoryGallery(wrapper, remainingImages, title || "Gallery");
+          }
+        }, { once: true });
+      });
+    }
+
     function parseDate(str, isEnd = false) {
       if (!str) return null;
 
@@ -1998,6 +2045,7 @@
       if ((last.endRaw || "").trim().toLowerCase() === "present") {
         return `${first.startRaw} - Present`;
       }
+
       return `${first.startRaw} - ${last.endRaw}`;
     }
 
@@ -2043,9 +2091,11 @@
 
     function resolveProjectItem(item) {
       if (!item) return null;
+
       if (typeof item === "string") {
         return { label: item, url: null };
       }
+
       return {
         label: item.label || item.name || "",
         url: item.url || null
@@ -2066,9 +2116,7 @@
             ${normalized
               .map((project) =>
                 project.url
-                  ? `<a class="exam-project-link" href="${escapeHtml(
-                      project.url
-                    )}" target="_blank" rel="noreferrer">${escapeHtml(project.label)}</a>`
+                  ? `<a class="exam-project-link" href="${escapeHtml(project.url)}" target="_blank" rel="noreferrer">${escapeHtml(project.label)}</a>`
                   : `<span class="exam-project-chip">${escapeHtml(project.label)}</span>`
               )
               .join("")}
@@ -2081,10 +2129,7 @@
       const source = Array.isArray(thesis) ? thesis : [thesis];
       if (!source.length) return "";
 
-      const normalized = source
-        .map(resolveProjectItem)
-        .filter((item) => item && item.label);
-
+      const normalized = source.map(resolveProjectItem).filter((item) => item && item.label);
       if (!normalized.length) return "";
 
       return `
@@ -2094,9 +2139,7 @@
             ${normalized
               .map((item) =>
                 item.url
-                  ? `<a class="exam-project-link" href="${escapeHtml(
-                      item.url
-                    )}" target="_blank" rel="noreferrer">${escapeHtml(item.label)}</a>`
+                  ? `<a class="exam-project-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.label)}</a>`
                   : `<span class="exam-project-chip">${escapeHtml(item.label)}</span>`
               )
               .join("")}
@@ -2201,9 +2244,7 @@
       }
 
       if (item.level || item.location) {
-        parts.push(
-          `<span class="experience-preview-pill">${escapeHtml(item.level || item.location)}</span>`
-        );
+        parts.push(`<span class="experience-preview-pill">${escapeHtml(item.level || item.location)}</span>`);
       }
 
       if (!parts.length) return "";
@@ -2277,9 +2318,7 @@
           <h4 style="margin:0 0 1rem; font-size:1rem; letter-spacing:-.02em;">Acquired skills</h4>
 
           <div class="skills-cloud">
-            ${visibleSkills
-              .map((item) => `<span class="skill-chip">${escapeHtml(item.skill)}</span>`)
-              .join("")}
+            ${visibleSkills.map((item) => `<span class="skill-chip">${escapeHtml(item.skill)}</span>`).join("")}
           </div>
 
           ${
@@ -2288,9 +2327,7 @@
                 <details class="skills-more">
                   <summary>Show more skills</summary>
                   <div class="skills-more-list">
-                    ${extraSkills
-                      .map((item) => `<span class="skill-chip">${escapeHtml(item.skill)}</span>`)
-                      .join("")}
+                    ${extraSkills.map((item) => `<span class="skill-chip">${escapeHtml(item.skill)}</span>`).join("")}
                   </div>
                 </details>
               `
@@ -2322,10 +2359,7 @@
 
       const examsHtml = kind === "education" ? renderExamsSection(exams) : "";
       const thesisHtml = kind === "education" ? renderThesisLinks(thesis) : "";
-      const certificateHtml =
-        kind === "other" || kind === "language"
-          ? renderCertificate(item)
-          : "";
+      const certificateHtml = kind === "other" || kind === "language" ? renderCertificate(item) : "";
       const genericLinksHtml = renderGenericLinks(item.links || [], "");
       const skillsChartHtml = kind === "education" ? renderSkillsChart(exams) : "";
 
@@ -2343,9 +2377,7 @@
                         ${h.date ? `<div class="meta">${escapeHtml(h.date)}</div>` : ""}
                         ${
                           h.description
-                            ? `<div class="notice" style="margin-top:.4rem;">${escapeHtml(
-                                h.description
-                              )}</div>`
+                            ? `<div class="notice" style="margin-top:.4rem;">${escapeHtml(h.description)}</div>`
                             : ""
                         }
                       </div>
@@ -2458,7 +2490,7 @@
 
       if (images.length) {
         createStoryGallery(wrapper, images, item.title || "Gallery");
-        attachGalleryFailHandlers(wrapper, images, item.title || "Gallery");
+        attachGalleryFailHandlers(wrapper, item.title || "Gallery");
       }
 
       return wrapper;
@@ -2546,9 +2578,7 @@
       article.className = "card timeline-group";
 
       const logoHtml = hasValidImage(group.organizationImage)
-        ? `<img src="${escapeHtml(group.organizationImage)}" alt="${escapeHtml(
-            group.organization
-          )}" class="timeline-logo" data-org-logo>`
+        ? `<img src="${escapeHtml(group.organizationImage)}" alt="${escapeHtml(group.organization)}" class="timeline-logo" data-org-logo>`
         : "";
 
       article.innerHTML = `
@@ -2620,6 +2650,59 @@
       }
     }
 
+    function renderPublicationItemLinks(pub = {}) {
+      const rawLinks = Array.isArray(pub.links) ? pub.links : [];
+      const normalizedLinks = rawLinks
+        .map((item) => {
+          if (!item) return null;
+
+          if (typeof item === "string") {
+            return {
+              label: item,
+              href: item,
+              primary: false
+            };
+          }
+
+          return {
+            label: item.label || item.name || item.title || item.href || item.url || "",
+            href: item.href || item.url || "",
+            primary: Boolean(item.primary)
+          };
+        })
+        .filter((item) => item && item.label && item.href);
+
+      const fallbackHref = pub.href || pub.url || "";
+      if (fallbackHref) {
+        normalizedLinks.unshift({
+          label: pub.hrefLabel || pub.urlLabel || "Open publication",
+          href: fallbackHref,
+          primary: true
+        });
+      }
+
+      if (!normalizedLinks.length) return "";
+
+      return `
+        <div style="margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:.6rem;">
+          ${normalizedLinks
+            .map(
+              (link) => `
+                <a
+                  class="pill-btn ${link.primary ? "primary" : ""}"
+                  href="${escapeHtml(link.href)}"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ${escapeHtml(link.label)}
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
     function renderPublications() {
       const container = document.getElementById("publications-list");
       container.innerHTML = "";
@@ -2657,13 +2740,7 @@
               : ""
           }
 
-          ${
-            pub.href
-              ? `<p style="margin:1rem 0 0;"><a class="repo-link" href="${escapeHtml(
-                  pub.href
-                )}" target="_blank" rel="noreferrer">Open publication</a></p>`
-              : ""
-          }
+          ${renderPublicationItemLinks(pub)}
         `;
 
         container.appendChild(article);
@@ -2738,10 +2815,8 @@
           ? recent.map((repo) => repoCard(repo, "Recent")).join("")
           : '<div class="loader">No recent repositories found.</div>';
       } catch {
-        featuredEl.innerHTML =
-          '<div class="loader">GitHub data could not be loaded right now.</div>';
-        recentEl.innerHTML =
-          '<div class="loader">GitHub data could not be loaded right now.</div>';
+        featuredEl.innerHTML = '<div class="loader">GitHub data could not be loaded right now.</div>';
+        recentEl.innerHTML = '<div class="loader">GitHub data could not be loaded right now.</div>';
       }
     }
 
