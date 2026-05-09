@@ -2703,11 +2703,67 @@
       `;
     }
 
+    function renderPublicationItemLinks(pub = {}) {
+      const rawLinks = Array.isArray(pub.links) ? pub.links : [];
+
+      const normalizedLinks = rawLinks
+        .map((item) => {
+          if (!item) return null;
+
+          if (typeof item === "string") {
+            return {
+              label: item,
+              href: item,
+              primary: false
+            };
+          }
+
+          return {
+            label: item.label || item.name || item.title || item.href || item.url || "",
+            href: item.href || item.url || "",
+            primary: Boolean(item.primary)
+          };
+        })
+        .filter((item) => item && item.label && item.href);
+
+      const fallbackHref = pub.href || pub.url || "";
+
+      if (fallbackHref) {
+        normalizedLinks.unshift({
+          label: pub.hrefLabel || pub.urlLabel || "Open publication",
+          href: fallbackHref,
+          primary: true
+        });
+      }
+
+      if (!normalizedLinks.length) return "";
+
+      return `
+        <div style="margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:.6rem;">
+          ${normalizedLinks
+            .map(
+              (link) => `
+                <a
+                  class="pill-btn ${link.primary ? "primary" : ""}"
+                  href="${escapeHtml(link.href)}"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ${escapeHtml(link.label)}
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
     function renderPublications() {
       const container = document.getElementById("publications-list");
       container.innerHTML = "";
 
       const publications = PUBLICATIONS_DATA || [];
+
       if (!publications.length) {
         container.innerHTML = `<div class="notice">No publications available.</div>`;
         return;
@@ -2723,6 +2779,7 @@
           <h3 style="margin:0 0 .35rem; font-size:1.05rem; letter-spacing:-.02em;">
             ${escapeHtml(pub.title || "")}
           </h3>
+
           <div class="meta">
             ${escapeHtml((pub.authors || []).join(", "))}
             ${pub.venue ? ` • ${escapeHtml(pub.venue)}` : ""}
@@ -2756,7 +2813,6 @@
         }
       });
     }
-
     function repoCard(repo, label) {
       return `
         <article class="card card-pad repo-card">
