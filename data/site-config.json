@@ -22,7 +22,7 @@
       "label": "Email",
       "handle": "frmarrocco03@gmail.com",
       "href": "mailto:frmarrocco03@gmail.com",
-      "icon": "data/pictures/site-config/Gmail_icon.svg",
+      "icon": "data/pictures/site-config/Gmail_icon.png",
       "color": "linear-gradient(135deg,#FC3F3A,#FC3F3A,#FC3F3A,#FFDC07,#4ECF6D,#2E88FF)"
     },
     "github": {
