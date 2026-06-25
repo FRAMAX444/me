@@ -42,6 +42,13 @@
       "location": "Piazzale Aldo Moro 5, 00185 Rome, Italy",
       "summary": "",
       "notes": "",
+      "honors": [
+        {
+          "title": "Research Fellowship",
+          "date": "2026-2027",
+          "description": "Focus: pre/post-mainshock classification using ObsPy, PhaseNet, 3-component RGB spectrograms, and CNN models."
+        }
+      ],
       "images": [
         "assets/education-1.jpg"
       ],
