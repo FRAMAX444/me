@@ -70,6 +70,18 @@
               "url": "https://github.com/mich1803/ECDSA-Blockchain"
             }
           ]
+        },        
+        {
+          "name": "Institutions of Probability",
+          "grade": 26,
+          "gradeLabel": "26/30",
+          "credits": 9,
+          "skills": {
+            "Mathematical Proof and Rigor": 1.0,
+            "Real Analysis": 0.95,
+            "Measure Theory": 0.9,
+            "Stochastic Processes": 0.9
+        }
         }
       ],
       "tags": []
