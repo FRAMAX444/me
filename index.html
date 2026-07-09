@@ -1261,554 +1261,18 @@
         width: 100%;
       }
     }
-
-
-    /* =========================================================
-       PROFESSIONAL UI LAYER
-       ========================================================= */
-    :root {
-      --bg: #f4f7fb;
-      --panel: rgba(255, 255, 255, 0.92);
-      --panel-solid: #ffffff;
-      --text: #102033;
-      --muted: #617086;
-      --soft: #edf3f9;
-      --line: #dce5ef;
-      --primary: #1457d9;
-      --primary-strong: #0d3fa9;
-      --accent: #16a3b6;
-      --success: #16845b;
-      --warning: #a56707;
-      --danger: #b33b4c;
-      --linkedin: var(--primary);
-      --shadow: 0 22px 60px rgba(26, 48, 78, 0.10);
-      --shadow-sm: 0 10px 28px rgba(26, 48, 78, 0.08);
-      --radius: 24px;
-      --max: 1240px;
-      --header-height: 76px;
-    }
-
-    html[data-theme="dark"] {
-      --bg: #09111d;
-      --panel: rgba(16, 28, 45, 0.90);
-      --panel-solid: #101c2d;
-      --text: #edf5ff;
-      --muted: #9fb0c5;
-      --soft: #15243a;
-      --line: #263a54;
-      --primary: #78a7ff;
-      --primary-strong: #a7c5ff;
-      --accent: #58d4df;
-      --success: #69d8aa;
-      --warning: #f0bd62;
-      --danger: #ff8b9a;
-      --linkedin: var(--primary);
-      --github: #f2f6fb;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
-      --shadow-sm: 0 12px 32px rgba(0, 0, 0, 0.24);
-    }
-
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 12% 6%, rgba(20, 87, 217, 0.11), transparent 26rem),
-        radial-gradient(circle at 92% 20%, rgba(22, 163, 182, 0.10), transparent 24rem),
-        var(--bg);
-      color: var(--text);
-      transition: background-color .2s ease, color .2s ease;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      opacity: .28;
-      background-image: linear-gradient(rgba(92, 117, 148, .09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92, 117, 148, .09) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 65%);
-    }
-
-    :focus-visible {
-      outline: 3px solid color-mix(in srgb, var(--primary) 45%, transparent);
-      outline-offset: 3px;
-    }
-
-    .topbar {
-      min-height: var(--header-height);
-      border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
-      background: color-mix(in srgb, var(--panel-solid) 82%, transparent);
-      box-shadow: 0 8px 30px rgba(16, 32, 51, .04);
-      backdrop-filter: blur(18px) saturate(150%);
-    }
-
-    .topbar-inner {
-      min-height: var(--header-height);
-      justify-content: space-between;
-      gap: 1rem;
-      padding: .65rem 0;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: .72rem;
-      min-width: max-content;
-      font-weight: 800;
-      letter-spacing: -.025em;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 10px 24px color-mix(in srgb, var(--primary) 28%, transparent);
-      font-size: .88rem;
-      letter-spacing: -.04em;
-    }
-
-    .brand-copy { display: grid; gap: .05rem; }
-    .brand-copy small { color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: .01em; }
-
-    .nav {
-      width: auto;
-      padding: .3rem;
-      gap: .28rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--panel-solid) 88%, transparent);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .nav a {
-      padding: .68rem 1rem;
-      border: 0;
-      background: transparent;
-      font-size: .92rem;
-      font-weight: 650;
-    }
-
-    .nav a.active {
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      box-shadow: 0 8px 18px color-mix(in srgb, var(--primary) 24%, transparent);
-    }
-
-    .header-actions { display: flex; align-items: center; gap: .5rem; }
-    .icon-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: var(--panel-solid);
-      display: inline-grid;
-      place-items: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      font: inherit;
-      transition: transform .18s ease, border-color .18s ease;
-    }
-    .icon-btn:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--primary) 38%, var(--line)); }
-    .menu-toggle { display: none; }
-
-    .home-hero {
-      min-height: calc(100vh - var(--header-height));
-      background-color: #0d1e34;
-    }
-
-    .home-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(70, 150, 255, .28), transparent 34rem),
-        radial-gradient(circle at 90% 85%, rgba(44, 213, 203, .20), transparent 30rem);
-      pointer-events: none;
-    }
-
-    .home-hero-overlay {
-      background: linear-gradient(105deg, rgba(5, 14, 28, .88), rgba(9, 24, 43, .68) 50%, rgba(5, 15, 29, .82));
-    }
-
-    .home-hero.no-bg {
-      background: linear-gradient(145deg, #0c1d34, #142f50 55%, #0c2631);
-    }
-
-    .home-hero-content {
-      min-height: calc(100vh - var(--header-height));
-      grid-template-columns: minmax(0, 1.45fr) minmax(290px, .55fr);
-      grid-template-rows: auto auto;
-      align-items: stretch;
-      align-content: center;
-      gap: 1rem;
-      padding: clamp(2rem, 5vw, 5rem) 0;
-    }
-
-    .home-profile-card {
-      grid-column: 1;
-      grid-row: 1 / span 2;
-      align-content: center;
-      padding: clamp(1.35rem, 3vw, 2.5rem);
-      border-radius: 32px;
-      background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.07));
-      border-color: rgba(255,255,255,.22);
-      box-shadow: 0 28px 80px rgba(0,0,0,.28);
-      backdrop-filter: blur(20px) saturate(135%);
-    }
-
-    .home-profile-image-wrap {
-      max-width: 270px;
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,.32);
-      box-shadow: 0 26px 55px rgba(0,0,0,.28);
-    }
-
-    .home-profile-text h1 {
-      max-width: 12ch;
-      font-size: clamp(3.3rem, 7vw, 6.4rem);
-      line-height: .88;
-      letter-spacing: -.075em;
-    }
-
-    .home-profile-text p { max-width: 62ch; color: rgba(255,255,255,.82); }
-    .home-hero.no-bg .home-profile-text h1,
-    .home-hero.no-bg .home-profile-text p { color: white; }
-
-    .hero-kpis {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .65rem;
-      margin-top: .55rem;
-    }
-
-    .hero-kpi {
-      padding: .85rem .9rem;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-    }
-    .hero-kpi strong { display: block; color: #fff; font-size: 1.25rem; letter-spacing: -.04em; }
-    .hero-kpi span { display: block; color: rgba(255,255,255,.68); font-size: .78rem; margin-top: .12rem; }
-
-    .home-socials { grid-column: 2; grid-row: 1; gap: .7rem; }
-    .home-social-card {
-      min-height: 82px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(20,87,217,.96), rgba(18,118,174,.94));
-      box-shadow: 0 18px 42px rgba(0,0,0,.20);
-    }
-    .quote-box {
-      grid-column: 2;
-      grid-row: 2;
-      text-align: left;
-      display: grid;
-      align-content: center;
-      min-height: 150px;
-      background: rgba(255,255,255,.09);
-      border-color: rgba(255,255,255,.17);
-      box-shadow: 0 18px 42px rgba(0,0,0,.18);
-    }
-    .quote-box blockquote { font-weight: 650; }
-
-    .app-shell { padding: clamp(2rem, 5vw, 4.5rem) 0; }
-    .single-col { width: min(100%, 1080px); gap: 1.2rem; }
-    .card {
-      background: var(--panel);
-      border-color: var(--line);
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(16px);
-    }
-    .card:hover { border-color: color-mix(in srgb, var(--primary) 18%, var(--line)); }
-    .card-pad { padding: clamp(1rem, 2vw, 1.35rem); }
-    .card-pad-lg { padding: clamp(1.25rem, 3vw, 2rem); }
-
-    .section-header { gap: .7rem; }
-    .section-title { font-size: clamp(1.75rem, 4vw, 2.6rem); letter-spacing: -.055em; }
-    .section-subtitle { max-width: 68ch; }
-    .section-divider { margin-top: 1.1rem; }
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      border: 0;
-      padding: 0;
-      font-size: .78rem;
-      letter-spacing: .2em;
-      color: var(--muted);
-    }
-    .section-label::after { content: ""; height: 1px; flex: 1; background: var(--line); }
-
-    .badge {
-      border: 1px solid color-mix(in srgb, var(--primary) 15%, var(--line));
-      background: color-mix(in srgb, var(--primary) 8%, var(--panel-solid));
-      color: var(--primary);
-    }
-
-    .timeline-org-head { background: linear-gradient(180deg, color-mix(in srgb, var(--panel-solid) 96%, transparent), color-mix(in srgb, var(--soft) 38%, var(--panel-solid))); border-color: var(--line); }
-    .timeline-logo { background: var(--panel-solid); border-color: var(--line); }
-    .timeline-items::before { background: var(--line); }
-    .timeline-item::before { background: var(--primary); border-color: var(--panel-solid); box-shadow: 0 0 0 1px var(--line); }
-    .timeline-item + .timeline-item, .feed-body { border-color: var(--line); }
-    .feed-body { background: color-mix(in srgb, var(--soft) 48%, var(--panel-solid)); }
-    .subcard, .exam-item { background: var(--panel-solid); border-color: var(--line); }
-    .feed-summary, .notice, .repo-card p { color: var(--muted); }
-    .skill-chip { color: var(--text); background: var(--panel-solid); border-color: var(--line); }
-
-    .pill-btn, .lightbox-btn, .repo-link {
-      min-height: 44px;
-      font-weight: 700;
-      border-color: var(--line);
-      background: var(--panel-solid);
-      color: var(--text);
-    }
-    .pill-btn.primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      border-color: transparent;
-      box-shadow: 0 10px 22px color-mix(in srgb, var(--primary) 22%, transparent);
-    }
-
-    /* Projects */
-    .projects-hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, color-mix(in srgb, var(--primary) 10%, var(--panel-solid)), color-mix(in srgb, var(--accent) 8%, var(--panel-solid)));
-    }
-    .projects-hero::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      top: -100px;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: color-mix(in srgb, var(--primary) 13%, transparent);
-      filter: blur(4px);
-    }
-    .projects-hero > * { position: relative; z-index: 1; }
-
-    .project-summary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .75rem;
-      margin-top: 1.25rem;
-    }
-    .project-summary-card {
-      padding: 1rem;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: color-mix(in srgb, var(--panel-solid) 78%, transparent);
-    }
-    .project-summary-card strong { display:block; font-size:1.55rem; letter-spacing:-.05em; }
-    .project-summary-card span { color:var(--muted); font-size:.82rem; }
-
-    .projects-toolbar {
-      position: sticky;
-      top: calc(var(--header-height) + 12px);
-      z-index: 20;
-      display: grid;
-      grid-template-columns: minmax(220px, 1fr) auto;
-      gap: .8rem;
-      align-items: center;
-    }
-    .search-field {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      min-height: 48px;
-      padding: 0 .95rem;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--panel-solid);
-    }
-    .search-field input {
-      width: 100%;
-      border: 0;
-      outline: 0;
-      color: var(--text);
-      background: transparent;
-      font: inherit;
-    }
-    .project-filters { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: flex-end; }
-    .filter-chip {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--panel-solid);
-      color: var(--muted);
-      padding: .62rem .85rem;
-      cursor: pointer;
-      font: inherit;
-      font-size: .82rem;
-      font-weight: 700;
-    }
-    .filter-chip.active { color:#fff; border-color:transparent; background:linear-gradient(135deg,var(--primary),var(--primary-strong)); }
-
-    .project-section { display:grid; gap:1rem; }
-    .project-section-head {
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:1rem;
-      padding: .2rem .15rem;
-    }
-    .project-section-head h2 { margin:0; font-size:1.45rem; letter-spacing:-.04em; }
-    .project-section-head p { margin:.3rem 0 0; color:var(--muted); line-height:1.55; }
-    .project-count { color:var(--muted); font-size:.85rem; white-space:nowrap; }
-
-    .projects-grid {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:1rem;
-    }
-    .project-card {
-      position:relative;
-      display:grid;
-      grid-template-rows:auto 1fr;
-      overflow:hidden;
-      min-height:100%;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:var(--panel);
-      box-shadow:var(--shadow-sm);
-      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-    .project-card:hover {
-      transform:translateY(-5px);
-      border-color:color-mix(in srgb,var(--primary) 35%,var(--line));
-      box-shadow:var(--shadow);
-    }
-    .project-cover {
-      position:relative;
-      aspect-ratio:16/8.5;
-      overflow:hidden;
-      background:linear-gradient(135deg,color-mix(in srgb,var(--primary) 24%,#10233d),color-mix(in srgb,var(--accent) 30%,#10233d));
-    }
-    .project-cover img { width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
-    .project-card:hover .project-cover img { transform:scale(1.035); }
-    .project-cover-fallback {
-      width:100%; height:100%; display:grid; place-items:center;
-      color:rgba(255,255,255,.94); font-size:clamp(2.2rem,7vw,4.6rem); font-weight:900; letter-spacing:-.08em;
-    }
-    .project-cover-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(3,11,22,.52),transparent 60%); pointer-events:none; }
-    .project-status {
-      position:absolute; top:.85rem; left:.85rem;
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.45rem .68rem; border-radius:999px;
-      color:#fff; background:rgba(8,18,34,.72); border:1px solid rgba(255,255,255,.18);
-      backdrop-filter:blur(12px); font-size:.76rem; font-weight:800;
-    }
-    .project-status::before { content:""; width:7px; height:7px; border-radius:50%; background:#65e2a8; box-shadow:0 0 0 4px rgba(101,226,168,.14); }
-    .project-card-body { display:grid; align-content:start; gap:.85rem; padding:1.15rem; }
-    .project-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:.8rem; }
-    .project-card h3 { margin:0; font-size:1.2rem; line-height:1.15; letter-spacing:-.035em; }
-    .project-eyebrow { color:var(--primary); font-size:.72rem; font-weight:850; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; }
-    .project-year { color:var(--muted); font-size:.8rem; white-space:nowrap; }
-    .project-description { margin:0; color:var(--muted); line-height:1.65; font-size:.93rem; }
-    .project-tags { display:flex; flex-wrap:wrap; gap:.42rem; }
-    .project-tag { padding:.4rem .62rem; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); font-size:.74rem; font-weight:700; }
-    .project-meta { display:flex; flex-wrap:wrap; gap:.7rem; color:var(--muted); font-size:.78rem; }
-    .project-actions { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.1rem; }
-    .project-action {
-      display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
-      min-height:40px; padding:.62rem .82rem; border-radius:12px;
-      border:1px solid var(--line); background:var(--panel-solid); color:var(--text);
-      font-size:.82rem; font-weight:800;
-    }
-    .project-action.primary { color:#fff; border-color:transparent; background:linear-gradient(135deg,var(--primary),var(--primary-strong)); }
-    .projects-empty { text-align:center; padding:2.5rem 1rem; color:var(--muted); }
-    .projects-empty strong { display:block; color:var(--text); margin-bottom:.35rem; }
-
-    .skeleton {
-      min-height:260px;
-      border-radius:24px;
-      background:linear-gradient(90deg,var(--soft),color-mix(in srgb,var(--panel-solid) 80%,var(--soft)),var(--soft));
-      background-size:220% 100%; animation:skeleton 1.4s ease infinite;
-    }
-    @keyframes skeleton { to { background-position:-220% 0; } }
-
-    .footer {
-      padding: 0 0 2rem;
-      color: var(--muted);
-      text-align: center;
-      font-size: .84rem;
-    }
-
-    @media (max-width: 980px) {
-      .brand-copy { display:none; }
-      .home-hero-content { grid-template-columns:1fr; grid-template-rows:auto; }
-      .home-profile-card, .home-socials, .quote-box { grid-column:1; grid-row:auto; }
-      .home-socials { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .projects-toolbar { grid-template-columns:1fr; }
-      .project-filters { justify-content:flex-start; }
-    }
-
-    @media (max-width: 760px) {
-      :root { --header-height: 68px; }
-      .menu-toggle { display:inline-grid; }
-      .topbar-inner { position:relative; }
-      .nav {
-        position:absolute;
-        top:calc(100% + .5rem);
-        left:0; right:0;
-        width:100%;
-        display:none;
-        padding:.6rem;
-        border-radius:20px;
-        flex-direction:column;
-        align-items:stretch;
-        background:var(--panel-solid);
-      }
-      .nav.open { display:flex; }
-      .nav a { justify-content:flex-start; border-radius:13px; }
-      .home-profile-card { grid-template-columns:1fr; text-align:left; justify-items:start; }
-      .home-profile-text { justify-items:start; }
-      .home-profile-image-wrap { justify-self:start; max-width:190px; }
-      .home-profile-text h1 { font-size:clamp(3rem,16vw,5rem); }
-      .home-socials { grid-template-columns:1fr; }
-      .hero-kpis, .project-summary-grid { grid-template-columns:1fr; }
-      .projects-grid { grid-template-columns:1fr; }
-      .projects-toolbar { position:static; }
-      .project-section-head { align-items:flex-start; flex-direction:column; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
-    }
-
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="#home" aria-label="Vai alla home">
-        <span class="brand-mark" id="brand-initials">FM</span>
-        <span class="brand-copy">
-          <span id="brand-name">Portfolio</span>
-          <small>Personal website</small>
-        </span>
-      </a>
-
-      <nav class="nav" id="main-nav" aria-label="Navigazione principale">
+      <nav class="nav" aria-label="Navigazione principale">
         <a href="#home" data-route="home">Home</a>
-        <a href="#about" data-route="about">About</a>
+        <a href="#about" data-route="about">About me</a>
         <a href="#publications" data-route="publications">Publications</a>
-        <a href="#works" data-route="works">Projects</a>
+        <a href="#works" data-route="works">Works</a>
       </nav>
-
-      <div class="header-actions">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambia tema" title="Cambia tema">◐</button>
-        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false">☰</button>
-      </div>
     </div>
   </header>
 
@@ -1827,11 +1291,6 @@
               <div class="home-profile-text">
                 <h1 id="home-name"></h1>
                 <p id="home-role"></p>
-                <div class="hero-kpis" aria-label="Portfolio statistics">
-                  <div class="hero-kpi"><strong id="kpi-experience">0</strong><span>Experiences</span></div>
-                  <div class="hero-kpi"><strong id="kpi-publications">0</strong><span>Publications</span></div>
-                  <div class="hero-kpi"><strong id="kpi-projects">0</strong><span>Projects</span></div>
-                </div>
               </div>
             </div>
 
@@ -1918,49 +1377,44 @@
     <section id="page-works" class="page">
       <div class="container app-shell">
         <div class="single-col">
-          <div class="card card-pad-lg projects-hero">
+          <div class="card card-pad-lg">
             <div class="section-header">
-              <div class="badge">Selected work</div>
-              <h1 class="section-title" id="projects-page-title">Projects</h1>
-              <p class="section-subtitle" id="projects-page-subtitle">
-                A curated selection of software, research and product work.
+              <div class="badge">My works</div>
+              <h1 class="section-title">Projects</h1>
+              <p class="section-subtitle">
+                Featured repositories and recent repositories from GitHub.
               </p>
             </div>
+            <p style="margin:1rem 0 0;">
+              <a
+                class="pill-btn"
+                id="github-profile-button"
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open GitHub profile
+              </a>
+            </p>
+          </div>
 
-            <div class="publication-actions">
-              <a class="pill-btn primary" id="github-profile-button" href="#" target="_blank" rel="noreferrer">Open GitHub profile</a>
-              <a class="pill-btn" id="projects-contact-button" href="#home">Contact me</a>
-            </div>
-
-            <div class="project-summary-grid" aria-label="Project overview">
-              <div class="project-summary-card"><strong id="project-total">0</strong><span>Visible projects</span></div>
-              <div class="project-summary-card"><strong id="project-tech-total">0</strong><span>Technologies</span></div>
-              <div class="project-summary-card"><strong id="project-stars-total">0</strong><span>GitHub stars</span></div>
+          <div class="card card-pad-lg">
+            <h2 class="section-title" style="font-size:1.35rem;">Featured repositories</h2>
+            <div id="featured-repos" class="repo-grid" style="margin-top:1rem;">
+              <div class="loader">Loading repositories…</div>
             </div>
           </div>
 
-          <div class="card card-pad projects-toolbar" id="projects-toolbar">
-            <label class="search-field" for="project-search">
-              <span aria-hidden="true">⌕</span>
-              <input id="project-search" type="search" placeholder="Search projects, technologies or descriptions…" autocomplete="off" />
-            </label>
-            <div class="project-filters" id="project-filters" aria-label="Project filters"></div>
-          </div>
-
-          <div id="projects-root" class="stack-col" aria-live="polite">
-            <div class="projects-grid">
-              <div class="skeleton"></div>
-              <div class="skeleton"></div>
+          <div class="card card-pad-lg">
+            <h2 class="section-title" style="font-size:1.35rem;">Recent repositories</h2>
+            <div id="recent-repos" class="repo-grid" style="margin-top:1rem;">
+              <div class="loader">Loading repositories…</div>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <footer class="footer container">
-    <span>Built with structured JSON data and a responsive, accessible interface.</span>
-  </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-inner">
@@ -1983,11 +1437,7 @@
     let SITE_CONFIG = null;
     let ABOUT_DATA = null;
     let PUBLICATIONS_DATA = null;
-    let PROJECTS_DATA = null;
     let GITHUB_USERNAME = null;
-    let RESOLVED_PROJECTS = [];
-    let PROJECT_FILTER = "all";
-    let PROJECT_SEARCH = "";
 
     let lightboxImages = [];
     let lightboxIndex = 0;
@@ -3203,6 +2653,59 @@
 
     function renderPublicationItemLinks(pub = {}) {
       const rawLinks = Array.isArray(pub.links) ? pub.links : [];
+      const normalizedLinks = rawLinks
+        .map((item) => {
+          if (!item) return null;
+
+          if (typeof item === "string") {
+            return {
+              label: item,
+              href: item,
+              primary: false
+            };
+          }
+
+          return {
+            label: item.label || item.name || item.title || item.href || item.url || "",
+            href: item.href || item.url || "",
+            primary: Boolean(item.primary)
+          };
+        })
+        .filter((item) => item && item.label && item.href);
+
+      const fallbackHref = pub.href || pub.url || "";
+      if (fallbackHref) {
+        normalizedLinks.unshift({
+          label: pub.hrefLabel || pub.urlLabel || "Open publication",
+          href: fallbackHref,
+          primary: true
+        });
+      }
+
+      if (!normalizedLinks.length) return "";
+
+      return `
+        <div style="margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:.6rem;">
+          ${normalizedLinks
+            .map(
+              (link) => `
+                <a
+                  class="pill-btn ${link.primary ? "primary" : ""}"
+                  href="${escapeHtml(link.href)}"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ${escapeHtml(link.label)}
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
+    function renderPublicationItemLinks(pub = {}) {
+      const rawLinks = Array.isArray(pub.links) ? pub.links : [];
 
       const normalizedLinks = rawLinks
         .map((item) => {
@@ -3311,368 +2814,67 @@
         }
       });
     }
-    function asArray(value) {
-      return Array.isArray(value) ? value : value ? [value] : [];
-    }
-
-    function numberOr(value, fallback = 9999) {
-      const parsed = Number(value);
-      return Number.isFinite(parsed) ? parsed : fallback;
-    }
-
-    function normalizeLink(item) {
-      if (!item) return null;
-      if (typeof item === "string") return { label: "Open link", url: item, primary: false };
-      const url = item.url || item.href || "";
-      if (!url) return null;
-      return {
-        label: item.label || item.name || item.title || "Open link",
-        url,
-        primary: Boolean(item.primary)
-      };
-    }
-
-    function getConfiguredProjectRows() {
-      const data = PROJECTS_DATA || {};
-      const rows = [];
-      const hiddenSections = new Set(
-        asArray(data.sections)
-          .filter((section) => section?.hidden === true)
-          .map((section) => String(section.id || section.title || ""))
-      );
-
-      asArray(data.projects).forEach((project) => rows.push({ ...project }));
-
-      asArray(data.sections).forEach((section) => {
-        if (section?.hidden === true) return;
-        asArray(section.projects).forEach((project) => {
-          rows.push({ ...project, section: project.section || section.id || section.title });
-        });
-      });
-
-      return rows.filter((item) =>
-        item &&
-        item.enabled !== false &&
-        !hiddenSections.has(String(item.section || "projects"))
-      );
-    }
-
-    function normalizeSections(projects) {
-      const configured = asArray(PROJECTS_DATA?.sections)
-        .map((section, index) => ({
-          id: String(section.id || section.title || `section-${index + 1}`),
-          title: section.title || section.label || "Projects",
-          subtitle: section.subtitle || section.description || "",
-          order: numberOr(section.order, index + 1),
-          hidden: section.hidden === true
-        }))
-        .filter((section) => !section.hidden);
-
-      const map = new Map(configured.map((section) => [section.id, section]));
-      projects.forEach((project) => {
-        const id = project.section || "projects";
-        if (!map.has(id)) {
-          map.set(id, {
-            id,
-            title: id === "projects" ? "Projects" : id.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-            subtitle: "",
-            order: 9999,
-            hidden: false
-          });
-        }
-      });
-      return [...map.values()].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
-    }
-
-    function projectRepoKey(project) {
-      return String(project.repo || project.repository || project.github || "").trim();
-    }
-
-    async function fetchGitHubRepos(configuredProjects) {
-      const username = PROJECTS_DATA?.settings?.githubUsername || GITHUB_USERNAME || "";
-      const repoMap = new Map();
-
-      if (username) {
-        try {
-          const response = await fetch(`https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=100`);
-          if (response.ok) {
-            const repos = await response.json();
-            if (Array.isArray(repos)) {
-              repos.forEach((repo) => {
-                if (!repo) return;
-                repoMap.set(String(repo.name).toLowerCase(), repo);
-                repoMap.set(String(repo.full_name).toLowerCase(), repo);
-              });
-            }
-          }
-        } catch (error) {
-          console.warn("GitHub repositories could not be loaded:", error);
-        }
-      }
-
-      const externalRefs = [...new Set(configuredProjects
-        .map(projectRepoKey)
-        .filter((ref) => ref.includes("/") && !repoMap.has(ref.toLowerCase()))
-      )];
-
-      const results = await Promise.allSettled(
-        externalRefs.map(async (ref) => {
-          const response = await fetch(`https://api.github.com/repos/${ref}`);
-          if (!response.ok) return null;
-          return response.json();
-        })
-      );
-
-      results.forEach((result) => {
-        if (result.status !== "fulfilled" || !result.value) return;
-        const repo = result.value;
-        repoMap.set(String(repo.name).toLowerCase(), repo);
-        repoMap.set(String(repo.full_name).toLowerCase(), repo);
-      });
-
-      return { repoMap, username };
-    }
-
-    function mergeProject(project, repo, index) {
-      const repoTopics = asArray(repo?.topics);
-      const tags = [...new Set([
-        ...asArray(project.tags || project.technologies),
-        ...(repo?.language ? [repo.language] : []),
-        ...repoTopics
-      ].filter(Boolean))];
-
-      const rawLinks = asArray(project.links).map(normalizeLink).filter(Boolean);
-      const repositoryUrl = project.repositoryUrl || project.githubUrl || repo?.html_url || "";
-      const liveUrl = project.liveUrl || project.demoUrl || project.homepage || repo?.homepage || "";
-
-      const links = [...rawLinks];
-      if (liveUrl && !links.some((link) => link.url === liveUrl)) {
-        links.unshift({ label: project.liveLabel || "Live demo", url: liveUrl, primary: true });
-      }
-      if (repositoryUrl && !links.some((link) => link.url === repositoryUrl)) {
-        links.push({ label: project.repoLabel || "Source code", url: repositoryUrl, primary: !liveUrl });
-      }
-
-      const createdYear = repo?.created_at ? new Date(repo.created_at).getFullYear() : "";
-      const updated = repo?.updated_at || project.updatedAt || "";
-
-      return {
-        id: String(project.id || repo?.full_name || repo?.name || `project-${index + 1}`),
-        title: project.title || project.name || repo?.name || "Untitled project",
-        eyebrow: project.eyebrow || project.category || project.type || "Project",
-        description: project.description || project.summary || repo?.description || "Project details will be available soon.",
-        image: project.image || project.cover || project.thumbnail || "",
-        imageAlt: project.imageAlt || project.title || project.name || repo?.name || "Project cover",
-        section: String(project.section || "projects"),
-        order: numberOr(project.order, index + 1),
-        status: project.status || (project.featured ? "Featured" : "Published"),
-        year: project.year || createdYear || "",
-        tags,
-        links,
-        stars: Number(project.stars ?? repo?.stargazers_count ?? 0),
-        forks: Number(project.forks ?? repo?.forks_count ?? 0),
-        language: project.language || repo?.language || "",
-        updatedAt: updated,
-        featured: Boolean(project.featured),
-        hidden: project.hidden === true
-      };
-    }
-
-    function buildFallbackProjects(repoMap) {
-      const limit = numberOr(PROJECTS_DATA?.settings?.recentLimit, 8);
-      return [...new Set(repoMap.values())]
-        .filter((repo) => repo && !repo.fork && !repo.archived)
-        .sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0))
-        .slice(0, limit)
-        .map((repo, index) => mergeProject({
-          id: repo.full_name,
-          repo: repo.full_name,
-          section: "recent",
-          order: index + 1,
-          status: "Recent"
-        }, repo, index));
-    }
-
-    function getProjectInitials(title) {
-      return String(title || "P")
-        .split(/[\s_-]+/)
-        .filter(Boolean)
-        .slice(0, 2)
-        .map((part) => part.charAt(0).toUpperCase())
-        .join("") || "P";
-    }
-
-    function formatDateCompact(value) {
-      if (!value) return "";
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return "";
-      return new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(date);
-    }
-
-    function renderProjectCard(project) {
-      const cover = project.image
-        ? `<img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" loading="lazy" onerror="this.parentElement.querySelector('.project-cover-fallback').style.display='grid';this.remove()">`
-        : "";
-      const fallbackDisplay = project.image ? "none" : "grid";
-      const actions = project.links.length
-        ? project.links.map((link, index) => `
-            <a class="project-action ${link.primary || (index === 0 && project.links.length === 1) ? "primary" : ""}"
-               href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">
-              ${escapeHtml(link.label)} <span aria-hidden="true">↗</span>
-            </a>`).join("")
-        : "";
-
+    function repoCard(repo, label) {
       return `
-        <article class="project-card" data-project-card>
-          <div class="project-cover">
-            ${cover}
-            <div class="project-cover-fallback" style="display:${fallbackDisplay}">${escapeHtml(getProjectInitials(project.title))}</div>
-            <div class="project-cover-overlay"></div>
-            ${project.status ? `<span class="project-status">${escapeHtml(project.status)}</span>` : ""}
+        <article class="card card-pad repo-card">
+          <div class="badge">${escapeHtml(label)}</div>
+          <h3>${escapeHtml(repo.name)}</h3>
+          <p>${escapeHtml(repo.description || "No description provided yet.")}</p>
+          <div class="repo-meta">
+            ${repo.language ? `<span class="badge">${escapeHtml(repo.language)}</span>` : ""}
+            <span class="badge">★ ${escapeHtml(repo.stargazers_count)}</span>
+            <span class="badge">Forks ${escapeHtml(repo.forks_count)}</span>
           </div>
-          <div class="project-card-body">
-            <div class="project-card-top">
-              <div>
-                <div class="project-eyebrow">${escapeHtml(project.eyebrow)}</div>
-                <h3>${escapeHtml(project.title)}</h3>
-              </div>
-              ${project.year ? `<span class="project-year">${escapeHtml(project.year)}</span>` : ""}
-            </div>
-            <p class="project-description">${escapeHtml(project.description)}</p>
-            ${project.tags.length ? `<div class="project-tags">${project.tags.slice(0, 8).map((tag) => `<span class="project-tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
-            <div class="project-meta">
-              ${project.stars ? `<span>★ ${escapeHtml(project.stars)}</span>` : ""}
-              ${project.forks ? `<span>⑂ ${escapeHtml(project.forks)}</span>` : ""}
-              ${project.updatedAt ? `<span>Updated ${escapeHtml(formatDateCompact(project.updatedAt))}</span>` : ""}
-            </div>
-            ${actions ? `<div class="project-actions">${actions}</div>` : ""}
-          </div>
-        </article>`;
+          <a class="repo-link" href="${escapeHtml(repo.html_url)}" target="_blank" rel="noreferrer">
+            Open on GitHub
+          </a>
+        </article>
+      `;
     }
 
-    function getVisibleProjects() {
-      const query = PROJECT_SEARCH.trim().toLowerCase();
-      return RESOLVED_PROJECTS.filter((project) => {
-        if (PROJECT_FILTER !== "all" && !project.tags.some((tag) => tag.toLowerCase() === PROJECT_FILTER)) return false;
-        if (!query) return true;
-        const haystack = [project.title, project.description, project.eyebrow, ...project.tags].join(" ").toLowerCase();
-        return haystack.includes(query);
-      });
-    }
+    async function loadRepos() {
+      const featuredEl = document.getElementById("featured-repos");
+      const recentEl = document.getElementById("recent-repos");
 
-    function renderProjectFilters() {
-      const container = document.getElementById("project-filters");
-      if (!container) return;
-      const counts = new Map();
-      RESOLVED_PROJECTS.forEach((project) => project.tags.forEach((tag) => {
-        const key = String(tag).toLowerCase();
-        counts.set(key, { label: tag, count: (counts.get(key)?.count || 0) + 1 });
-      }));
-      const tags = [...counts.entries()]
-        .sort((a, b) => b[1].count - a[1].count || a[1].label.localeCompare(b[1].label))
-        .slice(0, numberOr(PROJECTS_DATA?.settings?.filterLimit, 7));
-
-      container.innerHTML = [
-        `<button class="filter-chip ${PROJECT_FILTER === "all" ? "active" : ""}" type="button" data-project-filter="all">All</button>`,
-        ...tags.map(([key, item]) => `<button class="filter-chip ${PROJECT_FILTER === key ? "active" : ""}" type="button" data-project-filter="${escapeHtml(key)}">${escapeHtml(item.label)} · ${item.count}</button>`)
-      ].join("");
-
-      container.querySelectorAll("[data-project-filter]").forEach((button) => {
-        button.addEventListener("click", () => {
-          PROJECT_FILTER = button.dataset.projectFilter || "all";
-          renderProjectFilters();
-          renderProjectSections();
-        });
-      });
-    }
-
-    function renderProjectSections() {
-      const root = document.getElementById("projects-root");
-      if (!root) return;
-      const projects = getVisibleProjects();
-      const sections = normalizeSections(RESOLVED_PROJECTS);
-
-      if (!projects.length) {
-        root.innerHTML = `<div class="card projects-empty"><strong>No projects found.</strong>Try a different search or filter.</div>`;
+      if (!GITHUB_USERNAME) {
+        featuredEl.innerHTML = '<div class="loader">GitHub username not configured.</div>';
+        recentEl.innerHTML = '<div class="loader">GitHub username not configured.</div>';
         return;
       }
 
-      root.innerHTML = sections.map((section) => {
-        const rows = projects
-          .filter((project) => project.section === section.id)
-          .sort((a, b) => a.order - b.order || Number(b.featured) - Number(a.featured) || a.title.localeCompare(b.title));
-        if (!rows.length) return "";
-        return `
-          <section class="project-section" aria-labelledby="project-section-${escapeHtml(section.id)}">
-            <div class="project-section-head">
-              <div>
-                <h2 id="project-section-${escapeHtml(section.id)}">${escapeHtml(section.title)}</h2>
-                ${section.subtitle ? `<p>${escapeHtml(section.subtitle)}</p>` : ""}
-              </div>
-              <span class="project-count">${rows.length} ${rows.length === 1 ? "project" : "projects"}</span>
-            </div>
-            <div class="projects-grid">${rows.map(renderProjectCard).join("")}</div>
-          </section>`;
-      }).join("");
-    }
+      try {
+        const res = await fetch(
+          `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`
+        );
 
-    function updateProjectStatistics() {
-      const tags = new Set(RESOLVED_PROJECTS.flatMap((project) => project.tags.map((tag) => String(tag).toLowerCase())));
-      const stars = RESOLVED_PROJECTS.reduce((sum, project) => sum + (Number(project.stars) || 0), 0);
-      document.getElementById("project-total").textContent = RESOLVED_PROJECTS.length;
-      document.getElementById("project-tech-total").textContent = tags.size;
-      document.getElementById("project-stars-total").textContent = stars;
-      document.getElementById("kpi-projects").textContent = RESOLVED_PROJECTS.length;
-    }
+        if (!res.ok) throw new Error(`GitHub response error: ${res.status}`);
 
-    function setupProjectSearch() {
-      const input = document.getElementById("project-search");
-      if (!input || input.dataset.ready) return;
-      input.dataset.ready = "true";
-      input.addEventListener("input", () => {
-        PROJECT_SEARCH = input.value || "";
-        renderProjectSections();
-      });
-    }
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error("GitHub response error");
 
-    async function loadProjects() {
-      const configured = getConfiguredProjectRows();
-      const { repoMap, username } = await fetchGitHubRepos(configured);
+        const repos = data.filter((repo) => repo && !repo.fork);
+        const recent = repos.slice(0, 6);
+        const featured = [...repos]
+          .sort(
+            (a, b) =>
+              b.stargazers_count * 3 +
+              b.watchers_count * 2 +
+              b.forks_count -
+              (a.stargazers_count * 3 + a.watchers_count * 2 + a.forks_count)
+          )
+          .slice(0, 4);
 
-      RESOLVED_PROJECTS = configured.map((project, index) => {
-        const ref = projectRepoKey(project).toLowerCase();
-        const simpleRef = ref.includes("/") ? ref.split("/").pop() : ref;
-        const repo = repoMap.get(ref) || repoMap.get(simpleRef) || null;
-        return mergeProject(project, repo, index);
-      }).filter((project) => !project.hidden);
+        featuredEl.innerHTML = featured.length
+          ? featured.map((repo) => repoCard(repo, "Featured")).join("")
+          : '<div class="loader">No featured repositories found.</div>';
 
-      if (!RESOLVED_PROJECTS.length || PROJECTS_DATA?.settings?.includeUnlistedRecent === true) {
-        const fallback = buildFallbackProjects(repoMap);
-        const existingIds = new Set(RESOLVED_PROJECTS.map((project) => project.id.toLowerCase()));
-        fallback.forEach((project) => {
-          if (!existingIds.has(project.id.toLowerCase())) RESOLVED_PROJECTS.push(project);
-        });
+        recentEl.innerHTML = recent.length
+          ? recent.map((repo) => repoCard(repo, "Recent")).join("")
+          : '<div class="loader">No recent repositories found.</div>';
+      } catch {
+        featuredEl.innerHTML = '<div class="loader">GitHub data could not be loaded right now.</div>';
+        recentEl.innerHTML = '<div class="loader">GitHub data could not be loaded right now.</div>';
       }
-
-      RESOLVED_PROJECTS.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
-
-      const pageTitle = PROJECTS_DATA?.settings?.title || PROJECTS_DATA?.title;
-      const pageSubtitle = PROJECTS_DATA?.settings?.subtitle || PROJECTS_DATA?.subtitle;
-      if (pageTitle) document.getElementById("projects-page-title").textContent = pageTitle;
-      if (pageSubtitle) document.getElementById("projects-page-subtitle").textContent = pageSubtitle;
-
-      const githubButton = document.getElementById("github-profile-button");
-      if (githubButton && username && githubButton.getAttribute("href") === "#") {
-        githubButton.href = `https://github.com/${username}`;
-      }
-      if (githubButton && githubButton.getAttribute("href") === "#" && !username) {
-        githubButton.style.display = "none";
-      }
-
-      updateProjectStatistics();
-      renderProjectFilters();
-      renderProjectSections();
-      setupProjectSearch();
     }
 
     async function fetchJson(path, label) {
@@ -3686,81 +2888,26 @@
       return res.json();
     }
 
-    async function fetchJsonOptional(path, label, fallback) {
-      try {
-        return await fetchJson(path, label);
-      } catch (error) {
-        console.warn(`${label} is optional and could not be loaded:`, error);
-        return fallback;
-      }
-    }
-
-    function updatePortfolioStatistics() {
-      const experienceCount = asArray(ABOUT_DATA?.experience).length + asArray(ABOUT_DATA?.otherExperiences).length;
-      document.getElementById("kpi-experience").textContent = experienceCount;
-      document.getElementById("kpi-publications").textContent = asArray(PUBLICATIONS_DATA).length;
-    }
-
-    function initProfessionalUI() {
-      const root = document.documentElement;
-      const storedTheme = localStorage.getItem("portfolio-theme");
-      const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
-      root.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
-
-      const themeButton = document.getElementById("theme-toggle");
-      themeButton?.addEventListener("click", () => {
-        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-        localStorage.setItem("portfolio-theme", root.dataset.theme);
-      });
-
-      const menuButton = document.getElementById("menu-toggle");
-      const nav = document.getElementById("main-nav");
-      menuButton?.addEventListener("click", () => {
-        const isOpen = nav.classList.toggle("open");
-        menuButton.setAttribute("aria-expanded", String(isOpen));
-      });
-      nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        menuButton?.setAttribute("aria-expanded", "false");
-      }));
-    }
-
     async function bootstrap() {
       try {
-        initProfessionalUI();
-
-        const [siteConfig, aboutData, publicationsData, projectsData] = await Promise.all([
+        const [siteConfig, aboutData, publicationsData] = await Promise.all([
           fetchJson("data/site-config.json", "site-config"),
           fetchJson("data/about.json", "about"),
-          fetchJson("data/publications.json", "publications"),
-          fetchJsonOptional("data/projects.json", "projects", { settings: {}, sections: [], projects: [] })
+          fetchJson("data/publications.json", "publications")
         ]);
 
         SITE_CONFIG = siteConfig;
         ABOUT_DATA = aboutData;
         PUBLICATIONS_DATA = publicationsData;
-        PROJECTS_DATA = projectsData;
         GITHUB_USERNAME =
           SITE_CONFIG?.profile?.githubUsername ||
           SITE_CONFIG?.home?.githubUsername ||
           "";
 
         renderConfigDrivenUI();
-
-        const profileName = SITE_CONFIG?.profile?.name || "Portfolio";
-        document.title = `${profileName} — Portfolio`;
-        document.getElementById("brand-name").textContent = profileName;
-        document.getElementById("brand-initials").textContent = profileName
-          .split(/\s+/)
-          .filter(Boolean)
-          .slice(0, 2)
-          .map((part) => part[0]?.toUpperCase() || "")
-          .join("") || "PF";
-
+        await loadRepos();
         renderAbout();
         renderPublications();
-        updatePortfolioStatistics();
-        await loadProjects();
         initLightbox();
         setRoute();
       } catch (err) {
