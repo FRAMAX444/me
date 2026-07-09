@@ -1,0 +1,90 @@
+{
+  "settings": {
+    "title": "Projects",
+    "subtitle": "A curated selection of software, research and product work.",
+    "githubUsername": "",
+    "includeUnlistedRecent": false,
+    "recentLimit": 8,
+    "filterLimit": 7
+  },
+  "sections": [
+    {
+      "id": "featured",
+      "title": "Featured projects",
+      "subtitle": "The projects that best represent my work and technical approach.",
+      "order": 1
+    },
+    {
+      "id": "research",
+      "title": "Research & academic work",
+      "subtitle": "Research prototypes, experiments and university projects.",
+      "order": 2
+    },
+    {
+      "id": "other",
+      "title": "Other projects",
+      "subtitle": "Additional tools, experiments and open-source work.",
+      "order": 3
+    },
+    {
+      "id": "recent",
+      "title": "Recent repositories",
+      "subtitle": "Automatically loaded from GitHub when no manually configured projects are available.",
+      "order": 99
+    }
+  ],
+  "projects": [
+    {
+      "id": "example-featured-project",
+      "enabled": false,
+      "repo": "repository-name",
+      "section": "featured",
+      "order": 1,
+      "featured": true,
+      "status": "Featured",
+      "eyebrow": "Web application",
+      "title": "Project title",
+      "description": "A concise description of the problem, solution and value of the project.",
+      "image": "assets/projects/project-cover.webp",
+      "imageAlt": "Project interface preview",
+      "year": 2026,
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "liveUrl": "https://example.com",
+      "liveLabel": "Live demo",
+      "links": [
+        {
+          "label": "Case study",
+          "url": "https://example.com/case-study",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "example-research-project",
+      "enabled": false,
+      "repo": "another-repository",
+      "section": "research",
+      "order": 1,
+      "status": "Research",
+      "eyebrow": "Academic project",
+      "title": "Research project title",
+      "description": "Description of the research question, methodology and main result.",
+      "tags": [
+        "Python",
+        "Data analysis",
+        "Machine learning"
+      ],
+      "links": [
+        {
+          "label": "Paper",
+          "url": "https://example.com/paper",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}
