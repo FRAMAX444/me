@@ -10,6 +10,13 @@
   const STORAGE_LANGUAGE = "portfolio-language";
   const STORAGE_THEME = "portfolio-theme";
   const PACK_BASE = "data/i18n";
+  const PACK_PARTS = {
+    en: ["en"],
+    it: ["it-1", "it-2", "it-3", "it-4"],
+    es: ["es-1", "es-2", "es-3", "es-4"],
+    fr: ["fr-1", "fr-2", "fr-3", "fr-4"],
+    de: ["de-1", "de-2", "de-3", "de-4"]
+  };
 
   const UI = {
     en: {
@@ -202,10 +209,14 @@
     if (state.packs.has(language)) return state.packs.get(language);
 
     try {
-      const response = await fetch(`${PACK_BASE}/${language}.json`, { cache: "no-store" });
-      if (!response.ok) throw new Error(`Translation pack ${language}: ${response.status}`);
-      const data = await response.json();
-      const strings = data?.strings || {};
+      const partNames = PACK_PARTS[language] || PACK_PARTS.en;
+      const responses = await Promise.all(
+        partNames.map((part) => fetch(`${PACK_BASE}/${part}.json`, { cache: "no-store" }))
+      );
+      const failed = responses.find((response) => !response.ok);
+      if (failed) throw new Error(`Translation pack ${language}: ${failed.status}`);
+      const parts = await Promise.all(responses.map((response) => response.json()));
+      const strings = Object.assign({}, ...parts.map((part) => part?.strings || {}));
       state.packs.set(language, strings);
       return strings;
     } catch (error) {
