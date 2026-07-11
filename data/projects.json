@@ -36,7 +36,6 @@
       "links": [],
       "media": [
         {
-          "type": "image",
           "src": "data/pictures/projects-img/SEISMOXAI.png",
           "alt": "Anteprima del repository SeismoXAI",
           "caption": "Repository overview"
@@ -59,7 +58,6 @@
       "links": [],
       "media": [
         {
-          "type": "image",
           "src": "data/pictures/projects-img/PINNS.png",
           "alt": "Anteprima del repository Physics-Informed Neural Networks",
           "caption": "Repository overview"
@@ -82,7 +80,6 @@
       "links": [],
       "media": [
         {
-          "type": "image",
           "src": "data/pictures/projects-img/SEISMOXAI.png",
           "alt": "Anteprima del repository CNN Explainability for Earthquakes",
           "caption": "Repository overview"
@@ -104,7 +101,6 @@
       "links": [],
       "media": [
         {
-          "type": "image",
           "src": "data/pictures/projects-img/CODENAMESLLM.png",
           "alt": "Anteprima del repository Codenames LLM",
           "caption": "Repository overview"
@@ -126,7 +122,6 @@
       "links": [],
       "media": [
         {
-          "type": "chart",
           "src": "data/pictures/projects-img/KD.png",
           "alt": "Anteprima del progetto Knowledge Distillation",
           "caption": "Project overview"
@@ -148,7 +143,6 @@
       "links": [],
       "media": [
         {
-          "type": "image",
           "src": "data/pictures/projects-img/DOODLEHTR.png",
           "alt": "Anteprima del repository DoodleHTR",
           "caption": "Application overview"
@@ -170,7 +164,6 @@
       "links": [],
       "media": [
         {
-          "type": "chart",
           "src": "data/pictures/projects-img/RECOMMENDER.png",
           "alt": "Anteprima del Playlist Recommendation System",
           "caption": "Project overview"
@@ -192,7 +185,6 @@
       "links": [],
       "media": [
         {
-          "type": "diagram",
           "src": "data/pictures/projects-img/QR.png",
           "alt": "Anteprima del progetto QR Algorithms",
           "caption": "Repository overview"
