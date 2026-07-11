@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light;
+  --bg: #f8fafd;
+  --surface: #ffffff;
+  --surface-soft: #f1f4f9;
+  --surface-blue: #eaf2ff;
+  --text: #1f1f1f;
+  --muted: #5f6368;
+  --line: #dfe3eb;
+  --line-strong: #c4c7c5;
+  --primary: #0b57d0;
+  --primary-hover: #0842a0;
+  --primary-soft: #d3e3fd;
+  --green: #0f9d58;
+  --yellow: #f9ab00;
+  --red: #d93025;
+  --shadow-sm: 0 1px 2px rgba(60, 64, 67, .12), 0 1px 3px 1px rgba(60, 64, 67, .08);
+  --shadow-md: 0 4px 10px rgba(60, 64, 67, .14), 0 1px 4px rgba(60, 64, 67, .08);
+  --shadow-lg: 0 16px 36px rgba(31, 31, 31,
