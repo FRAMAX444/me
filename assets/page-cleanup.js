@@ -7,15 +7,6 @@
   const isText = (value) => typeof value === "string" && value.trim() !== "";
   const asArray = (value) => Array.isArray(value) ? value : value == null ? [] : [value];
 
-  function escapeHtml(value) {
-    return String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
   function removePageIntroCards(doc) {
     pageIds.forEach((pageId) => {
       const page = doc?.getElementById(pageId);
@@ -24,47 +15,44 @@
     });
   }
 
-  async function installAboutProfileCard(doc) {
-    const page = doc?.getElementById("page-about");
-    const singleCol = page?.querySelector(".container > .single-col");
-    if (!singleCol || doc.getElementById("about-profile-card")) return;
+  function transformAboutTimelineCards(doc) {
+    doc?.getElementById("about-profile-card")?.remove();
 
-    const response = await fetch("data/site-config.json", { cache: "no-store" });
-    if (!response.ok) return;
+    doc?.querySelectorAll("#page-about .timeline-group").forEach((card) => {
+      if (card.dataset.projectMediaLayout === "true") return;
 
-    const data = await response.json();
-    const profile = data?.profile || {};
-    const profilePhoto = data?.images?.profilePhoto;
-    const hasPhoto = isText(profilePhoto);
-    const name = isText(profile.name) ? profile.name.trim() : "";
-    const role = isText(profile.role) ? profile.role.trim() : "";
+      const children = [...card.children];
+      const header = children.find((child) => child.classList.contains("timeline-org-head"));
+      const items = children.find((child) => child.classList.contains("timeline-items"));
+      if (!header) return;
 
-    if (!hasPhoto && !name && !role) return;
+      const logo = header.querySelector(".timeline-logo");
+      const content = doc.createElement("div");
+      content.className = "about-timeline-content";
+      content.appendChild(header);
+      if (items) content.appendChild(items);
 
-    const card = doc.createElement("article");
-    card.id = "about-profile-card";
-    card.className = `about-profile-card card${hasPhoto ? "" : " no-photo"}`;
-    card.innerHTML = `
-      ${hasPhoto ? `
-        <div class="about-profile-media">
-          <img src="${escapeHtml(profilePhoto)}" alt="${escapeHtml(name || "Profile photo")}" loading="lazy">
-        </div>
-      ` : ""}
-      <div class="about-profile-body">
-        <div class="about-profile-eyebrow">About me</div>
-        ${name ? `<h1 class="about-profile-name">${escapeHtml(name)}</h1>` : ""}
-        ${role ? `<p class="about-profile-role">${escapeHtml(role)}</p>` : ""}
-      </div>
-    `;
+      const fragment = doc.createDocumentFragment();
 
-    const firstSection = singleCol.querySelector(".section-divider");
-    singleCol.insertBefore(card, firstSection || singleCol.firstChild);
+      if (logo) {
+        const media = doc.createElement("div");
+        media.className = "about-timeline-media";
+        media.appendChild(logo);
+        fragment.appendChild(media);
 
-    const image = card.querySelector(".about-profile-media img");
-    image?.addEventListener("error", () => {
-      card.querySelector(".about-profile-media")?.remove();
-      card.classList.add("no-photo");
-    }, { once: true });
+        logo.addEventListener("error", () => {
+          media.remove();
+          card.classList.add("no-media");
+        }, { once: true });
+      } else {
+        card.classList.add("no-media");
+      }
+
+      fragment.appendChild(content);
+      card.replaceChildren(fragment);
+      card.classList.add("about-timeline-card");
+      card.dataset.projectMediaLayout = "true";
+    });
   }
 
   function getFirstConfiguredMedia(project = {}) {
@@ -113,12 +101,7 @@
     if (!doc?.documentElement || !doc.body) return;
 
     removePageIntroCards(doc);
-
-    try {
-      await installAboutProfileCard(doc);
-    } catch (error) {
-      console.warn("Unable to install the About profile card:", error);
-    }
+    transformAboutTimelineCards(doc);
 
     try {
       await removeUnspecifiedProjectLabels(doc);

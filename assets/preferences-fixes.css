@@ -40,60 +40,53 @@
   outline-offset: 2px;
 }
 
-/* Present the About profile with the same media/content layout used by projects. */
-.about-profile-card {
+/* Use each existing About card image as the left media column, like Projects. */
+.about-timeline-card {
   display: grid;
   grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+  align-items: stretch;
   overflow: hidden;
 }
 
-.about-profile-card.no-photo {
+.about-timeline-card.no-media {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.about-profile-media {
-  min-height: 280px;
+.about-timeline-media {
+  position: relative;
+  min-height: 240px;
   overflow: hidden;
   background: linear-gradient(135deg, #e7eef6, #d5e1ed);
 }
 
-.about-profile-media img {
+.about-timeline-media .timeline-logo {
   width: 100%;
   height: 100%;
-  min-height: 280px;
+  min-height: 240px;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
+  box-shadow: none;
 }
 
-.about-profile-body {
+.about-timeline-content {
   min-width: 0;
-  padding: 1.25rem;
   display: grid;
-  align-content: center;
-  gap: .9rem;
+  align-content: start;
 }
 
-.about-profile-eyebrow {
-  color: var(--linkedin);
-  font-size: .78rem;
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
+.about-timeline-card .timeline-org-head {
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: transparent;
 }
 
-.about-profile-name {
-  margin: 0;
-  font-size: clamp(1.8rem, 3.5vw, 2.65rem);
-  line-height: 1.05;
-  letter-spacing: -.05em;
-}
-
-.about-profile-role {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  white-space: pre-line;
+.about-timeline-card .timeline-items {
+  min-width: 0;
 }
 
 /* Complete the dark palette for blocks that use hard-coded light colors. */
@@ -149,8 +142,17 @@
   color: #eef5fb;
 }
 
-:root[data-theme="dark"] .about-profile-media {
+:root[data-theme="dark"] .about-timeline-media {
   background: linear-gradient(135deg, #1a2938, #22374b);
+}
+
+:root[data-theme="dark"] .about-timeline-media .timeline-logo {
+  border: 0;
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .about-timeline-card .timeline-org-head {
+  background: transparent;
 }
 
 /* Use more of wide desktop screens without changing the mobile layout. */
@@ -169,12 +171,12 @@
   }
 
   .json-project-card,
-  .about-profile-card {
+  .about-timeline-card {
     grid-template-columns: minmax(320px, 36%) minmax(0, 1fr);
   }
 
   .json-project-body,
-  .about-profile-body {
+  .about-timeline-card .timeline-org-head {
     padding: 1.5rem;
   }
 }
@@ -187,13 +189,13 @@
 }
 
 @media (max-width: 760px) {
-  .about-profile-card {
+  .about-timeline-card {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .about-profile-media,
-  .about-profile-media img {
-    min-height: 250px;
+  .about-timeline-media,
+  .about-timeline-media .timeline-logo {
+    min-height: 210px;
   }
 }
 
