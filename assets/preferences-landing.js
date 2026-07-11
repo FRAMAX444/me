@@ -6,13 +6,36 @@
   const ROUTES = ["home", "about", "works", "publications"];
 
   function installFixStyles(doc) {
-    if (!doc?.head || doc.getElementById("portfolio-preferences-fixes")) return;
+    if (!doc?.head) return;
 
-    const link = doc.createElement("link");
-    link.id = "portfolio-preferences-fixes";
-    link.rel = "stylesheet";
-    link.href = "assets/preferences-fixes.css";
-    doc.head.appendChild(link);
+    if (!doc.getElementById("portfolio-preferences-fixes")) {
+      const link = doc.createElement("link");
+      link.id = "portfolio-preferences-fixes";
+      link.rel = "stylesheet";
+      link.href = "assets/preferences-fixes.css";
+      doc.head.appendChild(link);
+    }
+
+    if (doc.getElementById("about-mobile-dark-media-fix")) return;
+
+    const style = doc.createElement("style");
+    style.id = "about-mobile-dark-media-fix";
+    style.textContent = `
+      @media (max-width: 760px) {
+        :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media {
+          background: transparent !important;
+          background-color: transparent !important;
+          background-image: none !important;
+        }
+
+        :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media .timeline-logo {
+          background: transparent !important;
+          border: 0 !important;
+          box-shadow: none !important;
+        }
+      }
+    `;
+    doc.head.appendChild(style);
   }
 
   function reorderProjectsAndPublications(doc) {
