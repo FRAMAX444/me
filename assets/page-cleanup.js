@@ -34,6 +34,93 @@
           max-height: 160px !important;
         }
       }
+
+      /* Override legacy light-only surfaces when the dark theme is active. */
+      :root[data-theme="dark"] .feed-body {
+        background: #141b23 !important;
+        border-color: #2d3947 !important;
+        color: var(--text) !important;
+      }
+
+      :root[data-theme="dark"] .subcard,
+      :root[data-theme="dark"] .exam-item,
+      :root[data-theme="dark"] .repo-card {
+        background: #1b2430 !important;
+        border-color: #344252 !important;
+        color: var(--text) !important;
+        box-shadow: none;
+      }
+
+      :root[data-theme="dark"] .subcard > .stack-col > div,
+      :root[data-theme="dark"] .subcard .stack-col > div[style*="background:#fff"],
+      :root[data-theme="dark"] .subcard .stack-col > div[style*="background: #fff"],
+      :root[data-theme="dark"] .subcard .stack-col > div[style*="background:#ffffff"],
+      :root[data-theme="dark"] .subcard .stack-col > div[style*="background: #ffffff"] {
+        background: #202b37 !important;
+        border-color: #3a4858 !important;
+        color: #eef3f8 !important;
+      }
+
+      :root[data-theme="dark"] .subcard h4,
+      :root[data-theme="dark"] .subcard h5,
+      :root[data-theme="dark"] .subcard strong,
+      :root[data-theme="dark"] .exam-name,
+      :root[data-theme="dark"] .repo-card h3 {
+        color: #eef3f8 !important;
+      }
+
+      :root[data-theme="dark"] .notice,
+      :root[data-theme="dark"] .feed-summary,
+      :root[data-theme="dark"] .repo-card p,
+      :root[data-theme="dark"] .abstract-preview-text,
+      :root[data-theme="dark"] .json-project-description {
+        color: #c4cfdb !important;
+      }
+
+      :root[data-theme="dark"] .meta,
+      :root[data-theme="dark"] .json-project-meta,
+      :root[data-theme="dark"] .timeline-org-meta {
+        color: #aebdcb !important;
+      }
+
+      :root[data-theme="dark"] .education-final-grade,
+      :root[data-theme="dark"] .education-average-grade,
+      :root[data-theme="dark"] .experience-preview-pill,
+      :root[data-theme="dark"] .skills-more summary,
+      :root[data-theme="dark"] .json-project-status {
+        background: #142c43 !important;
+        border-color: #315b85 !important;
+        color: #9bceff !important;
+        box-shadow: none !important;
+      }
+
+      :root[data-theme="dark"] .skill-chip,
+      :root[data-theme="dark"] .exam-project-link,
+      :root[data-theme="dark"] .exam-project-chip,
+      :root[data-theme="dark"] .repo-link,
+      :root[data-theme="dark"] .json-project-link:not(.primary),
+      :root[data-theme="dark"] .json-project-tag,
+      :root[data-theme="dark"] code {
+        background: #202b37 !important;
+        border-color: #3a4858 !important;
+        color: #dbe7f3 !important;
+        box-shadow: none !important;
+      }
+
+      :root[data-theme="dark"] .timeline-item + .timeline-item,
+      :root[data-theme="dark"] .skills-more,
+      :root[data-theme="dark"] .exam-project-row {
+        border-color: #2d3947 !important;
+      }
+
+      :root[data-theme="dark"] .timeline-items::before {
+        background: #344252 !important;
+      }
+
+      :root[data-theme="dark"] .timeline-item::before {
+        border-color: #151d26 !important;
+        box-shadow: 0 0 0 1px #405064 !important;
+      }
     `;
     doc.head.appendChild(style);
   }
