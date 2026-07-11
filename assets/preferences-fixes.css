@@ -55,20 +55,23 @@
 .about-timeline-media {
   position: relative;
   min-height: 240px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #e7eef6, #d5e1ed);
+  padding: 1.15rem;
+  background: linear-gradient(135deg, #eef3f8, #dfe8f1);
 }
 
 .about-timeline-media .timeline-logo {
   width: 100%;
   height: 100%;
-  min-height: 240px;
-  max-width: none;
-  max-height: none;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   padding: 0;
   border: 0;
   border-radius: 0;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   box-shadow: none;
 }
@@ -89,6 +92,65 @@
   min-width: 0;
 }
 
+/* Languages: flags in one row, then language name and level. */
+.about-language-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.about-language-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  text-align: center;
+}
+
+.about-language-card.no-media {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.about-language-card .about-timeline-media {
+  min-height: 0;
+  padding: 1rem 1rem .45rem;
+  background: transparent;
+}
+
+.about-language-card .about-timeline-media .timeline-logo {
+  width: min(100%, 150px);
+  height: auto;
+  min-height: 0;
+  max-height: 92px;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.about-language-card .timeline-org-head {
+  justify-content: center;
+  padding: .5rem .75rem 1rem;
+  border-bottom: 0;
+  text-align: center;
+}
+
+.about-language-card .timeline-org-head > div {
+  width: 100%;
+}
+
+.about-language-card .timeline-org-title {
+  font-size: 1.05rem;
+}
+
+.about-language-card .timeline-org-meta {
+  justify-items: center;
+  margin-top: .35rem;
+}
+
+.about-language-level {
+  font-weight: 700;
+  color: var(--muted);
+}
+
 @media (min-width: 761px) {
   .about-timeline-card.has-open-item {
     position: relative;
@@ -104,6 +166,7 @@
     height: 84px;
     min-height: 0;
     overflow: visible;
+    padding: 0;
     background: transparent;
   }
 
@@ -131,6 +194,12 @@
 
   .about-timeline-card.no-media.has-open-item .timeline-org-head {
     padding-left: 1.15rem;
+  }
+
+  .about-language-card,
+  .about-language-card.has-open-item {
+    position: static;
+    display: grid;
   }
 }
 
@@ -210,6 +279,16 @@
   background: linear-gradient(180deg, #1b2430 0%, #171e27 100%);
 }
 
+:root[data-theme="dark"] .about-language-card .about-timeline-media,
+:root[data-theme="dark"] .about-language-card .timeline-org-head {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .about-language-card .about-timeline-media .timeline-logo {
+  border: 0;
+  box-shadow: none;
+}
+
 /* Use more of wide desktop screens without changing the mobile layout. */
 @media (min-width: 1100px) {
   .container {
@@ -226,12 +305,12 @@
   }
 
   .json-project-card,
-  .about-timeline-card {
+  .about-timeline-card:not(.about-language-card) {
     grid-template-columns: minmax(320px, 36%) minmax(0, 1fr);
   }
 
   .json-project-body,
-  .about-timeline-card .timeline-org-head {
+  .about-timeline-card:not(.about-language-card) .timeline-org-head {
     padding: 1.5rem;
   }
 
@@ -257,53 +336,79 @@
 }
 
 @media (max-width: 760px) {
-  .about-timeline-card,
-  .about-timeline-card.has-open-item {
+  .about-timeline-card:not(.about-language-card),
+  .about-timeline-card:not(.about-language-card).has-open-item {
     position: static;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .about-timeline-media,
-  .about-timeline-media .timeline-logo,
-  .about-timeline-card.has-open-item .about-timeline-media,
-  .about-timeline-card.has-open-item .about-timeline-media .timeline-logo {
-    width: 100%;
-    height: 100%;
-    min-height: 210px;
-    max-width: none;
-    max-height: none;
-  }
-
-  .about-timeline-card.has-open-item .about-timeline-media {
+  .about-timeline-card:not(.about-language-card) .about-timeline-media,
+  .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media {
     position: relative;
     inset: auto;
+    width: 100%;
+    height: auto;
+    min-height: 130px;
+    display: grid;
+    place-items: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #e7eef6, #d5e1ed);
+    padding: 1rem;
+    background: linear-gradient(135deg, #eef3f8, #dfe8f1);
   }
 
-  .about-timeline-card.has-open-item .about-timeline-media .timeline-logo {
+  .about-timeline-card:not(.about-language-card) .about-timeline-media .timeline-logo,
+  .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media .timeline-logo {
+    width: 50%;
+    height: auto;
+    min-height: 0;
+    max-width: 50%;
+    max-height: 120px;
     padding: 0;
     border: 0;
     border-radius: 0;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     box-shadow: none;
   }
 
-  .about-timeline-card.has-open-item .timeline-org-head {
+  .about-timeline-card:not(.about-language-card).has-open-item .timeline-org-head {
     min-height: 0;
     align-items: flex-start;
     padding: 1.25rem;
     background: transparent;
   }
 
-  :root[data-theme="dark"] .about-timeline-card.has-open-item .about-timeline-media {
-    background: linear-gradient(135deg, #1a2938, #22374b);
+  .about-language-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .65rem;
   }
 
-  :root[data-theme="dark"] .about-timeline-card.has-open-item .about-timeline-media .timeline-logo {
-    border: 0;
-    box-shadow: none;
+  .about-language-card .about-timeline-media {
+    padding: .75rem .45rem .35rem;
+  }
+
+  .about-language-card .about-timeline-media .timeline-logo {
+    width: min(100%, 100px);
+    max-height: 62px;
+    border-radius: 9px;
+  }
+
+  .about-language-card .timeline-org-head {
+    padding: .35rem .35rem .8rem;
+  }
+
+  .about-language-card .timeline-org-title {
+    font-size: .9rem;
+  }
+
+  .about-language-card .timeline-org-meta {
+    font-size: .78rem;
+  }
+
+  :root[data-theme="dark"] .about-timeline-card:not(.about-language-card) .about-timeline-media,
+  :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media {
+    background: linear-gradient(135deg, #1a2938, #22374b);
   }
 }
 
