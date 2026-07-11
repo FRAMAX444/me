@@ -43,22 +43,41 @@
     syncAboutTimelineExpansion(card);
   }
 
+  function prepareLanguageHeader(header) {
+    const title = header.querySelector(".timeline-org-title");
+    const meta = header.querySelector(".timeline-org-meta");
+
+    title?.classList.add("about-language-name");
+
+    if (!meta) return;
+
+    [...meta.children].slice(1).forEach((detail) => detail.remove());
+    meta.firstElementChild?.classList.add("about-language-level");
+  }
+
   function transformAboutTimelineCards(doc) {
     doc?.getElementById("about-profile-card")?.remove();
+    doc?.getElementById("language-skills-list")?.classList.add("about-language-grid");
 
     doc?.querySelectorAll("#page-about .timeline-group").forEach((card) => {
       if (card.dataset.projectMediaLayout === "true") return;
 
+      const isLanguageCard = Boolean(card.closest("#language-skills-list"));
       const children = [...card.children];
       const header = children.find((child) => child.classList.contains("timeline-org-head"));
       const items = children.find((child) => child.classList.contains("timeline-items"));
       if (!header) return;
 
+      if (isLanguageCard) prepareLanguageHeader(header);
+
       const logo = header.querySelector(".timeline-logo");
       const content = doc.createElement("div");
       content.className = "about-timeline-content";
       content.appendChild(header);
-      if (items) content.appendChild(items);
+
+      if (items && !isLanguageCard) {
+        content.appendChild(items);
+      }
 
       const fragment = doc.createDocumentFragment();
 
@@ -79,8 +98,16 @@
       fragment.appendChild(content);
       card.replaceChildren(fragment);
       card.classList.add("about-timeline-card");
+
+      if (isLanguageCard) {
+        card.classList.add("about-language-card");
+      }
+
       card.dataset.projectMediaLayout = "true";
-      observeAboutTimelineExpansion(card);
+
+      if (!isLanguageCard) {
+        observeAboutTimelineExpansion(card);
+      }
     });
   }
 
