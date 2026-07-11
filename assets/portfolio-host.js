@@ -19,6 +19,10 @@ function normalizedHash(value) {
   return `#${["home", "about", "publications", "works"].includes(route) ? route : "home"}`;
 }
 
+function hostText(key, fallback) {
+  return window.PortfolioPreferences?.translateHost?.(key) || fallback;
+}
+
 async function renderPinnedShell() {
   const loader = document.getElementById("shell-loader");
 
@@ -33,7 +37,7 @@ async function renderPinnedShell() {
   } catch (error) {
     console.error("Portfolio shell error:", error);
     loader.className = "shell-error";
-    loader.innerHTML = "<div><strong>Portfolio unavailable</strong>Unable to load the page structure.</div>";
+    loader.innerHTML = `<div><strong>${escapeHtml(hostText("portfolioUnavailable", "Portfolio unavailable"))}</strong>${escapeHtml(hostText("portfolioUnavailableDetail", "Unable to load the page structure."))}</div>`;
   }
 }
 
@@ -322,6 +326,7 @@ async function installProjects(frame) {
 async function initializeHost() {
   const frame = document.getElementById("portfolio-frame");
   const loader = document.getElementById("shell-loader");
+  if (loader) loader.textContent = hostText("loading", "Loading portfolio…");
   let frameReady = false;
 
   async function onFrameReady() {
@@ -330,7 +335,10 @@ async function initializeHost() {
 
     try {
       await installProjects(frame);
-      loader.remove();
+      if (window.PortfolioPreferences?.install) {
+        await window.PortfolioPreferences.install(frame);
+      }
+      loader?.remove();
       frameReady = true;
 
       const syncFromFrame = () => {
@@ -342,9 +350,10 @@ async function initializeHost() {
       win.addEventListener("hashchange", syncFromFrame);
       syncFromFrame();
     } catch (error) {
-      console.error("Projects installation error:", error);
+      console.error("Portfolio initialization error:", error);
+      if (!loader) return;
       loader.className = "shell-error";
-      loader.innerHTML = "<div><strong>Projects unavailable</strong>Check <code>data/projects.json</code> and reload the page.</div>";
+      loader.innerHTML = `<div><strong>${escapeHtml(hostText("projectsUnavailable", "Projects unavailable"))}</strong>${escapeHtml(hostText("projectsUnavailableDetail", "Check data files and reload the page."))}</div>`;
     }
   }
 
