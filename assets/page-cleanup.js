@@ -43,6 +43,18 @@
     syncAboutTimelineExpansion(card);
   }
 
+  function prepareLanguageHeader(header) {
+    const title = header.querySelector(".timeline-org-title");
+    const meta = header.querySelector(".timeline-org-meta");
+
+    title?.classList.add("about-language-name");
+
+    if (!meta) return;
+
+    [...meta.children].slice(1).forEach((detail) => detail.remove());
+    meta.firstElementChild?.classList.add("about-language-level");
+  }
+
   function transformAboutTimelineCards(doc) {
     doc?.getElementById("about-profile-card")?.remove();
     doc?.getElementById("language-skills-list")?.classList.add("about-language-grid");
@@ -55,6 +67,8 @@
       const header = children.find((child) => child.classList.contains("timeline-org-head"));
       const items = children.find((child) => child.classList.contains("timeline-items"));
       if (!header) return;
+
+      if (isLanguageCard) prepareLanguageHeader(header);
 
       const logo = header.querySelector(".timeline-logo");
       const content = doc.createElement("div");
