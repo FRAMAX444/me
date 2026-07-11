@@ -1,7 +1,7 @@
 {
   "settings": {
     "title": "Projects",
-    "subtitle": "A curated selection of software, research and product work.",
+    "subtitle": "Una selezione ordinata dei progetti che rappresentano meglio il mio percorso tra matematica, intelligenza artificiale e sviluppo software.",
     "githubUsername": "FRAMAX444",
     "includeUnlistedRecent": false,
     "recentLimit": 8
@@ -10,19 +10,19 @@
     {
       "id": "featured",
       "title": "Featured projects",
-      "subtitle": "The projects that best represent my work and technical approach.",
+      "subtitle": "I progetti che rappresentano meglio il mio lavoro e il mio approccio tecnico.",
       "order": 1
     },
     {
       "id": "research",
       "title": "Research & academic work",
-      "subtitle": "Research prototypes, experiments and university projects.",
+      "subtitle": "Ricerca, prototipi sperimentali e progetti universitari.",
       "order": 2
     },
     {
       "id": "other",
       "title": "Other projects",
-      "subtitle": "Additional tools, experiments and open-source work.",
+      "subtitle": "Applicazioni, strumenti e altri lavori open source.",
       "order": 3
     }
   ],
@@ -31,116 +31,116 @@
       "id": "pinns",
       "enabled": true,
       "repo": "PINNs",
+      "repoUrl": "https://github.com/FRAMAX444/PINNs",
+      "repoLabel": "Repository",
       "section": "featured",
       "order": 1,
       "featured": true,
       "status": "Bachelor thesis",
       "eyebrow": "Scientific machine learning",
       "title": "Physics-Informed Neural Networks",
-      "description": "Bachelor thesis code and materials focused on physics-informed neural networks and differential equations.",
-      "image": "",
-      "imageAlt": "Physics-Informed Neural Networks project preview",
+      "description": "Codice e materiali della tesi triennale dedicata alle Physics-Informed Neural Networks per la risoluzione di equazioni differenziali.",
+      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/PINNs",
+      "imageAlt": "Anteprima del repository Physics-Informed Neural Networks",
       "year": 2025,
-      "tags": ["Python", "Deep learning", "Differential equations"],
-      "links": [
-        {
-          "label": "View repository",
-          "url": "https://github.com/FRAMAX444/PINNs",
-          "primary": true
-        }
-      ]
+      "tags": ["Python", "Deep learning", "Differential equations"]
     },
     {
       "id": "cnn-earthquakes",
       "enabled": true,
       "repo": "CNN-explainability-Earthquakes",
+      "repoUrl": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
+      "repoLabel": "Repository",
       "section": "featured",
       "order": 2,
       "featured": true,
       "status": "Research",
       "eyebrow": "Explainable AI",
       "title": "CNN Explainability for Earthquakes",
-      "description": "Explainable deep-learning workflow for distinguishing foreshocks and aftershocks from seismic spectrograms.",
+      "description": "Workflow di deep learning spiegabile per distinguere foreshock e aftershock a partire da spettrogrammi sismici.",
       "image": "",
-      "imageAlt": "CNN explainability for earthquakes project preview",
+      "imageAlt": "Progetto di explainability per la classificazione di eventi sismici",
       "year": 2025,
-      "tags": ["Python", "CNN", "SHAP", "Seismology"],
-      "links": [
-        {
-          "label": "View repository",
-          "url": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
-          "primary": true
-        }
-      ]
+      "tags": ["Python", "CNN", "SHAP", "Seismology"]
     },
     {
       "id": "codenames-llm",
       "enabled": true,
       "repo": "Codenames-LLM",
+      "repoUrl": "https://github.com/FRAMAX444/Codenames-LLM",
+      "repoLabel": "Repository",
       "section": "research",
       "order": 1,
       "status": "Academic project",
       "eyebrow": "Large language models",
       "title": "Codenames LLM",
-      "description": "Evaluation of language models and prompt-engineering strategies through the game Codenames.",
-      "image": "",
-      "imageAlt": "Codenames LLM project preview",
+      "description": "Valutazione di modelli linguistici e strategie di prompt engineering attraverso il gioco Codenames.",
+      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Codenames-LLM",
+      "imageAlt": "Anteprima del repository Codenames LLM",
       "tags": ["LLM", "Prompt engineering", "Evaluation"]
     },
     {
       "id": "knowledge-distillation",
       "enabled": true,
       "repo": "Knowledge-Distillation",
+      "repoUrl": "https://github.com/FRAMAX444/Knowledge-Distillation",
+      "repoLabel": "Repository",
       "section": "research",
       "order": 2,
       "status": "Academic project",
       "eyebrow": "Machine learning",
       "title": "Knowledge Distillation",
-      "description": "Experiments on transferring knowledge from larger teacher networks to compact student models.",
-      "image": "",
-      "imageAlt": "Knowledge distillation project preview",
+      "description": "Esperimenti sul trasferimento di conoscenza da reti teacher più grandi a modelli student compatti.",
+      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Knowledge-Distillation",
+      "imageAlt": "Anteprima del repository Knowledge Distillation",
       "tags": ["Python", "Deep learning", "Model compression"]
     },
     {
       "id": "doodle-htr",
       "enabled": true,
       "repo": "DoodleHTR-AI-for-Education-APP",
+      "repoUrl": "https://github.com/FRAMAX444/DoodleHTR-AI-for-Education-APP",
+      "repoLabel": "Repository",
       "section": "other",
       "order": 1,
       "status": "Application",
       "eyebrow": "AI for education",
       "title": "DoodleHTR",
-      "description": "An educational application that explores handwriting recognition and AI-assisted learning workflows.",
-      "image": "",
-      "imageAlt": "DoodleHTR application preview",
+      "description": "Applicazione educativa che esplora il riconoscimento della scrittura e flussi di apprendimento assistiti dall'intelligenza artificiale.",
+      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/DoodleHTR-AI-for-Education-APP",
+      "imageAlt": "Anteprima del repository DoodleHTR",
       "tags": ["AI", "Education", "Handwriting recognition"]
     },
     {
       "id": "playlist-recommendation",
       "enabled": true,
       "repo": "Playlist-Recommendation-System",
+      "repoUrl": "https://github.com/FRAMAX444/Playlist-Recommendation-System",
+      "repoLabel": "Repository",
       "section": "other",
       "order": 2,
       "status": "Recommendation system",
       "eyebrow": "Data product",
       "title": "Playlist Recommendation System",
-      "description": "A music recommendation project for generating playlists from user and track information.",
-      "image": "",
-      "imageAlt": "Playlist recommendation system preview",
+      "description": "Sistema di raccomandazione musicale per generare playlist utilizzando informazioni su utenti e tracce.",
+      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Playlist-Recommendation-System",
+      "imageAlt": "Anteprima del repository Playlist Recommendation System",
       "tags": ["Recommendation systems", "Data analysis", "Python"]
     },
     {
       "id": "numerical-algebra",
       "enabled": true,
       "repo": "Numerical-Algebra-QR-Algorithms",
+      "repoUrl": "https://github.com/FRAMAX444/Numerical-Algebra-QR-Algorithms",
+      "repoLabel": "Repository",
       "section": "other",
       "order": 3,
       "status": "Academic project",
       "eyebrow": "Numerical methods",
       "title": "QR Algorithms for Eigenvalue Problems",
-      "description": "Implementations and experiments with QR algorithms for numerical eigenvalue computation.",
-      "image": "",
-      "imageAlt": "QR algorithms project preview",
+      "description": "Implementazioni ed esperimenti con algoritmi QR per il calcolo numerico degli autovalori.",
+      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Numerical-Algebra-QR-Algorithms",
+      "imageAlt": "Anteprima del repository QR Algorithms",
       "tags": ["Numerical algebra", "QR algorithm", "Python"]
     }
   ]
