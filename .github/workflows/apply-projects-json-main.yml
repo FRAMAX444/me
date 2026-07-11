@@ -1,0 +1,40 @@
+name: Apply projects JSON page
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Load and run the projects patch
+        run: |
+          git fetch origin agent/projects-json-current-past
+          git show origin/agent/projects-json-current-past:.github/workflows/apply-projects-json.yml > /tmp/source-workflow.yml
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+
+          source = Path('/tmp/source-workflow.yml').read_text(encoding='utf-8').splitlines()
+          start = next(i for i, line in enumerate(source) if "python - <<'PY'" in line) + 1
+          end = next(i for i in range(start, len(source)) if source[i].strip() == 'PY')
+          script = textwrap.dedent('\n'.join(source[start:end])) + '\n'
+          Path('/tmp/apply-projects.py').write_text(script, encoding='utf-8')
+          PY
+          python /tmp/apply-projects.py
+      - name: Commit the generated page
+        run: |
+          rm -f .github/workflows/apply-projects-json-main.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/apply-projects-json-main.yml
+          git commit -m "Render projects from JSON [skip ci]"
+          git push origin HEAD:main
