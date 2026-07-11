@@ -1,147 +1,188 @@
 {
   "settings": {
     "title": "Projects",
-    "subtitle": "Una selezione ordinata dei progetti che rappresentano meglio il mio percorso tra matematica, intelligenza artificiale e sviluppo software.",
-    "githubUsername": "FRAMAX444",
-    "includeUnlistedRecent": false,
-    "recentLimit": 8
+    "subtitle": "Una selezione ordinata dei progetti su cui sto lavorando e dei lavori completati tra matematica, intelligenza artificiale e sviluppo software.",
+    "githubUsername": "FRAMAX444"
   },
   "sections": [
     {
-      "id": "featured",
-      "title": "Featured projects",
-      "subtitle": "I progetti che rappresentano meglio il mio lavoro e il mio approccio tecnico.",
+      "id": "current",
+      "title": "Currently working on",
+      "subtitle": "Ricerca, prototipi e prodotti attualmente in sviluppo.",
       "order": 1
     },
     {
-      "id": "research",
-      "title": "Research & academic work",
-      "subtitle": "Ricerca, prototipi sperimentali e progetti universitari.",
+      "id": "past",
+      "title": "Past projects",
+      "subtitle": "Progetti conclusi, lavori accademici ed esperimenti precedenti.",
       "order": 2
-    },
-    {
-      "id": "other",
-      "title": "Other projects",
-      "subtitle": "Applicazioni, strumenti e altri lavori open source.",
-      "order": 3
     }
   ],
   "projects": [
     {
+      "id": "seismoxai",
+      "enabled": true,
+      "section": "current",
+      "order": 1,
+      "status": "In progress",
+      "eyebrow": "Explainable AI · Seismology",
+      "title": "SeismoXAI",
+      "description": "Pipeline end-to-end per la classificazione foreshock vs aftershock da forme d'onda sismiche, con CNN su rappresentazioni tempo-frequenza e explainability basata su SHAP.",
+      "year": 2026,
+      "tags": ["Python", "CNN", "SHAP", "Seismology"],
+      "repoUrl": "",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": []
+    },
+    {
       "id": "pinns",
       "enabled": true,
-      "repo": "PINNs",
-      "repoUrl": "https://github.com/FRAMAX444/PINNs",
-      "repoLabel": "Repository",
-      "section": "featured",
+      "section": "past",
       "order": 1,
-      "featured": true,
       "status": "Bachelor thesis",
       "eyebrow": "Scientific machine learning",
       "title": "Physics-Informed Neural Networks",
       "description": "Codice e materiali della tesi triennale dedicata alle Physics-Informed Neural Networks per la risoluzione di equazioni differenziali.",
-      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/PINNs",
-      "imageAlt": "Anteprima del repository Physics-Informed Neural Networks",
       "year": 2025,
-      "tags": ["Python", "Deep learning", "Differential equations"]
+      "tags": ["Python", "Deep learning", "Differential equations"],
+      "repoUrl": "https://github.com/FRAMAX444/PINNs",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/PINNs",
+          "alt": "Anteprima del repository Physics-Informed Neural Networks",
+          "caption": "Repository overview"
+        }
+      ]
     },
     {
       "id": "cnn-earthquakes",
       "enabled": true,
-      "repo": "CNN-explainability-Earthquakes",
-      "repoUrl": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
-      "repoLabel": "Repository",
-      "section": "featured",
+      "section": "past",
       "order": 2,
-      "featured": true,
       "status": "Research",
       "eyebrow": "Explainable AI",
       "title": "CNN Explainability for Earthquakes",
       "description": "Workflow di deep learning spiegabile per distinguere foreshock e aftershock a partire da spettrogrammi sismici.",
-      "image": "",
-      "imageAlt": "Progetto di explainability per la classificazione di eventi sismici",
       "year": 2025,
-      "tags": ["Python", "CNN", "SHAP", "Seismology"]
+      "tags": ["Python", "CNN", "SHAP", "Seismology"],
+      "repoUrl": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": []
     },
     {
       "id": "codenames-llm",
       "enabled": true,
-      "repo": "Codenames-LLM",
-      "repoUrl": "https://github.com/FRAMAX444/Codenames-LLM",
-      "repoLabel": "Repository",
-      "section": "research",
-      "order": 1,
+      "section": "past",
+      "order": 3,
       "status": "Academic project",
       "eyebrow": "Large language models",
       "title": "Codenames LLM",
       "description": "Valutazione di modelli linguistici e strategie di prompt engineering attraverso il gioco Codenames.",
-      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Codenames-LLM",
-      "imageAlt": "Anteprima del repository Codenames LLM",
-      "tags": ["LLM", "Prompt engineering", "Evaluation"]
+      "tags": ["LLM", "Prompt engineering", "Evaluation"],
+      "repoUrl": "https://github.com/FRAMAX444/Codenames-LLM",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Codenames-LLM",
+          "alt": "Anteprima del repository Codenames LLM",
+          "caption": "Repository overview"
+        }
+      ]
     },
     {
       "id": "knowledge-distillation",
       "enabled": true,
-      "repo": "Knowledge-Distillation",
-      "repoUrl": "https://github.com/FRAMAX444/Knowledge-Distillation",
-      "repoLabel": "Repository",
-      "section": "research",
-      "order": 2,
+      "section": "past",
+      "order": 4,
       "status": "Academic project",
       "eyebrow": "Machine learning",
       "title": "Knowledge Distillation",
       "description": "Esperimenti sul trasferimento di conoscenza da reti teacher più grandi a modelli student compatti.",
-      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Knowledge-Distillation",
-      "imageAlt": "Anteprima del repository Knowledge Distillation",
-      "tags": ["Python", "Deep learning", "Model compression"]
+      "tags": ["Python", "Deep learning", "Model compression"],
+      "repoUrl": "https://github.com/FRAMAX444/Knowledge-Distillation",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": [
+        {
+          "type": "chart",
+          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Knowledge-Distillation",
+          "alt": "Anteprima del progetto Knowledge Distillation",
+          "caption": "Project overview"
+        }
+      ]
     },
     {
       "id": "doodle-htr",
       "enabled": true,
-      "repo": "DoodleHTR-AI-for-Education-APP",
-      "repoUrl": "https://github.com/FRAMAX444/DoodleHTR-AI-for-Education-APP",
-      "repoLabel": "Repository",
-      "section": "other",
-      "order": 1,
+      "section": "past",
+      "order": 5,
       "status": "Application",
       "eyebrow": "AI for education",
       "title": "DoodleHTR",
       "description": "Applicazione educativa che esplora il riconoscimento della scrittura e flussi di apprendimento assistiti dall'intelligenza artificiale.",
-      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/DoodleHTR-AI-for-Education-APP",
-      "imageAlt": "Anteprima del repository DoodleHTR",
-      "tags": ["AI", "Education", "Handwriting recognition"]
+      "tags": ["AI", "Education", "Handwriting recognition"],
+      "repoUrl": "https://github.com/FRAMAX444/DoodleHTR-AI-for-Education-APP",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/DoodleHTR-AI-for-Education-APP",
+          "alt": "Anteprima del repository DoodleHTR",
+          "caption": "Application overview"
+        }
+      ]
     },
     {
       "id": "playlist-recommendation",
       "enabled": true,
-      "repo": "Playlist-Recommendation-System",
-      "repoUrl": "https://github.com/FRAMAX444/Playlist-Recommendation-System",
-      "repoLabel": "Repository",
-      "section": "other",
-      "order": 2,
+      "section": "past",
+      "order": 6,
       "status": "Recommendation system",
       "eyebrow": "Data product",
       "title": "Playlist Recommendation System",
       "description": "Sistema di raccomandazione musicale per generare playlist utilizzando informazioni su utenti e tracce.",
-      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Playlist-Recommendation-System",
-      "imageAlt": "Anteprima del repository Playlist Recommendation System",
-      "tags": ["Recommendation systems", "Data analysis", "Python"]
+      "tags": ["Recommendation systems", "Data analysis", "Python"],
+      "repoUrl": "https://github.com/FRAMAX444/Playlist-Recommendation-System",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": [
+        {
+          "type": "chart",
+          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Playlist-Recommendation-System",
+          "alt": "Anteprima del Playlist Recommendation System",
+          "caption": "Project overview"
+        }
+      ]
     },
     {
       "id": "numerical-algebra",
       "enabled": true,
-      "repo": "Numerical-Algebra-QR-Algorithms",
-      "repoUrl": "https://github.com/FRAMAX444/Numerical-Algebra-QR-Algorithms",
-      "repoLabel": "Repository",
-      "section": "other",
-      "order": 3,
+      "section": "past",
+      "order": 7,
       "status": "Academic project",
       "eyebrow": "Numerical methods",
       "title": "QR Algorithms for Eigenvalue Problems",
       "description": "Implementazioni ed esperimenti con algoritmi QR per il calcolo numerico degli autovalori.",
-      "image": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Numerical-Algebra-QR-Algorithms",
-      "imageAlt": "Anteprima del repository QR Algorithms",
-      "tags": ["Numerical algebra", "QR algorithm", "Python"]
+      "tags": ["Numerical algebra", "QR algorithm", "Python"],
+      "repoUrl": "https://github.com/FRAMAX444/Numerical-Algebra-QR-Algorithms",
+      "repoLabel": "Repository",
+      "links": [],
+      "media": [
+        {
+          "type": "diagram",
+          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Numerical-Algebra-QR-Algorithms",
+          "alt": "Anteprima del progetto QR Algorithms",
+          "caption": "Repository overview"
+        }
+      ]
     }
   ]
 }
