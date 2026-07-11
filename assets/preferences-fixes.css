@@ -40,6 +40,62 @@
   outline-offset: 2px;
 }
 
+/* Present the About profile with the same media/content layout used by projects. */
+.about-profile-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.about-profile-card.no-photo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.about-profile-media {
+  min-height: 280px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e7eef6, #d5e1ed);
+}
+
+.about-profile-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.about-profile-body {
+  min-width: 0;
+  padding: 1.25rem;
+  display: grid;
+  align-content: center;
+  gap: .9rem;
+}
+
+.about-profile-eyebrow {
+  color: var(--linkedin);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.about-profile-name {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+}
+
+.about-profile-role {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
 /* Complete the dark palette for blocks that use hard-coded light colors. */
 :root[data-theme="dark"] .portfolio-controls {
   border-color: rgba(255, 255, 255, .14);
@@ -93,6 +149,10 @@
   color: #eef5fb;
 }
 
+:root[data-theme="dark"] .about-profile-media {
+  background: linear-gradient(135deg, #1a2938, #22374b);
+}
+
 /* Use more of wide desktop screens without changing the mobile layout. */
 @media (min-width: 1100px) {
   .container {
@@ -108,11 +168,13 @@
     max-width: 1440px;
   }
 
-  .json-project-card {
+  .json-project-card,
+  .about-profile-card {
     grid-template-columns: minmax(320px, 36%) minmax(0, 1fr);
   }
 
-  .json-project-body {
+  .json-project-body,
+  .about-profile-body {
     padding: 1.5rem;
   }
 }
@@ -121,6 +183,17 @@
   .nav {
     padding-inline: 0;
     padding-right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .about-profile-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-profile-media,
+  .about-profile-media img {
+    min-height: 250px;
   }
 }
 
@@ -154,5 +227,15 @@
 
   .portfolio-theme-label {
     display: inline;
+  }
+
+  .section-label {
+    font-size: 1.38rem;
+    letter-spacing: .12em;
+  }
+
+  .json-project-section-head h2 {
+    font-size: 1.68rem;
+    line-height: 1.15;
   }
 }
