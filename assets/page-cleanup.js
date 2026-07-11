@@ -13,6 +13,13 @@
     });
   }
 
+  function removeProjectImageTypeLabels(doc) {
+    doc?.querySelectorAll("#page-works .json-project-media").forEach((media) => {
+      if (!media.querySelector("img")) return;
+      media.querySelector(".json-project-media-type")?.remove();
+    });
+  }
+
   preferences.install = async (frame) => {
     await installPreferences(frame);
 
@@ -20,5 +27,6 @@
     if (!doc?.documentElement || !doc.body) return;
 
     removePageIntroCards(doc);
+    removeProjectImageTypeLabels(doc);
   };
 })();
