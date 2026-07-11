@@ -1,0 +1,134 @@
+/* Keep language and theme controls inside the landing page only. */
+.nav {
+  padding-inline: 0;
+}
+
+.portfolio-controls-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.portfolio-controls {
+  position: static;
+  right: auto;
+  top: auto;
+  z-index: auto;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem;
+  transform: none;
+  border: 1px solid rgba(255, 255, 255, .34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .68);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+  backdrop-filter: blur(12px);
+}
+
+.portfolio-language-select,
+.portfolio-theme-toggle {
+  box-shadow: none;
+}
+
+.portfolio-language-select:focus-visible,
+.portfolio-theme-toggle:focus-visible {
+  outline: 3px solid rgba(10, 102, 194, .3);
+  outline-offset: 2px;
+}
+
+/* Complete the dark palette for blocks that use hard-coded light colors. */
+:root[data-theme="dark"] .portfolio-controls {
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(15, 20, 26, .76);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .28);
+}
+
+:root[data-theme="dark"] .portfolio-language-select option {
+  background: #1d2631;
+  color: #e8edf3;
+}
+
+:root[data-theme="dark"] .timeline-org-head {
+  border-color: #2d3947;
+  background: linear-gradient(180deg, #1b2430 0%, #171e27 100%);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .timeline-logo {
+  border-color: #354353;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .22);
+}
+
+:root[data-theme="dark"] .badge {
+  border: 1px solid #315b85;
+  background: #142c43;
+  color: #8fc7ff;
+}
+
+:root[data-theme="dark"] .section-label {
+  border-color: #344252;
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .gallery-progress-bar {
+  background: #344252;
+}
+
+:root[data-theme="dark"] .exam-projects-title,
+:root[data-theme="dark"] .abstract-preview-text {
+  color: #c2ccd7;
+}
+
+:root[data-theme="dark"] .exam-project-link::before,
+:root[data-theme="dark"] .exam-project-chip::before {
+  background: #263547;
+  color: #8fc7ff;
+}
+
+:root[data-theme="dark"] .home-hero.no-bg .quote-box blockquote {
+  color: #eef5fb;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding-inline: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .topbar-inner {
+    display: flex;
+  }
+
+  .portfolio-controls-wrap {
+    justify-content: center;
+  }
+
+  .portfolio-controls {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 24px;
+  }
+
+  .portfolio-language-select {
+    width: auto;
+    max-width: 8.5rem;
+    padding-left: .85rem;
+    padding-right: 2rem;
+  }
+
+  .portfolio-theme-toggle {
+    width: auto;
+    padding: .55rem .82rem;
+  }
+
+  .portfolio-theme-label {
+    display: inline;
+  }
+}
