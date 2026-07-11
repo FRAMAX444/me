@@ -15,6 +15,29 @@
     });
   }
 
+  function installAboutMediaOverrides(doc) {
+    if (doc.getElementById("about-media-overrides")) return;
+
+    const style = doc.createElement("style");
+    style.id = "about-media-overrides";
+    style.textContent = `
+      .about-timeline-card:not(.about-language-card) .about-timeline-media {
+        background-image: none !important;
+        transition: background-color .2s ease;
+      }
+
+      @media (max-width: 760px) {
+        .about-timeline-card:not(.about-language-card) .about-timeline-media .timeline-logo,
+        .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media .timeline-logo {
+          width: 66.6667% !important;
+          max-width: 66.6667% !important;
+          max-height: 160px !important;
+        }
+      }
+    `;
+    doc.head.appendChild(style);
+  }
+
   function syncAboutTimelineExpansion(card) {
     card.classList.toggle("has-open-item", Boolean(card.querySelector(".feed-card.open")));
   }
@@ -55,9 +78,89 @@
     meta.firstElementChild?.classList.add("about-language-level");
   }
 
+  function quantizeColor(red, green, blue) {
+    const step = 16;
+    return [red, green, blue].map((value) => Math.round(value / step) * step);
+  }
+
+  function sampleImageEdgeColor(image) {
+    const width = image.naturalWidth;
+    const height = image.naturalHeight;
+    if (!width || !height) return null;
+
+    const maxSize = 160;
+    const scale = Math.min(1, maxSize / Math.max(width, height));
+    const canvas = image.ownerDocument.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(width * scale));
+    canvas.height = Math.max(1, Math.round(height * scale));
+
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) return null;
+
+    try {
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      const counts = new Map();
+      const edgeDepth = Math.max(1, Math.round(Math.min(canvas.width, canvas.height) * .06));
+      const sampleStep = Math.max(1, Math.floor(Math.max(canvas.width, canvas.height) / 80));
+
+      const recordPixel = (x, y) => {
+        const offset = (y * canvas.width + x) * 4;
+        const alpha = pixels[offset + 3];
+        if (alpha < 32) return;
+
+        const [red, green, blue] = quantizeColor(
+          pixels[offset],
+          pixels[offset + 1],
+          pixels[offset + 2]
+        );
+        const key = `${red},${green},${blue}`;
+        counts.set(key, (counts.get(key) || 0) + 1);
+      };
+
+      for (let x = 0; x < canvas.width; x += sampleStep) {
+        for (let depth = 0; depth < edgeDepth; depth += 1) {
+          recordPixel(x, depth);
+          recordPixel(x, canvas.height - 1 - depth);
+        }
+      }
+
+      for (let y = 0; y < canvas.height; y += sampleStep) {
+        for (let depth = 0; depth < edgeDepth; depth += 1) {
+          recordPixel(depth, y);
+          recordPixel(canvas.width - 1 - depth, y);
+        }
+      }
+
+      const dominant = [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+      if (!dominant) return null;
+
+      const [red, green, blue] = dominant.split(",").map(Number);
+      const nearlyWhite = red >= 240 && green >= 240 && blue >= 240;
+      return nearlyWhite ? "#ffffff" : `rgb(${red}, ${green}, ${blue})`;
+    } catch (error) {
+      console.warn("Unable to sample organization image colors:", error);
+      return null;
+    }
+  }
+
+  function matchMediaBackgroundToImage(media, image) {
+    const applyColor = () => {
+      const color = sampleImageEdgeColor(image);
+      if (color) media.style.backgroundColor = color;
+    };
+
+    if (image.complete && image.naturalWidth) {
+      applyColor();
+    } else {
+      image.addEventListener("load", applyColor, { once: true });
+    }
+  }
+
   function transformAboutTimelineCards(doc) {
     doc?.getElementById("about-profile-card")?.remove();
     doc?.getElementById("language-skills-list")?.classList.add("about-language-grid");
+    installAboutMediaOverrides(doc);
 
     doc?.querySelectorAll("#page-about .timeline-group").forEach((card) => {
       if (card.dataset.projectMediaLayout === "true") return;
@@ -86,6 +189,10 @@
         media.className = "about-timeline-media";
         media.appendChild(logo);
         fragment.appendChild(media);
+
+        if (!isLanguageCard) {
+          matchMediaBackgroundToImage(media, logo);
+        }
 
         logo.addEventListener("error", () => {
           media.remove();
