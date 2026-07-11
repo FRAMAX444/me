@@ -2,10 +2,9 @@
   "settings": {
     "title": "Projects",
     "subtitle": "A curated selection of software, research and product work.",
-    "githubUsername": "",
+    "githubUsername": "FRAMAX444",
     "includeUnlistedRecent": false,
-    "recentLimit": 8,
-    "filterLimit": 7
+    "recentLimit": 8
   },
   "sections": [
     {
@@ -25,66 +24,124 @@
       "title": "Other projects",
       "subtitle": "Additional tools, experiments and open-source work.",
       "order": 3
-    },
-    {
-      "id": "recent",
-      "title": "Recent repositories",
-      "subtitle": "Automatically loaded from GitHub when no manually configured projects are available.",
-      "order": 99
     }
   ],
   "projects": [
     {
-      "id": "example-featured-project",
-      "enabled": false,
-      "repo": "repository-name",
+      "id": "pinns",
+      "enabled": true,
+      "repo": "PINNs",
       "section": "featured",
       "order": 1,
       "featured": true,
-      "status": "Featured",
-      "eyebrow": "Web application",
-      "title": "Project title",
-      "description": "A concise description of the problem, solution and value of the project.",
-      "image": "assets/projects/project-cover.webp",
-      "imageAlt": "Project interface preview",
-      "year": 2026,
-      "tags": [
-        "JavaScript",
-        "HTML",
-        "CSS"
-      ],
-      "liveUrl": "https://example.com",
-      "liveLabel": "Live demo",
+      "status": "Bachelor thesis",
+      "eyebrow": "Scientific machine learning",
+      "title": "Physics-Informed Neural Networks",
+      "description": "Bachelor thesis code and materials focused on physics-informed neural networks and differential equations.",
+      "image": "",
+      "imageAlt": "Physics-Informed Neural Networks project preview",
+      "year": 2025,
+      "tags": ["Python", "Deep learning", "Differential equations"],
       "links": [
         {
-          "label": "Case study",
-          "url": "https://example.com/case-study",
-          "primary": false
+          "label": "View repository",
+          "url": "https://github.com/FRAMAX444/PINNs",
+          "primary": true
         }
       ]
     },
     {
-      "id": "example-research-project",
-      "enabled": false,
-      "repo": "another-repository",
-      "section": "research",
-      "order": 1,
+      "id": "cnn-earthquakes",
+      "enabled": true,
+      "repo": "CNN-explainability-Earthquakes",
+      "section": "featured",
+      "order": 2,
+      "featured": true,
       "status": "Research",
-      "eyebrow": "Academic project",
-      "title": "Research project title",
-      "description": "Description of the research question, methodology and main result.",
-      "tags": [
-        "Python",
-        "Data analysis",
-        "Machine learning"
-      ],
+      "eyebrow": "Explainable AI",
+      "title": "CNN Explainability for Earthquakes",
+      "description": "Explainable deep-learning workflow for distinguishing foreshocks and aftershocks from seismic spectrograms.",
+      "image": "",
+      "imageAlt": "CNN explainability for earthquakes project preview",
+      "year": 2025,
+      "tags": ["Python", "CNN", "SHAP", "Seismology"],
       "links": [
         {
-          "label": "Paperr",
-          "url": "https://example.com/paper",
+          "label": "View repository",
+          "url": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
           "primary": true
         }
       ]
+    },
+    {
+      "id": "codenames-llm",
+      "enabled": true,
+      "repo": "Codenames-LLM",
+      "section": "research",
+      "order": 1,
+      "status": "Academic project",
+      "eyebrow": "Large language models",
+      "title": "Codenames LLM",
+      "description": "Evaluation of language models and prompt-engineering strategies through the game Codenames.",
+      "image": "",
+      "imageAlt": "Codenames LLM project preview",
+      "tags": ["LLM", "Prompt engineering", "Evaluation"]
+    },
+    {
+      "id": "knowledge-distillation",
+      "enabled": true,
+      "repo": "Knowledge-Distillation",
+      "section": "research",
+      "order": 2,
+      "status": "Academic project",
+      "eyebrow": "Machine learning",
+      "title": "Knowledge Distillation",
+      "description": "Experiments on transferring knowledge from larger teacher networks to compact student models.",
+      "image": "",
+      "imageAlt": "Knowledge distillation project preview",
+      "tags": ["Python", "Deep learning", "Model compression"]
+    },
+    {
+      "id": "doodle-htr",
+      "enabled": true,
+      "repo": "DoodleHTR-AI-for-Education-APP",
+      "section": "other",
+      "order": 1,
+      "status": "Application",
+      "eyebrow": "AI for education",
+      "title": "DoodleHTR",
+      "description": "An educational application that explores handwriting recognition and AI-assisted learning workflows.",
+      "image": "",
+      "imageAlt": "DoodleHTR application preview",
+      "tags": ["AI", "Education", "Handwriting recognition"]
+    },
+    {
+      "id": "playlist-recommendation",
+      "enabled": true,
+      "repo": "Playlist-Recommendation-System",
+      "section": "other",
+      "order": 2,
+      "status": "Recommendation system",
+      "eyebrow": "Data product",
+      "title": "Playlist Recommendation System",
+      "description": "A music recommendation project for generating playlists from user and track information.",
+      "image": "",
+      "imageAlt": "Playlist recommendation system preview",
+      "tags": ["Recommendation systems", "Data analysis", "Python"]
+    },
+    {
+      "id": "numerical-algebra",
+      "enabled": true,
+      "repo": "Numerical-Algebra-QR-Algorithms",
+      "section": "other",
+      "order": 3,
+      "status": "Academic project",
+      "eyebrow": "Numerical methods",
+      "title": "QR Algorithms for Eigenvalue Problems",
+      "description": "Implementations and experiments with QR algorithms for numerical eigenvalue computation.",
+      "image": "",
+      "imageAlt": "QR algorithms project preview",
+      "tags": ["Numerical algebra", "QR algorithm", "Python"]
     }
   ]
 }
