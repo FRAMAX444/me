@@ -15,6 +15,34 @@
     });
   }
 
+  function syncAboutTimelineExpansion(card) {
+    card.classList.toggle("has-open-item", Boolean(card.querySelector(".feed-card.open")));
+  }
+
+  function observeAboutTimelineExpansion(card) {
+    card.aboutTimelineObserver?.disconnect();
+
+    const Observer = card.ownerDocument?.defaultView?.MutationObserver || MutationObserver;
+    const observer = new Observer((mutations) => {
+      const feedCardChanged = mutations.some((mutation) =>
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class" &&
+        mutation.target.classList?.contains("feed-card")
+      );
+
+      if (feedCardChanged) syncAboutTimelineExpansion(card);
+    });
+
+    observer.observe(card, {
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+
+    card.aboutTimelineObserver = observer;
+    syncAboutTimelineExpansion(card);
+  }
+
   function transformAboutTimelineCards(doc) {
     doc?.getElementById("about-profile-card")?.remove();
 
@@ -52,6 +80,7 @@
       card.replaceChildren(fragment);
       card.classList.add("about-timeline-card");
       card.dataset.projectMediaLayout = "true";
+      observeAboutTimelineExpansion(card);
     });
   }
 
