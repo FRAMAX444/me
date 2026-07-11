@@ -1,0 +1,365 @@
+const SHELL_SOURCE = "https://cdn.jsdelivr.net/gh/FRAMAX444/me@d7e74aed5fde7911d0186f411ae23a650c1525e4/index.html";
+const SHELL_PARAM = "shell";
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const isText = (value) => typeof value === "string" && value.trim() !== "";
+const asArray = (value) => Array.isArray(value) ? value : value == null ? [] : [value];
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function normalizedHash(value) {
+  const route = String(value || "#home").replace(/^#/, "").trim();
+  return `#${["home", "about", "publications", "works"].includes(route) ? route : "home"}`;
+}
+
+async function renderPinnedShell() {
+  const loader = document.getElementById("shell-loader");
+
+  try {
+    const response = await fetch(SHELL_SOURCE, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Shell response: ${response.status}`);
+
+    const html = await response.text();
+    document.open();
+    document.write(html);
+    document.close();
+  } catch (error) {
+    console.error("Portfolio shell error:", error);
+    loader.className = "shell-error";
+    loader.innerHTML = "<div><strong>Portfolio unavailable</strong>Unable to load the page structure.</div>";
+  }
+}
+
+function projectInitials(title) {
+  return String(title || "P")
+    .split(/[\s_-]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
+function normalizeMedia(project = {}) {
+  const media = asArray(project.media);
+
+  if (isText(project.image)) {
+    media.unshift({
+      type: "image",
+      src: project.image,
+      alt: project.imageAlt || project.title || "Project image",
+      caption: project.imageCaption || ""
+    });
+  }
+
+  asArray(project.images).forEach((src) => {
+    if (isText(src)) media.push({ type: "image", src, alt: project.title || "Project image" });
+  });
+
+  return media
+    .map((item) => {
+      if (isText(item)) return { type: "image", src: item, alt: project.title || "Project image" };
+      if (!item || !isText(item.src || item.url || item.href)) return null;
+      return {
+        type: String(item.type || "image").toLowerCase(),
+        src: item.src || item.url || item.href,
+        alt: item.alt || project.title || "Project media",
+        caption: item.caption || item.label || ""
+      };
+    })
+    .filter(Boolean);
+}
+
+function normalizeLinks(project = {}) {
+  const links = [];
+
+  if (isText(project.repoUrl)) {
+    links.push({ label: project.repoLabel || "Repository", url: project.repoUrl, primary: true });
+  }
+  if (isText(project.liveUrl)) {
+    links.push({ label: project.liveLabel || "Live demo", url: project.liveUrl, primary: !links.length });
+  }
+  if (isText(project.paperUrl)) {
+    links.push({ label: project.paperLabel || "Paper", url: project.paperUrl, primary: !links.length });
+  }
+
+  asArray(project.links).forEach((item) => {
+    if (isText(item)) {
+      links.push({ label: item, url: item, primary: false });
+      return;
+    }
+    if (!item || !isText(item.url || item.href)) return;
+    links.push({
+      label: item.label || item.name || item.title || "Open link",
+      url: item.url || item.href,
+      primary: Boolean(item.primary)
+    });
+  });
+
+  normalizeMedia(project)
+    .filter((item) => !["image", "photo", "chart", "diagram", "video"].includes(item.type))
+    .forEach((item) => links.push({
+      label: item.caption || `Open ${item.type}`,
+      url: item.src,
+      primary: false
+    }));
+
+  return links;
+}
+
+function projectStyles() {
+  return `
+    .json-projects-sections { display:grid; gap:1.25rem; }
+    .json-project-section { display:grid; gap:.9rem; }
+    .json-project-section-head { display:grid; gap:.35rem; padding:0 .2rem; }
+    .json-project-section-head h2 { margin:0; font-size:clamp(1.45rem,3vw,2rem); letter-spacing:-.045em; }
+    .json-project-section-head p { margin:0; color:var(--muted); line-height:1.65; }
+    .json-project-list { display:grid; gap:1rem; }
+    .json-project-card { display:grid; grid-template-columns:minmax(220px,34%) minmax(0,1fr); overflow:hidden; border:1px solid #e1e7ee; border-radius:var(--radius); background:var(--panel); box-shadow:0 12px 30px rgba(15,23,42,.07); min-width:0; }
+    .json-project-media { position:relative; min-height:240px; overflow:hidden; background:linear-gradient(135deg,#e7eef6,#d5e1ed); }
+    .json-project-media-button { width:100%; height:100%; min-height:240px; display:block; padding:0; border:0; background:transparent; cursor:zoom-in; }
+    .json-project-media img, .json-project-media video { width:100%; height:100%; min-height:240px; display:block; object-fit:cover; }
+    .json-project-media-empty { min-height:240px; display:grid; place-items:center; color:#42617e; font-size:clamp(2.8rem,8vw,5rem); font-weight:800; letter-spacing:-.08em; }
+    .json-project-media-type, .json-project-media-count { position:absolute; bottom:.85rem; z-index:2; padding:.42rem .7rem; border-radius:999px; font-size:.78rem; font-weight:800; backdrop-filter:blur(8px); }
+    .json-project-media-type { left:.85rem; color:#34495e; background:rgba(255,255,255,.9); border:1px solid rgba(255,255,255,.8); text-transform:capitalize; }
+    .json-project-media-count { right:.85rem; color:white; background:rgba(31,35,40,.78); }
+    .json-project-body { min-width:0; padding:1.25rem; display:grid; align-content:start; gap:.9rem; }
+    .json-project-eyebrow { color:var(--linkedin); font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .json-project-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; }
+    .json-project-heading h3 { margin:0; font-size:clamp(1.3rem,2.6vw,1.75rem); line-height:1.08; letter-spacing:-.045em; }
+    .json-project-status { flex:0 0 auto; padding:.42rem .68rem; border-radius:999px; background:#eef4fb; color:#365b80; font-size:.78rem; font-weight:800; white-space:nowrap; }
+    .json-project-description { margin:0; color:var(--muted); line-height:1.7; white-space:pre-line; }
+    .json-project-meta, .json-project-tags, .json-project-links { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; }
+    .json-project-meta { color:#6b7787; font-size:.88rem; }
+    .json-project-tag { padding:.42rem .66rem; border-radius:999px; background:#f5f7fa; border:1px solid #e4e9ef; color:#526171; font-size:.82rem; font-weight:700; }
+    .json-project-link { display:inline-flex; align-items:center; justify-content:center; padding:.72rem 1rem; border-radius:999px; border:1px solid #dfe6ee; background:white; color:#445364; font-weight:750; transition:.18s ease; }
+    .json-project-link.primary { color:white; background:var(--linkedin); border-color:var(--linkedin); }
+    .json-project-link:hover { transform:translateY(-1px); box-shadow:0 10px 22px rgba(15,23,42,.1); }
+    @media (max-width:760px) {
+      .json-project-card { grid-template-columns:1fr; }
+      .json-project-media, .json-project-media-button, .json-project-media img, .json-project-media video, .json-project-media-empty { min-height:210px; }
+      .json-project-heading { display:grid; }
+      .json-project-status { justify-self:start; }
+    }
+  `;
+}
+
+function renderProjectMedia(win, project) {
+  const media = normalizeMedia(project);
+  if (!media.length) {
+    return `<div class="json-project-media"><div class="json-project-media-empty">${escapeHtml(projectInitials(project.title))}</div></div>`;
+  }
+
+  const first = media[0];
+  const visualTypes = new Set(["image", "photo", "chart", "diagram"]);
+  const visualMedia = media.filter((item) => visualTypes.has(item.type));
+
+  if (first.type === "video") {
+    return `
+      <div class="json-project-media">
+        <video controls preload="metadata" aria-label="${escapeHtml(first.alt)}">
+          <source src="${escapeHtml(first.src)}">
+        </video>
+        <span class="json-project-media-type">video</span>
+      </div>
+    `;
+  }
+
+  if (!visualTypes.has(first.type)) {
+    return `
+      <div class="json-project-media">
+        <a class="json-project-media-empty" href="${escapeHtml(first.src)}" target="_blank" rel="noreferrer" style="font-size:1.1rem;letter-spacing:0;">${escapeHtml(first.caption || `Open ${first.type}`)}</a>
+        <span class="json-project-media-type">${escapeHtml(first.type)}</span>
+      </div>
+    `;
+  }
+
+  const gallery = visualMedia.map((item) => item.src);
+  return `
+    <div class="json-project-media">
+      <button class="json-project-media-button" type="button" data-json-gallery data-images="${escapeHtml(JSON.stringify(gallery))}" data-title="${escapeHtml(project.title || "Project gallery")}" aria-label="Open ${escapeHtml(project.title || "project")} gallery">
+        <img src="${escapeHtml(first.src)}" alt="${escapeHtml(first.alt)}" loading="lazy">
+      </button>
+      <span class="json-project-media-type">${escapeHtml(first.type)}</span>
+      ${gallery.length > 1 ? `<span class="json-project-media-count">1 / ${gallery.length}</span>` : ""}
+    </div>
+  `;
+}
+
+function renderProjectCard(win, project) {
+  const tags = asArray(project.tags).filter(isText);
+  const links = normalizeLinks(project);
+  const meta = [project.year, project.role, project.organization].filter(Boolean);
+
+  return `
+    <article class="json-project-card">
+      ${renderProjectMedia(win, project)}
+      <div class="json-project-body">
+        ${project.eyebrow ? `<div class="json-project-eyebrow">${escapeHtml(project.eyebrow)}</div>` : ""}
+        <div class="json-project-heading">
+          <h3>${escapeHtml(project.title || "Untitled project")}</h3>
+          ${project.status ? `<span class="json-project-status">${escapeHtml(project.status)}</span>` : ""}
+        </div>
+        ${project.description ? `<p class="json-project-description">${escapeHtml(project.description)}</p>` : ""}
+        ${meta.length ? `<div class="json-project-meta">${meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("<span>•</span>")}</div>` : ""}
+        ${tags.length ? `<div class="json-project-tags">${tags.map((tag) => `<span class="json-project-tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
+        ${links.length ? `<div class="json-project-links">${links.map((link, index) => `<a class="json-project-link ${(link.primary || index === 0) ? "primary" : ""}" href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`).join("")}</div>` : ""}
+      </div>
+    </article>
+  `;
+}
+
+async function waitForShell(win) {
+  for (let attempt = 0; attempt < 120; attempt += 1) {
+    const doc = win.document;
+    const page = doc?.getElementById("page-works");
+    const publications = doc?.getElementById("publications-list");
+    const experience = doc?.getElementById("experience-list");
+    const ready = page && publications && experience && (publications.children.length || experience.children.length);
+    if (ready) return true;
+    await delay(100);
+  }
+  return Boolean(win.document?.getElementById("page-works"));
+}
+
+async function installProjects(frame) {
+  const win = frame.contentWindow;
+  if (!win || !(await waitForShell(win))) return;
+
+  const doc = win.document;
+  const page = doc.getElementById("page-works");
+  if (!page || page.dataset.jsonProjectsInstalled === "true") return;
+
+  const response = await fetch("data/projects.json", { cache: "no-store" });
+  if (!response.ok) throw new Error(`Projects response: ${response.status}`);
+  const data = await response.json();
+  const settings = data?.settings || {};
+  const projects = asArray(data?.projects).filter((project) => project && project.enabled !== false);
+  const sections = [...asArray(data?.sections)].sort((a, b) => Number(a?.order ?? 999) - Number(b?.order ?? 999));
+  const known = new Set(sections.map((section) => section?.id).filter(Boolean));
+
+  projects.forEach((project) => {
+    const sectionId = project.section || "past";
+    if (!known.has(sectionId)) {
+      sections.push({ id: sectionId, title: sectionId.replace(/[-_]/g, " "), subtitle: "", order: 999 });
+      known.add(sectionId);
+    }
+  });
+
+  if (!doc.getElementById("json-project-styles")) {
+    const style = doc.createElement("style");
+    style.id = "json-project-styles";
+    style.textContent = projectStyles();
+    doc.head.appendChild(style);
+  }
+
+  const sectionsHtml = sections
+    .map((section) => {
+      const items = projects
+        .filter((project) => (project.section || "past") === section.id)
+        .sort((a, b) => Number(a.order ?? 999) - Number(b.order ?? 999));
+      if (!items.length) return "";
+
+      return `
+        <section class="json-project-section">
+          <header class="json-project-section-head">
+            <h2>${escapeHtml(section.title || section.id)}</h2>
+            ${section.subtitle ? `<p>${escapeHtml(section.subtitle)}</p>` : ""}
+          </header>
+          <div class="json-project-list">${items.map((project) => renderProjectCard(win, project)).join("")}</div>
+        </section>
+      `;
+    })
+    .join("");
+
+  page.innerHTML = `
+    <div class="container app-shell">
+      <div class="single-col">
+        <div class="card card-pad-lg">
+          <div class="section-header">
+            <div class="badge">My works</div>
+            <h1 class="section-title">${escapeHtml(settings.title || "Projects")}</h1>
+            <p class="section-subtitle">${escapeHtml(settings.subtitle || "A curated selection of current and past projects.")}</p>
+          </div>
+          <p style="margin:1rem 0 0;">
+            <a class="pill-btn" href="https://github.com/${escapeHtml(settings.githubUsername || "FRAMAX444")}" target="_blank" rel="noreferrer">Open GitHub profile</a>
+          </p>
+        </div>
+        <div class="json-projects-sections">${sectionsHtml || '<div class="notice">No projects configured.</div>'}</div>
+      </div>
+    </div>
+  `;
+  page.dataset.jsonProjectsInstalled = "true";
+
+  page.querySelectorAll("[data-json-gallery]").forEach((button) => {
+    button.addEventListener("click", () => {
+      try {
+        const images = JSON.parse(button.dataset.images || "[]");
+        if (typeof win.openLightbox === "function") {
+          win.openLightbox(images, 0, button.dataset.title || "Project gallery");
+        }
+      } catch (error) {
+        console.warn("Invalid project gallery:", error);
+      }
+    });
+  });
+
+  page.querySelectorAll(".json-project-media img").forEach((image) => {
+    image.addEventListener("error", () => {
+      const media = image.closest(".json-project-media");
+      if (media) media.innerHTML = `<div class="json-project-media-empty">${escapeHtml(projectInitials(image.alt))}</div>`;
+    }, { once: true });
+  });
+}
+
+async function initializeHost() {
+  const frame = document.getElementById("portfolio-frame");
+  const loader = document.getElementById("shell-loader");
+  let frameReady = false;
+
+  async function onFrameReady() {
+    const win = frame.contentWindow;
+    if (!win || !win.location || !win.document) return;
+
+    try {
+      await installProjects(frame);
+      loader.remove();
+      frameReady = true;
+
+      const syncFromFrame = () => {
+        const hash = normalizedHash(win.location.hash);
+        if (window.location.hash !== hash) history.replaceState(null, "", hash);
+      };
+
+      win.removeEventListener("hashchange", syncFromFrame);
+      win.addEventListener("hashchange", syncFromFrame);
+      syncFromFrame();
+    } catch (error) {
+      console.error("Projects installation error:", error);
+      loader.className = "shell-error";
+      loader.innerHTML = "<div><strong>Projects unavailable</strong>Check <code>data/projects.json</code> and reload the page.</div>";
+    }
+  }
+
+  frame.addEventListener("load", onFrameReady);
+  frame.src = `?${SHELL_PARAM}=1${normalizedHash(window.location.hash)}`;
+
+  window.addEventListener("hashchange", () => {
+    if (!frameReady || !frame.contentWindow) return;
+    const hash = normalizedHash(window.location.hash);
+    if (frame.contentWindow.location.hash !== hash) frame.contentWindow.location.hash = hash;
+  });
+}
+
+if (new URLSearchParams(window.location.search).has(SHELL_PARAM)) {
+  renderPinnedShell();
+} else {
+  initializeHost();
+}
