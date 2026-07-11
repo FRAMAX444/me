@@ -4,6 +4,8 @@
 
   const installPreferences = preferences.install;
   const pageIds = ["page-about", "page-publications", "page-works"];
+  const isText = (value) => typeof value === "string" && value.trim() !== "";
+  const asArray = (value) => Array.isArray(value) ? value : value == null ? [] : [value];
 
   function removePageIntroCards(doc) {
     pageIds.forEach((pageId) => {
@@ -13,10 +15,42 @@
     });
   }
 
-  function removeProjectImageTypeLabels(doc) {
-    doc?.querySelectorAll("#page-works .json-project-media").forEach((media) => {
-      if (!media.querySelector("img")) return;
-      media.querySelector(".json-project-media-type")?.remove();
+  function getFirstConfiguredMedia(project = {}) {
+    if (isText(project.image)) return null;
+
+    const media = asArray(project.media);
+    if (media.length) return media[0];
+
+    const images = asArray(project.images);
+    return images.length ? images[0] : null;
+  }
+
+  async function removeUnspecifiedProjectLabels(doc) {
+    const response = await fetch("data/projects.json", { cache: "no-store" });
+    if (!response.ok) return;
+
+    const data = await response.json();
+    const projectsByTitle = new Map(
+      asArray(data?.projects)
+        .filter((project) => project && project.enabled !== false && isText(project.title))
+        .map((project) => [project.title.trim(), project])
+    );
+
+    doc?.querySelectorAll("#page-works .json-project-card").forEach((card) => {
+      const title = card.querySelector(".json-project-heading h3")?.textContent?.trim();
+      const project = projectsByTitle.get(title);
+      if (!project) return;
+
+      const firstMedia = getFirstConfiguredMedia(project);
+      const hasExplicitMediaType = firstMedia && typeof firstMedia === "object" && isText(firstMedia.type);
+
+      if (!hasExplicitMediaType) {
+        card.querySelector(".json-project-media-type")?.remove();
+      }
+
+      if (!isText(project.status)) {
+        card.querySelector(".json-project-status")?.remove();
+      }
     });
   }
 
@@ -27,6 +61,11 @@
     if (!doc?.documentElement || !doc.body) return;
 
     removePageIntroCards(doc);
-    removeProjectImageTypeLabels(doc);
+
+    try {
+      await removeUnspecifiedProjectLabels(doc);
+    } catch (error) {
+      console.warn("Unable to clean optional project labels:", error);
+    }
   };
 })();
