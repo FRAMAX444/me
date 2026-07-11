@@ -93,6 +93,30 @@
   color: #eef5fb;
 }
 
+/* Use more of wide desktop screens without changing the mobile layout. */
+@media (min-width: 1100px) {
+  .container {
+    width: min(calc(100% - 5rem), 1500px);
+  }
+
+  .single-col {
+    width: 100%;
+    max-width: 1360px;
+  }
+
+  #page-works .single-col {
+    max-width: 1440px;
+  }
+
+  .json-project-card {
+    grid-template-columns: minmax(320px, 36%) minmax(0, 1fr);
+  }
+
+  .json-project-body {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 900px) {
   .nav {
     padding-inline: 0;
