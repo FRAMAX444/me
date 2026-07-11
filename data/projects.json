@@ -31,10 +31,17 @@
       "description": "Pipeline end-to-end per la classificazione foreshock vs aftershock da forme d'onda sismiche, con CNN su rappresentazioni tempo-frequenza e explainability basata su SHAP.",
       "year": 2026,
       "tags": ["Python", "CNN", "SHAP", "Seismology"],
-      "repoUrl": "",
+      "repoUrl": "https://github.com/FRAMAX444/SeismoXAI",
       "repoLabel": "Repository",
       "links": [],
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "data/pictures/projects-img/SEISMOXAI.png",
+          "alt": "Anteprima del repository SeismoXAI",
+          "caption": "Repository overview"
+        }
+      ]
     },
     {
       "id": "pinns",
@@ -47,13 +54,13 @@
       "description": "Codice e materiali della tesi triennale dedicata alle Physics-Informed Neural Networks per la risoluzione di equazioni differenziali.",
       "year": 2025,
       "tags": ["Python", "Deep learning", "Differential equations"],
-      "repoUrl": "https://github.com/FRAMAX444/PINNs",
+      "repoUrl": "https://github.com/FRAMAX444/PINNS.png",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "type": "image",
-          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/PINNs",
+          "src": "data/pictures/projects-img/PINNS.png",
           "alt": "Anteprima del repository Physics-Informed Neural Networks",
           "caption": "Repository overview"
         }
@@ -73,7 +80,14 @@
       "repoUrl": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
       "repoLabel": "Repository",
       "links": [],
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "data/pictures/projects-img/SEISMOXAI.png",
+          "alt": "Anteprima del repository CNN Explainability for Earthquakes",
+          "caption": "Repository overview"
+        }
+      ]
     },
     {
       "id": "codenames-llm",
@@ -91,7 +105,7 @@
       "media": [
         {
           "type": "image",
-          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Codenames-LLM",
+          "src": "data/pictures/projects-img/CODENAMESLLM.png",
           "alt": "Anteprima del repository Codenames LLM",
           "caption": "Repository overview"
         }
@@ -113,7 +127,7 @@
       "media": [
         {
           "type": "chart",
-          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Knowledge-Distillation",
+          "src": "data/pictures/projects-img/KD.png",
           "alt": "Anteprima del progetto Knowledge Distillation",
           "caption": "Project overview"
         }
@@ -135,7 +149,7 @@
       "media": [
         {
           "type": "image",
-          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/DoodleHTR-AI-for-Education-APP",
+          "src": "data/pictures/projects-img/DOODLEHTR.png",
           "alt": "Anteprima del repository DoodleHTR",
           "caption": "Application overview"
         }
@@ -157,7 +171,7 @@
       "media": [
         {
           "type": "chart",
-          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Playlist-Recommendation-System",
+          "src": "data/pictures/projects-img/RECOMMENDER.png",
           "alt": "Anteprima del Playlist Recommendation System",
           "caption": "Project overview"
         }
@@ -179,7 +193,7 @@
       "media": [
         {
           "type": "diagram",
-          "src": "https://opengraph.githubassets.com/portfolio/FRAMAX444/Numerical-Algebra-QR-Algorithms",
+          "src": "data/pictures/projects-img/QR.png",
           "alt": "Anteprima del progetto QR Algorithms",
           "caption": "Repository overview"
         }
