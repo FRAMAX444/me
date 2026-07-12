@@ -29,6 +29,12 @@
           clip-path: inset(1px);
         }
       }
+
+      @media (min-width: 761px) {
+        .about-timeline-card.has-open-item .about-timeline-media .timeline-logo {
+          box-sizing: border-box;
+        }
+      }
     `;
     doc.head.appendChild(style);
   }
