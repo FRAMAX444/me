@@ -21,6 +21,11 @@
     const style = doc.createElement("style");
     style.id = "about-mobile-dark-media-fix";
     style.textContent = `
+      :root:not([data-theme="dark"]) .about-timeline-card:not(.about-language-card) .feed-card.open > .feed-body {
+        background: #ffffff !important;
+        border-color: #edf1f5 !important;
+      }
+
       @media (max-width: 760px) {
         :root[data-theme="dark"] .about-timeline-card:not(.about-language-card) .about-timeline-media .timeline-logo {
           border: 0 !important;
