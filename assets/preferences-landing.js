@@ -21,6 +21,20 @@
     const style = doc.createElement("style");
     style.id = "about-mobile-dark-media-fix";
     style.textContent = `
+      .about-timeline-card:not(.about-language-card) .feed-card > .feed-head {
+        transition: background-color .18s ease, box-shadow .18s ease;
+      }
+
+      .about-timeline-card:not(.about-language-card) .feed-card.open > .feed-head {
+        background: #eef1f4 !important;
+        box-shadow: inset 0 -1px 0 #d7dee6;
+      }
+
+      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card) .feed-card.open > .feed-head {
+        background: #293440 !important;
+        box-shadow: inset 0 -1px 0 #3b4856;
+      }
+
       @media (max-width: 760px) {
         :root[data-theme="dark"] .about-timeline-card:not(.about-language-card) .about-timeline-media .timeline-logo {
           border: 0 !important;
@@ -31,8 +45,34 @@
       }
 
       @media (min-width: 761px) {
-        .about-timeline-card.has-open-item .about-timeline-media .timeline-logo {
+        .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media {
           box-sizing: border-box;
+          overflow: hidden !important;
+          border: 1px solid #dbe3ec;
+          border-radius: 22px;
+          background-clip: padding-box;
+          box-shadow: 0 12px 24px rgba(15, 23, 42, .08);
+        }
+
+        .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media .timeline-logo {
+          display: block;
+          width: 100% !important;
+          height: 100% !important;
+          min-width: 0 !important;
+          min-height: 0 !important;
+          max-width: none !important;
+          max-height: none !important;
+          padding: 0 !important;
+          border: 0 !important;
+          border-radius: 21px !important;
+          object-fit: contain !important;
+          box-shadow: none !important;
+          clip-path: inset(0 round 21px);
+        }
+
+        :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media {
+          border-color: #354353;
+          box-shadow: 0 12px 24px rgba(0, 0, 0, .22);
         }
       }
     `;
