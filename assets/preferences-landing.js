@@ -21,55 +21,6 @@
     const style = doc.createElement("style");
     style.id = "about-mobile-dark-media-fix";
     style.textContent = `
-      .about-timeline-card:not(.about-language-card),
-      .about-timeline-card:not(.about-language-card) .about-timeline-content,
-      .about-timeline-card:not(.about-language-card) .timeline-org-head,
-      .about-timeline-card:not(.about-language-card) .timeline-items,
-      .about-timeline-card:not(.about-language-card) .feed-card,
-      .about-timeline-card:not(.about-language-card) .feed-card > .feed-head {
-        transition: background-color .18s ease, box-shadow .18s ease;
-      }
-
-      .about-timeline-card:not(.about-language-card).has-open-item,
-      .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media,
-      .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-content,
-      .about-timeline-card:not(.about-language-card).has-open-item .timeline-org-head,
-      .about-timeline-card:not(.about-language-card).has-open-item .timeline-items,
-      .about-timeline-card:not(.about-language-card).has-open-item .feed-card,
-      .about-timeline-card:not(.about-language-card).has-open-item .feed-card > .feed-head {
-        background: #eef1f4 !important;
-        background-image: none !important;
-      }
-
-      .about-timeline-card:not(.about-language-card).has-open-item .feed-card.open > .feed-head {
-        box-shadow: inset 0 -1px 0 #d7dee6;
-      }
-
-      .about-timeline-card:not(.about-language-card).has-open-item .feed-card.open > .feed-body {
-        background: #ffffff !important;
-        border-color: #d7dee6 !important;
-      }
-
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item,
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-media,
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .about-timeline-content,
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .timeline-org-head,
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .timeline-items,
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .feed-card,
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .feed-card > .feed-head {
-        background: #293440 !important;
-        background-image: none !important;
-      }
-
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .feed-card.open > .feed-head {
-        box-shadow: inset 0 -1px 0 #3b4856;
-      }
-
-      :root[data-theme="dark"] .about-timeline-card:not(.about-language-card).has-open-item .feed-card.open > .feed-body {
-        background: #141b23 !important;
-        border-color: #3b4856 !important;
-      }
-
       @media (max-width: 760px) {
         :root[data-theme="dark"] .about-timeline-card:not(.about-language-card) .about-timeline-media .timeline-logo {
           border: 0 !important;
