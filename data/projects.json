@@ -42,6 +42,30 @@
       ]
     },
     {
+      "id": "european-match-predictor",
+      "enabled": true,
+      "section": "current",
+      "order": 2,
+      "eyebrow": "Analisi calcistica · Modelli probabilistici",
+      "title": "European Match Predictor",
+      "status": "In sviluppo",
+      "description": "Web app statica per prevedere le partite di Champions League, Europa League, Conference League e dei cinque principali campionati europei. Combina forma recente, Elo, xG, rendimento casa/trasferta e un modello di Poisson con correzione Dixon–Coles, mostrando probabilità 1X2, punteggi esatti, Over 2.5 e BTTS.",
+      "year": 2026,
+      "tags": ["JavaScript", "Python", "Analisi calcistica", "Poisson", "Dixon–Coles", "GitHub Pages"],
+      "repoUrl": "https://github.com/FRAMAX444/serie-a-match-predictor",
+      "repoLabel": "Repository",
+      "liveUrl": "https://framax444.github.io/serie-a-match-predictor/",
+      "liveLabel": "Sito web",
+      "links": [],
+      "media": [
+        {
+          "src": "data/pictures/projects-img/EUROPEAN-MATCH-PREDICTOR.svg",
+          "alt": "Illustrazione del dashboard European Match Predictor con probabilità e analisi calcistiche",
+          "caption": "Anteprima generata del progetto"
+        }
+      ]
+    },
+    {
       "id": "pinns",
       "enabled": true,
       "section": "past",
