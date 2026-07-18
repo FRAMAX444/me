@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">European Match Predictor dashboard</title>
-  <desc id="desc">Original illustration of a football match prediction dashboard with a pitch, score probabilities, expected goals and model indicators.</desc>
+  <title id="title">European Match Predictor</title>
+  <desc id="desc">1X2, xG, Elo, Poisson and Dixon–Coles football prediction dashboard.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#071525"/>
@@ -43,21 +43,21 @@
       <rect width="86" height="40" rx="20" fill="#17344f"/><text x="43" y="25" fill="#bae6fd" text-anchor="middle">UCL</text>
       <rect x="96" width="86" height="40" rx="20" fill="#17344f"/><text x="139" y="25" fill="#bae6fd" text-anchor="middle">UEL</text>
       <rect x="192" width="86" height="40" rx="20" fill="#17344f"/><text x="235" y="25" fill="#bae6fd" text-anchor="middle">UECL</text>
-      <rect x="288" width="122" height="40" rx="20" fill="url(#accent)"/><text x="349" y="25" fill="#062033" text-anchor="middle">BIG FIVE</text>
+      <rect x="288" width="122" height="40" rx="20" fill="url(#accent)"/><text x="349" y="25" fill="#062033" text-anchor="middle">TOP 5</text>
     </g>
 
     <g transform="translate(42 126)">
       <rect width="860" height="570" rx="30" fill="#eef4f7"/>
-      <text x="34" y="48" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#527085">MATCH ANALYSIS</text>
+      <text x="34" y="48" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#527085">1X2 · xG · ELO</text>
 
       <g transform="translate(34 76)">
         <rect width="792" height="118" rx="24" fill="#ffffff"/>
         <g font-family="Inter,Arial,sans-serif">
-          <text x="26" y="31" font-size="14" font-weight="700" fill="#7b8fa1">CHAMPIONS LEAGUE · MATCHDAY 4</text>
+          <text x="26" y="31" font-size="14" font-weight="700" fill="#7b8fa1">UCL · 04</text>
           <text x="26" y="77" font-size="28" font-weight="850" fill="#102a43">Milano FC</text>
           <text x="766" y="77" font-size="28" font-weight="850" fill="#102a43" text-anchor="end">Madrid CF</text>
           <text x="396" y="72" font-size="36" font-weight="900" fill="#0f7490" text-anchor="middle">VS</text>
-          <text x="396" y="98" font-size="13" font-weight="700" fill="#78909c" text-anchor="middle">MODEL 4.1 · PRE-MATCH</text>
+          <text x="396" y="98" font-size="13" font-weight="700" fill="#78909c" text-anchor="middle">POISSON · DIXON–COLES</text>
         </g>
       </g>
 
@@ -85,19 +85,19 @@
 
       <g transform="translate(525 218)" font-family="Inter,Arial,sans-serif">
         <rect width="301" height="318" rx="24" fill="#ffffff"/>
-        <text x="24" y="37" font-size="16" font-weight="800" fill="#527085">1X2 PROBABILITY</text>
+        <text x="24" y="37" font-size="16" font-weight="800" fill="#527085">1 · X · 2</text>
 
-        <text x="24" y="82" font-size="14" font-weight="750" fill="#36566f">HOME</text>
+        <text x="24" y="82" font-size="14" font-weight="750" fill="#36566f">1</text>
         <rect x="24" y="96" width="252" height="18" rx="9" fill="#e5edf2"/>
         <rect x="24" y="96" width="139" height="18" rx="9" fill="#14b8a6"/>
         <text x="276" y="83" font-size="17" font-weight="850" fill="#0f766e" text-anchor="end">55%</text>
 
-        <text x="24" y="148" font-size="14" font-weight="750" fill="#36566f">DRAW</text>
+        <text x="24" y="148" font-size="14" font-weight="750" fill="#36566f">X</text>
         <rect x="24" y="162" width="252" height="18" rx="9" fill="#e5edf2"/>
         <rect x="24" y="162" width="68" height="18" rx="9" fill="#f59e0b"/>
         <text x="276" y="149" font-size="17" font-weight="850" fill="#b45309" text-anchor="end">27%</text>
 
-        <text x="24" y="214" font-size="14" font-weight="750" fill="#36566f">AWAY</text>
+        <text x="24" y="214" font-size="14" font-weight="750" fill="#36566f">2</text>
         <rect x="24" y="228" width="252" height="18" rx="9" fill="#e5edf2"/>
         <rect x="24" y="228" width="45" height="18" rx="9" fill="#38bdf8"/>
         <text x="276" y="215" font-size="17" font-weight="850" fill="#0369a1" text-anchor="end">18%</text>
@@ -111,11 +111,11 @@
 
     <g transform="translate(930 126)" font-family="Inter,Arial,sans-serif">
       <rect width="448" height="570" rx="30" fill="#0d253a"/>
-      <text x="30" y="48" font-size="18" font-weight="800" fill="#b9d9e8">MODEL SIGNALS</text>
+      <text x="30" y="48" font-size="18" font-weight="800" fill="#b9d9e8">xG · ELO · DC</text>
 
       <g transform="translate(30 76)">
         <rect width="388" height="106" rx="22" fill="#15344f"/>
-        <text x="22" y="31" font-size="13" font-weight="750" fill="#8fb6ca">MOST LIKELY SCORE</text>
+        <text x="22" y="31" font-size="13" font-weight="750" fill="#8fb6ca">⚽</text>
         <text x="22" y="78" font-size="42" font-weight="900" fill="#ffffff">2 — 1</text>
         <rect x="255" y="30" width="108" height="48" rx="24" fill="url(#accent)"/>
         <text x="309" y="60" font-size="16" font-weight="900" fill="#062033" text-anchor="middle">18.6%</text>
@@ -123,7 +123,7 @@
 
       <g transform="translate(30 204)">
         <rect width="185" height="126" rx="22" fill="#15344f"/>
-        <text x="20" y="31" font-size="13" font-weight="750" fill="#8fb6ca">OVER 2.5</text>
+        <text x="20" y="31" font-size="13" font-weight="750" fill="#8fb6ca">O 2.5</text>
         <text x="20" y="83" font-size="36" font-weight="900" fill="#5eead4">61%</text>
         <path d="M22 104h141" stroke="#2b526d" stroke-width="10" stroke-linecap="round"/>
         <path d="M22 104h86" stroke="#5eead4" stroke-width="10" stroke-linecap="round"/>
@@ -138,11 +138,11 @@
 
       <g transform="translate(30 352)">
         <rect width="388" height="188" rx="22" fill="#15344f"/>
-        <text x="22" y="34" font-size="13" font-weight="750" fill="#8fb6ca">FEATURE BALANCE</text>
+        <text x="22" y="34" font-size="13" font-weight="750" fill="#8fb6ca">ELO · xG · H/A</text>
         <g font-size="14" font-weight="750" fill="#d7e9f2">
-          <text x="22" y="73">Recent form</text><text x="366" y="73" text-anchor="end">78</text>
-          <text x="22" y="111">Elo strength</text><text x="366" y="111" text-anchor="end">71</text>
-          <text x="22" y="149">Home advantage</text><text x="366" y="149" text-anchor="end">64</text>
+          <text x="22" y="73">F5</text><text x="366" y="73" text-anchor="end">78</text>
+          <text x="22" y="111">ELO</text><text x="366" y="111" text-anchor="end">71</text>
+          <text x="22" y="149">H/A</text><text x="366" y="149" text-anchor="end">64</text>
         </g>
         <g stroke-linecap="round" stroke-width="9">
           <path d="M132 68h190" stroke="#294f69"/><path d="M132 68h148" stroke="#5eead4"/>
