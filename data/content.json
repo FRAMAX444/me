@@ -1,0 +1,122 @@
+{
+  "navigation": [
+    {
+      "id": "home",
+      "label": "Home",
+      "href": "index.html"
+    },
+    {
+      "id": "cv",
+      "label": "CV",
+      "href": "cv.html"
+    },
+    {
+      "id": "publications",
+      "label": "Publications",
+      "href": "publications.html"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "href": "projects.html"
+    }
+  ],
+  "home": {
+    "intro": "Applied mathematics and artificial intelligence, with a focus on explainable machine learning, scientific computing and seismic data.",
+    "socialOrder": [
+      "mail",
+      "linkedin",
+      "github",
+      "scholar",
+      "instagram"
+    ],
+    "about": {
+      "title": "About",
+      "subtitle": "A short introduction.",
+      "body": [
+        "I am an MSc student in Applied Mathematics to Artificial Intelligence at Sapienza University of Rome. My research interests sit between machine learning, mathematical modelling and seismology, with particular attention to methods that make model decisions interpretable.",
+        "Alongside university and research, I work at the Food and Agriculture Organization of the United Nations, where I support conference operations and develop small tools to simplify recurring workflows."
+      ]
+    },
+    "selectedProjects": {
+      "title": "Selected projects",
+      "subtitle": "Research, numerical methods and software.",
+      "ids": [
+        "seismoxai",
+        "european-match-predictor",
+        "pinns"
+      ]
+    },
+    "recentPublications": {
+      "title": "Recent publications",
+      "subtitle": "Selected research output.",
+      "limit": 3
+    }
+  },
+  "cv": {
+    "title": "CV",
+    "subtitle": "Experience, education and selected activities in chronological order.",
+    "filters": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "experience",
+        "label": "Experience"
+      },
+      {
+        "id": "education",
+        "label": "Education"
+      },
+      {
+        "id": "other",
+        "label": "Other"
+      },
+      {
+        "id": "languages",
+        "label": "Languages"
+      }
+    ],
+    "sections": {
+      "experience": {
+        "title": "Experience",
+        "subtitle": "Professional roles and responsibilities."
+      },
+      "education": {
+        "title": "Education",
+        "subtitle": "Academic background, honours and coursework."
+      },
+      "other": {
+        "title": "Other experience",
+        "subtitle": "Fellowships, programs and selected activities."
+      },
+      "languages": {
+        "title": "Languages",
+        "subtitle": "Languages and certifications."
+      }
+    },
+    "labels": {
+      "details": "Show details",
+      "honours": "Honours & recognition",
+      "coursework": "Coursework",
+      "links": "Links",
+      "gallery": "Images",
+      "credits": "credits"
+    }
+  },
+  "publications": {
+    "title": "Publications",
+    "subtitle": "Research in explainable machine learning and seismology.",
+    "abstractLabel": "Abstract",
+    "publicationLabel": "Publication"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected research, numerical and software projects.",
+    "allLabel": "All"
+  },
+  "footer": {
+    "note": "Francesco Marrocco · Applied Mathematics & AI"
+  }
+}
