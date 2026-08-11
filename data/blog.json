@@ -1,0 +1,156 @@
+{
+  "settings": {
+    "title": "Blog",
+    "subtitle": "Notes on research, work, travel and the ideas I keep coming back to.",
+    "allLabel": "All",
+    "tagsLabel": "Tags",
+    "readLabel": "Read article",
+    "backLabel": "Back to all posts"
+  },
+  "tags": [
+    {
+      "id": "work",
+      "label": "Work"
+    },
+    {
+      "id": "fao",
+      "label": "FAO"
+    },
+    {
+      "id": "travel",
+      "label": "Travel"
+    },
+    {
+      "id": "ai",
+      "label": "AI"
+    },
+    {
+      "id": "llm",
+      "label": "LLMs"
+    },
+    {
+      "id": "agents",
+      "label": "Agents"
+    },
+    {
+      "id": "research",
+      "label": "Research"
+    }
+  ],
+  "posts": [
+    {
+      "id": "ten-conference-council-sessions-at-fao",
+      "title": "Ten Conference and Council sessions at FAO",
+      "date": "2026-08-10",
+      "dateLabel": "August 2026",
+      "tags": [
+        "work",
+        "fao"
+      ],
+      "excerpt": "What ten sessions across FAO Conference and Council taught me about preparation, responsibility and working calmly when the room matters.",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "Working across ten sessions between FAO Conference and Council has been one of the experiences that has shaped me most outside university. The work is operational, but the lesson is broader: when a room contains delegations, interpreters, technicians, officers and decision-makers, small details become part of the institution's credibility."
+        },
+        {
+          "type": "paragraph",
+          "text": "I learned to prepare before problems become visible. Nameplates, floor requests, room changes, timing, technical systems and last-minute instructions can look like separate tasks, but they are really one workflow. The better the preparation, the quieter the operation feels to everyone else."
+        },
+        {
+          "type": "heading",
+          "text": "Learning to stay useful under pressure"
+        },
+        {
+          "type": "paragraph",
+          "text": "The most important growth was not becoming faster at one task. It was learning how to remain precise while priorities move. Conference operations taught me to listen carefully, communicate with different teams, decide what is urgent and keep enough context to solve the next problem without creating another one."
+        },
+        {
+          "type": "paragraph",
+          "text": "It also changed how I approach technical work. When I build a small automation or organize a workflow now, I think about the person who will use it during a busy day, not only whether the code works. Reliability, clarity and a good handoff matter as much as the implementation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Those ten sessions gave me a practical education in responsibility. They taught me that professionalism is often invisible: being prepared, staying calm, noticing what others need and making complex coordination feel simple."
+        }
+      ]
+    },
+    {
+      "id": "croatia-and-ireland-summer-notes",
+      "title": "Croatia and Ireland: places that surprised me",
+      "date": "2026-08-03",
+      "dateLabel": "Summer 2026",
+      "tags": [
+        "travel"
+      ],
+      "excerpt": "Notes from Dubrovnik, Dublin, Killarney and Galway, and why the places I expected least from ended up staying with me most.",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "This summer I travelled through Croatia and Ireland, and both trips changed my expectations in a way I did not anticipate. I left with a much stronger impression of Dubrovnik and Dublin in particular, while Killarney and Galway gave the journey a completely different rhythm."
+        },
+        {
+          "type": "heading",
+          "text": "Dubrovnik"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dubrovnik surprised me positively from the first hours. I expected a beautiful destination; I did not expect the city to feel so distinctive once I was actually inside it. It was one of those places where the physical setting changes how you move through the day, and the contrast between the old city and the sea made it much more memorable than I had imagined."
+        },
+        {
+          "type": "heading",
+          "text": "Dublin, Killarney and Galway"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dublin was the other big surprise. It felt easy to enter into the life of the city, with an atmosphere that was more immediate and welcoming than I expected before the trip. Killarney and Galway added the slower side of Ireland: smaller scale, more time to walk, talk and notice the place instead of trying to consume it as a checklist."
+        },
+        {
+          "type": "paragraph",
+          "text": "What I liked most about both trips was exactly this shift in expectations. Travel is at its best when the places that looked secondary in the plan become the ones you keep thinking about afterwards."
+        }
+      ]
+    },
+    {
+      "id": "codenames-llm-agents",
+      "title": "Codenames as a small laboratory for LLM agents",
+      "date": "2026-07-24",
+      "dateLabel": "July 2026",
+      "tags": [
+        "ai",
+        "llm",
+        "agents",
+        "research"
+      ],
+      "excerpt": "Why a word game is a useful way to think about planning, communication and failure modes in language-model agents.",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "I keep coming back to Codenames because it compresses several hard problems for language models into a very small environment. An agent has to reason over associations, model what another player is likely to understand, choose how much information to reveal and balance an ambitious move against the risk of a catastrophic mistake."
+        },
+        {
+          "type": "paragraph",
+          "text": "That makes it interesting beyond the game itself. A Codenames agent is not only solving a vocabulary task: it is planning under uncertainty and communicating through a channel where one clue has to carry several intentions at once. Small differences in prompting, role definition and memory can change the style of play substantially."
+        },
+        {
+          "type": "heading",
+          "text": "Evaluation is more than the final score"
+        },
+        {
+          "type": "paragraph",
+          "text": "The useful part is studying why an agent succeeds or fails. Does it choose a clue that is semantically clever but pragmatically impossible for its teammate? Does it overestimate shared context? Does it become too conservative after one failure? These behaviours make the game a compact testbed for agent design and for evaluating reasoning that has to be communicated, not just computed."
+        },
+        {
+          "type": "paragraph",
+          "text": "Mich has also written a companion perspective on Codenames and LLMs. I like having multiple analyses of the same environment because the interesting questions are often in the differences between how we define a good strategy and how we decide that an agent actually understood the task."
+        },
+        {
+          "type": "link",
+          "label": "Mich — Codenames LLM Showdown",
+          "href": "https://mich1803.github.io/portfolio/posts/codenames-llm-showdown/",
+          "text": "Related reading"
+        }
+      ]
+    }
+  ]
+}
