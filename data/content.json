@@ -19,6 +19,11 @@
       "id": "projects",
       "label": "Projects",
       "href": "projects.html"
+    },
+    {
+      "id": "blog",
+      "label": "Blog",
+      "href": "blog.html"
     }
   ],
   "home": {
@@ -30,9 +35,13 @@
       "scholar",
       "instagram"
     ],
+    "socials": {
+      "title": "Socials",
+      "subtitle": ""
+    },
     "about": {
       "title": "About",
-      "subtitle": "A short introduction.",
+      "subtitle": "",
       "body": [
         "I am an MSc student in Applied Mathematics to Artificial Intelligence at Sapienza University of Rome. My research interests sit between machine learning, mathematical modelling and seismology, with particular attention to methods that make model decisions interpretable.",
         "Alongside university and research, I work at the Food and Agriculture Organization of the United Nations, where I support conference operations and develop small tools to simplify recurring workflows."
@@ -55,7 +64,7 @@
   },
   "cv": {
     "title": "CV",
-    "subtitle": "Experience, education and selected activities in chronological order.",
+    "subtitle": "",
     "filters": [
       {
         "id": "all",
@@ -80,29 +89,26 @@
     ],
     "sections": {
       "experience": {
-        "title": "Experience",
-        "subtitle": "Professional roles and responsibilities."
+        "title": "Experience"
       },
       "education": {
-        "title": "Education",
-        "subtitle": "Academic background, honours and coursework."
+        "title": "Education"
       },
       "other": {
-        "title": "Other experience",
-        "subtitle": "Fellowships, programs and selected activities."
+        "title": "Other experience"
       },
       "languages": {
-        "title": "Languages",
-        "subtitle": "Languages and certifications."
+        "title": "Languages"
       }
     },
     "labels": {
-      "details": "Show details",
+      "details": "View details",
       "honours": "Honours & recognition",
       "coursework": "Coursework",
       "links": "Links",
       "gallery": "Images",
-      "credits": "credits"
+      "credits": "credits",
+      "close": "Close"
     }
   },
   "publications": {
@@ -117,6 +123,6 @@
     "allLabel": "All"
   },
   "footer": {
-    "note": "Francesco Marrocco · Applied Mathematics & AI"
+    "note": "Francesco Marrocco"
   }
 }
