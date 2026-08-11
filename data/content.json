@@ -98,7 +98,6 @@
     },
     "labels": {
       "details": "Show details",
-      "hideDetails": "Hide details",
       "honours": "Honours & recognition",
       "coursework": "Coursework",
       "links": "Links",
@@ -115,8 +114,7 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Selected research, numerical and software projects.",
-    "allLabel": "All",
-    "repositoryLabel": "Repository"
+    "allLabel": "All"
   },
   "footer": {
     "note": "Francesco Marrocco · Applied Mathematics & AI"
