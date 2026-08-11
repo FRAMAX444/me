@@ -1,35 +1,28 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)" />
-  <meta name="description" content="Francesco Marrocco — mathematics, artificial intelligence, research, publications and selected projects." />
-  <meta property="og:title" content="Francesco Marrocco — Portfolio" />
-  <meta property="og:description" content="Mathematics, artificial intelligence, research, publications and selected projects." />
-  <meta property="og:type" content="website" />
-  <title>Francesco Marrocco — Portfolio</title>
-  <script>
-    (() => {
-      const supported = ["en", "it", "es", "fr", "de"];
-      const storedLanguage = localStorage.getItem("portfolio-language");
-      const browserLanguage = (navigator.languages || [navigator.language || "en"])
-        .map(value => String(value).toLowerCase().split("-")[0])
-        .find(value => supported.includes(value));
-      const language = supported.includes(storedLanguage) ? storedLanguage : (browserLanguage || "en");
-      const storedTheme = localStorage.getItem("portfolio-theme");
-      const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-      const theme = ["light", "dark"].includes(storedTheme) ? storedTheme : (systemDark ? "dark" : "light");
-      document.documentElement.lang = language;
-      document.documentElement.dataset.theme = theme;
-    })();
-  </script>
-  <link rel="stylesheet" href="assets/site-v2.css?v=20260811-1" />
-  <script src="assets/site-v2.js?v=20260811-1" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Francesco Marrocco — applied mathematics, artificial intelligence, explainable AI, research and software projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Francesco Marrocco — Home">
+  <meta property="og:description" content="Applied mathematics, artificial intelligence, research, publications and selected projects.">
+  <title>Francesco Marrocco — Home</title>
+  <link rel="stylesheet" href="assets/portfolio.css?v=20260811">
+  <script src="assets/portfolio.js?v=20260811" defer></script>
 </head>
-<body>
-  <div id="app" class="loading">Loading portfolio…</div>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main" class="site-main" tabindex="-1">
+    <div class="page-loading">
+      <span class="loader-dot"></span>
+      <span>Loading portfolio…</span>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="modal-root"></div>
 </body>
 </html>
