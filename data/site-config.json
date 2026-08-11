@@ -1,9 +1,7 @@
 {
   "profile": {
     "name": "Francesco Marrocco",
-    "role": "Student of Mathematics Applied to Artificial Intelligence \n Conference Staff for FAO",
-    "homeQuote": "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future.",
-    "aboutIntro": "Experience, education, publications and selected information.",
+    "role": "MSc student in Applied Mathematics to Artificial Intelligence, researcher in explainable machine learning for seismology, and conference operations staff at FAO.",
     "githubUsername": "FRAMAX444"
   },
   "images": {
@@ -15,38 +13,31 @@
       "label": "LinkedIn",
       "handle": "Francesco Marrocco",
       "href": "https://www.linkedin.com/in/francesco-marrocco-95257b212/",
-      "icon": "data/pictures/site-config/LinkedIn_icon.svg",
-      "color": "#0a66c2"
+      "icon": "data/pictures/site-config/LinkedIn_icon.svg"
     },
     "mail": {
       "label": "Email",
       "handle": "frmarrocco03@gmail.com",
       "href": "mailto:frmarrocco03@gmail.com",
-      "icon": "data/pictures/site-config/Gmail_icon.png",
-      "color": "linear-gradient(135deg,#FC3F3A,#FC3F3A,#FC3F3A,#FC3F3A,#FC3F3A,#FFDC07,#4ECF6D,#2E88FF)"
+      "icon": "data/pictures/site-config/Gmail_icon.png"
     },
     "github": {
       "label": "GitHub",
       "handle": "FRAMAX444",
       "href": "https://github.com/FRAMAX444",
-      "icon": "data/pictures/site-config/Github_icon.svg",
-      "color": "#24292f"
-
+      "icon": "data/pictures/site-config/Github_icon.svg"
     },
     "instagram": {
       "label": "Instagram",
       "handle": "@francesco.marrocco_",
       "href": "https://instagram.com/francesco.marrocco_",
-      "icon": "data/pictures/site-config/Instagram_logo_2016.svg.png",
-      "color": "linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4)"
-
+      "icon": "data/pictures/site-config/Instagram_logo_2016.svg.png"
     },
     "scholar": {
       "label": "Google Scholar",
       "handle": "Scholar profile",
       "href": "https://scholar.google.com/citations?user=8q4TKEIAAAAJ&hl=it",
-      "icon": "data/pictures/site-config/Google_Scholar_logo.svg.png",
-      "color": "#4285f4"  
+      "icon": "data/pictures/site-config/Google_Scholar_logo.svg.png"
     }
   }
 }
