@@ -7,6 +7,7 @@
   const footerRoot = document.getElementById("site-footer");
   const modalRoot = document.getElementById("modal-root");
   const cache = new Map();
+  const EXT_ARROW = "↗︎";
 
   const esc = (value = "") => String(value)
     .replaceAll("&", "&amp;")
@@ -61,7 +62,7 @@
       return `<a class="social-row" href="${esc(social.href)}" ${external ? 'target="_blank" rel="noreferrer"' : ""}>
         <span class="social-icon"><img src="${esc(social.icon || "")}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></span>
         <span class="social-copy"><strong>${esc(social.label)}</strong><span>${esc(social.handle || "")}</span></span>
-        <span class="social-arrow" aria-hidden="true">↗</span>
+        <span class="social-arrow external-arrow" aria-hidden="true">${EXT_ARROW}</span>
       </a>`;
     }).join("")}</div>`;
   }
@@ -78,9 +79,9 @@
           <p>${esc(project.description || "")}</p>
           ${(project.tags || []).length ? `<div class="tag-line">${project.tags.map(tag => `<span>${esc(tag)}</span>`).join("")}</div>` : ""}
           <div class="row-links">
-            ${repo ? `<a class="text-link" href="${esc(repo)}" target="_blank" rel="noreferrer">${esc(project.repoLabel || "Repository")} ↗</a>` : ""}
-            ${project.liveUrl ? `<a class="text-link" href="${esc(project.liveUrl)}" target="_blank" rel="noreferrer">${esc(project.liveLabel || "Live")} ↗</a>` : ""}
-            ${(project.links || []).map(link => `<a class="text-link" href="${esc(link.href || link.url)}" target="_blank" rel="noreferrer">${esc(link.label || "Open")} ↗</a>`).join("")}
+            ${repo ? `<a class="text-link" href="${esc(repo)}" target="_blank" rel="noreferrer">${esc(project.repoLabel || "Repository")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>` : ""}
+            ${project.liveUrl ? `<a class="text-link" href="${esc(project.liveUrl)}" target="_blank" rel="noreferrer">${esc(project.liveLabel || "Live")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>` : ""}
+            ${(project.links || []).map(link => `<a class="text-link" href="${esc(link.href || link.url)}" target="_blank" rel="noreferrer">${esc(link.label || "Open")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>`).join("")}
           </div>
         </div>
       </article>`;
@@ -96,8 +97,8 @@
           <div class="pub-authors">${esc(authors)}</div>
           <div class="pub-venue">${esc(pub.venue || "")}</div>
           <div class="row-links">
-            ${pub.href ? `<a class="text-link" href="${esc(pub.href)}" target="_blank" rel="noreferrer">${esc(labels.publicationLabel || "Publication")} ↗</a>` : ""}
-            ${(pub.links || []).map(link => `<a class="text-link" href="${esc(link.href || link.url)}" target="_blank" rel="noreferrer">${esc(link.label || "Open")} ↗</a>`).join("")}
+            ${pub.href ? `<a class="text-link" href="${esc(pub.href)}" target="_blank" rel="noreferrer">${esc(labels.publicationLabel || "Publication")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>` : ""}
+            ${(pub.links || []).map(link => `<a class="text-link" href="${esc(link.href || link.url)}" target="_blank" rel="noreferrer">${esc(link.label || "Open")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>`).join("")}
           </div>
           ${pub.notes ? `<details class="pub-details"><summary>${esc(labels.abstractLabel || "Abstract")}</summary><p>${esc(pub.notes)}</p></details>` : ""}
         </div>
@@ -122,7 +123,6 @@
           <div class="hero-copy">
             <h1>${esc(profile.name || "")}</h1>
             <p class="hero-role">${esc(profile.role || "")}</p>
-            <p class="hero-intro">${esc(home.intro || "")}</p>
           </div>
           <div class="hero-photo-wrap">
             <img class="hero-photo" src="${esc(config.images?.profilePhoto || "")}" alt="${esc(profile.name || "")}" onerror="this.style.display='none'">
@@ -130,21 +130,21 @@
         </div>
       </section>
 
-      <section class="content-section" id="socials">
+      <section class="content-section home-section" id="socials">
         <div class="container">
           ${sectionHeader(home.socials)}
           ${socialGrid(config, home.socialOrder || [])}
         </div>
       </section>
 
-      <section class="content-section" id="about">
+      <section class="content-section home-section" id="about">
         <div class="container">
           ${sectionHeader(home.about)}
           <div class="about-copy">${(home.about?.body || []).map(paragraph => `<p>${esc(paragraph)}</p>`).join("")}</div>
         </div>
       </section>
 
-      <section class="content-section">
+      <section class="content-section home-section">
         <div class="container">
           ${sectionHeader(home.selectedProjects)}
           <div class="project-list">${selectedProjects.map(projectRow).join("")}</div>
@@ -152,7 +152,7 @@
         </div>
       </section>
 
-      <section class="content-section">
+      <section class="content-section home-section">
         <div class="container">
           ${sectionHeader(home.recentPublications)}
           <div class="pub-list">${recent.map(pub => publicationRow(pub, content.publications || {})).join("")}</div>
@@ -219,7 +219,7 @@
           ${item.finalGrade ? `<span class="cv-grade">${esc(item.finalGrade)}</span>` : ""}
           ${preview ? `<span class="cv-preview">${esc(preview)}</span>` : ""}
         </span>
-        <span class="cv-entry-action" aria-hidden="true">↗</span>
+        <span class="cv-entry-action external-arrow" aria-hidden="true">${EXT_ARROW}</span>
       </button>`;
   }
 
@@ -235,7 +235,7 @@
   function linkBlock(item, labels) {
     const links = [...(item.links || []), ...(item.thesis || [])];
     if (!links.length) return "";
-    return `<section class="modal-block"><h3>${esc(labels.links || "Links")}</h3><div class="row-links">${links.map(link => `<a class="text-link" href="${esc(link.href || link.url)}" target="_blank" rel="noreferrer">${esc(link.label || "Open")} ↗</a>`).join("")}</div></section>`;
+    return `<section class="modal-block"><h3>${esc(labels.links || "Links")}</h3><div class="row-links">${links.map(link => `<a class="text-link" href="${esc(link.href || link.url)}" target="_blank" rel="noreferrer">${esc(link.label || "Open")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>`).join("")}</div></section>`;
   }
 
   function honoursBlock(item, labels) {
@@ -256,7 +256,7 @@
         <div class="course-name">${esc(exam.name || "")}</div>
         <div class="course-grade">${esc(exam.gradeLabel || "")}</div>
         <div class="course-credits">${exam.credits ? `${esc(exam.credits)} ${esc(labels.credits || "credits")}` : ""}</div>
-        ${(exam.repos || []).length ? `<div class="course-repos">${exam.repos.map(repo => `<a class="text-link" href="${esc(repo.url)}" target="_blank" rel="noreferrer">${esc(repo.label)} ↗</a>`).join("")}</div>` : ""}
+        ${(exam.repos || []).length ? `<div class="course-repos">${exam.repos.map(repo => `<a class="text-link" href="${esc(repo.url)}" target="_blank" rel="noreferrer">${esc(repo.label)} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a>`).join("")}</div>` : ""}
       </div>`).join("")}</div></details></section>`;
   }
 
@@ -431,7 +431,7 @@
     if (!block || !block.type) return "";
     if (block.type === "heading") return `<h2>${esc(block.text || "")}</h2>`;
     if (block.type === "quote") return `<blockquote>${esc(block.text || "")}</blockquote>`;
-    if (block.type === "link") return `<p class="post-link"><span>${esc(block.text || "")}</span><a class="text-link" href="${esc(block.href || "")}" target="_blank" rel="noreferrer">${esc(block.label || "Open")} ↗</a></p>`;
+    if (block.type === "link") return `<p class="post-link"><span>${esc(block.text || "")}</span><a class="text-link" href="${esc(block.href || "")}" target="_blank" rel="noreferrer">${esc(block.label || "Open")} <span class="external-arrow" aria-hidden="true">${EXT_ARROW}</span></a></p>`;
     if (block.type === "image") return `<figure><img src="${esc(block.src || "")}" alt="${esc(block.alt || "")}" loading="lazy">${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}</figure>`;
     return `<p>${esc(block.text || "")}</p>`;
   }
