@@ -35,51 +35,18 @@
     {
       "id": "research",
       "label": "Research"
+    },
+    {
+      "id": "conferences",
+      "label": "Conferences"
     }
   ],
   "posts": [
     {
-      "id": "ten-conference-council-sessions-at-fao",
-      "title": "Ten Conference and Council sessions at FAO",
-      "date": "2026-08-10",
-      "dateLabel": "August 2026",
-      "tags": [
-        "work",
-        "fao"
-      ],
-      "excerpt": "What ten sessions across FAO Conference and Council taught me about preparation, responsibility and working calmly when the room matters.",
-      "body": [
-        {
-          "type": "paragraph",
-          "text": "Working across ten sessions between FAO Conference and Council has been one of the experiences that has shaped me most outside university. The work is operational, but the lesson is broader: when a room contains delegations, interpreters, technicians, officers and decision-makers, small details become part of the institution's credibility."
-        },
-        {
-          "type": "paragraph",
-          "text": "I learned to prepare before problems become visible. Nameplates, floor requests, room changes, timing, technical systems and last-minute instructions can look like separate tasks, but they are really one workflow. The better the preparation, the quieter the operation feels to everyone else."
-        },
-        {
-          "type": "heading",
-          "text": "Learning to stay useful under pressure"
-        },
-        {
-          "type": "paragraph",
-          "text": "The most important growth was not becoming faster at one task. It was learning how to remain precise while priorities move. Conference operations taught me to listen carefully, communicate with different teams, decide what is urgent and keep enough context to solve the next problem without creating another one."
-        },
-        {
-          "type": "paragraph",
-          "text": "It also changed how I approach technical work. When I build a small automation or organize a workflow now, I think about the person who will use it during a busy day, not only whether the code works. Reliability, clarity and a good handoff matter as much as the implementation."
-        },
-        {
-          "type": "paragraph",
-          "text": "Those ten sessions gave me a practical education in responsibility. They taught me that professionalism is often invisible: being prepared, staying calm, noticing what others need and making complex coordination feel simple."
-        }
-      ]
-    },
-    {
       "id": "croatia-and-ireland-summer-notes",
       "title": "Croatia and Ireland: places that surprised me",
-      "date": "2026-08-03",
-      "dateLabel": "Summer 2026",
+      "date": "2026-08-01",
+      "dateLabel": "August 2026",
       "tags": [
         "travel"
       ],
@@ -112,10 +79,90 @@
       ]
     },
     {
+      "id": "ten-conference-council-sessions-at-fao",
+      "title": "Ten Conference and Council sessions at FAO",
+      "date": "2026-06-01",
+      "dateLabel": "June 2026",
+      "tags": [
+        "work",
+        "fao",
+        "conferences"
+      ],
+      "excerpt": "What ten sessions across FAO Conference and Council taught me about preparation, responsibility and working calmly when the room matters.",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "Working across ten sessions between FAO Conference and Council has been one of the experiences that has shaped me most outside university. The work is operational, but the lesson is broader: when a room contains delegations, interpreters, technicians, officers and decision-makers, small details become part of the institution's credibility."
+        },
+        {
+          "type": "paragraph",
+          "text": "I learned to prepare before problems become visible. Nameplates, floor requests, room changes, timing, technical systems and last-minute instructions can look like separate tasks, but they are really one workflow. The better the preparation, the quieter the operation feels to everyone else."
+        },
+        {
+          "type": "heading",
+          "text": "Learning to stay useful under pressure"
+        },
+        {
+          "type": "paragraph",
+          "text": "The most important growth was not becoming faster at one task. It was learning how to remain precise while priorities move. Conference operations taught me to listen carefully, communicate with different teams, decide what is urgent and keep enough context to solve the next problem without creating another one."
+        },
+        {
+          "type": "paragraph",
+          "text": "It also changed how I approach technical work. When I build a small automation or organize a workflow now, I think about the person who will use it during a busy day, not only whether the code works. Reliability, clarity and a good handoff matter as much as the implementation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Those ten sessions gave me a practical education in responsibility. They taught me that professionalism is often invisible: being prepared, staying calm, noticing what others need and making complex coordination feel simple."
+        }
+      ]
+    },
+    {
+      "id": "egu26-vienna",
+      "title": "EGU26 in Vienna: learning to present research in a bigger room",
+      "date": "2026-05-01",
+      "dateLabel": "May 2026",
+      "tags": [
+        "research",
+        "ai",
+        "conferences"
+      ],
+      "excerpt": "A few reflections from EGU26 in Vienna: presenting explainable machine learning for seismology, listening across disciplines and learning what makes a research idea travel.",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "EGU26 in Vienna was one of the first times I experienced my research in the setting of a very large scientific meeting. Moving from code, experiments and drafts into a conference where researchers from many parts of the Earth sciences are discussing their work at the same time changed the scale of the project for me."
+        },
+        {
+          "type": "paragraph",
+          "text": "I presented work on using CNN models and SHAP explanations to study seismic-cycle signals around the 2016 Norcia sequence, including the difference between station-level models and models trained across a network of stations. The technical results mattered, but the most useful part of the experience was learning how to explain why the problem is interesting before explaining how the model works."
+        },
+        {
+          "type": "heading",
+          "text": "Communication is part of the research"
+        },
+        {
+          "type": "paragraph",
+          "text": "Preparing for EGU forced me to compress months of decisions into a narrative that could survive questions from people with different backgrounds. That is a different skill from writing code or training a model. A figure needs to communicate quickly, an assumption needs to be explicit, and an explanation needs to connect the machine-learning result back to the physics."
+        },
+        {
+          "type": "paragraph",
+          "text": "The conversations in Vienna also made me more aware of the boundary between a model that performs well and a result that a scientific community can trust. Explainability is useful only when it helps us ask better physical questions, compare hypotheses and understand where a model may be learning station- or dataset-specific effects."
+        },
+        {
+          "type": "heading",
+          "text": "Coming back with better questions"
+        },
+        {
+          "type": "paragraph",
+          "text": "What I brought home from EGU26 was not only feedback on one project. I came back with a clearer idea of the kind of researcher I want to become: someone comfortable moving between mathematics, machine learning and domain science, but also able to communicate across those boundaries. Vienna made the work feel less like an isolated academic exercise and more like part of a much larger conversation."
+        }
+      ]
+    },
+    {
       "id": "codenames-llm-agents",
       "title": "Codenames as a small laboratory for LLM agents",
-      "date": "2026-07-24",
-      "dateLabel": "July 2026",
+      "date": "2025-05-01",
+      "dateLabel": "May 2025",
       "tags": [
         "ai",
         "llm",
