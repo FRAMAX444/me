@@ -1,7 +1,7 @@
 {
   "settings": {
     "title": "Blog",
-    "subtitle": "Notes on research, work, travel and the ideas I keep coming back to.",
+    "subtitle": "Notes on research, work, travel and the ideas I keep returning to.",
     "allLabel": "All",
     "tagsLabel": "Tags",
     "readLabel": "Read article",
@@ -9,36 +9,20 @@
   },
   "tags": [
     {
-      "id": "work",
-      "label": "Work"
-    },
-    {
-      "id": "fao",
-      "label": "FAO"
-    },
-    {
-      "id": "travel",
-      "label": "Travel"
+      "id": "research",
+      "label": "Research"
     },
     {
       "id": "ai",
       "label": "AI"
     },
     {
-      "id": "llm",
-      "label": "LLMs"
+      "id": "work",
+      "label": "Work"
     },
     {
-      "id": "agents",
-      "label": "Agents"
-    },
-    {
-      "id": "research",
-      "label": "Research"
-    },
-    {
-      "id": "conferences",
-      "label": "Conferences"
+      "id": "travel",
+      "label": "Travel"
     }
   ],
   "posts": [
@@ -84,9 +68,7 @@
       "date": "2026-06-01",
       "dateLabel": "June 2026",
       "tags": [
-        "work",
-        "fao",
-        "conferences"
+        "work"
       ],
       "excerpt": "What ten sessions across FAO Conference and Council taught me about preparation, responsibility and working calmly when the room matters.",
       "body": [
@@ -123,8 +105,7 @@
       "dateLabel": "May 2026",
       "tags": [
         "research",
-        "ai",
-        "conferences"
+        "ai"
       ],
       "excerpt": "A few reflections from EGU26 in Vienna: presenting explainable machine learning for seismology, listening across disciplines and learning what makes a research idea travel.",
       "body": [
@@ -165,8 +146,6 @@
       "dateLabel": "May 2025",
       "tags": [
         "ai",
-        "llm",
-        "agents",
         "research"
       ],
       "excerpt": "Why a word game is a useful way to think about planning, communication and failure modes in language-model agents.",
