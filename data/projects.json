@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "settings": {
     "title": "Projects",
-    "subtitle": "Una selezione ordinata dei progetti su cui sto lavorando e dei lavori completati tra matematica, intelligenza artificiale e sviluppo software.",
+    "subtitle": "A focused selection of current and completed work across applied mathematics, artificial intelligence, data and software.",
     "githubUsername": "FRAMAX444"
   },
   "sections": [
     {
       "id": "current",
       "title": "Currently working on",
-      "subtitle": "Ricerca, prototipi e prodotti attualmente in sviluppo.",
+      "subtitle": "Research, prototypes and products currently in development.",
       "order": 1
     },
     {
       "id": "past",
       "title": "Past projects",
-      "subtitle": "Progetti conclusi, lavori accademici ed esperimenti precedenti.",
+      "subtitle": "Completed research, academic work and earlier experiments.",
       "order": 2
     }
   ],
@@ -27,16 +27,16 @@
       "order": 1,
       "eyebrow": "Explainable AI · Seismology",
       "title": "SeismoXAI",
-      "description": "Pipeline end-to-end per la classificazione foreshock vs aftershock da forme d'onda sismiche, con CNN su rappresentazioni tempo-frequenza e explainability basata su SHAP.",
+      "description": "An end-to-end pipeline for foreshock-versus-aftershock classification from seismic waveforms, using CNNs on time-frequency representations and SHAP-based explainability.",
       "year": 2026,
-      "tags": ["Python", "CNN", "SHAP", "Seismology"],
+      "tags": ["AI", "Research"],
       "repoUrl": "https://github.com/FRAMAX444/SeismoXAI",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/SEISMOXAI.png",
-          "alt": "Anteprima del repository SeismoXAI",
+          "alt": "SeismoXAI repository preview",
           "caption": "Repository overview"
         }
       ]
@@ -46,22 +46,22 @@
       "enabled": true,
       "section": "current",
       "order": 2,
-      "eyebrow": "Analisi calcistica · Modelli probabilistici",
+      "eyebrow": "Football analytics · Probabilistic modelling",
       "title": "European Match Predictor",
-      "status": "In sviluppo",
-      "description": "Web app statica per prevedere le partite di Champions League, Europa League, Conference League e dei cinque principali campionati europei. Combina forma recente, Elo, xG, rendimento casa/trasferta e un modello di Poisson con correzione Dixon–Coles, mostrando probabilità 1X2, punteggi esatti, Over 2.5 e BTTS.",
+      "status": "In development",
+      "description": "A static web app for predicting Champions League, Europa League, Conference League and major European league matches. It combines recent form, Elo, xG, home/away performance and a Poisson model with Dixon-Coles correction to estimate 1X2 probabilities, exact scores, Over 2.5 and BTTS.",
       "year": 2026,
-      "tags": ["JavaScript", "Python", "Analisi calcistica", "Poisson", "Dixon–Coles", "GitHub Pages"],
+      "tags": ["Data", "Software"],
       "repoUrl": "https://github.com/FRAMAX444/serie-a-match-predictor",
       "repoLabel": "Repository",
       "liveUrl": "https://framax444.github.io/serie-a-match-predictor/",
-      "liveLabel": "Sito web",
+      "liveLabel": "Live site",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/EUROPEAN-MATCH-PREDICTOR.svg",
-          "alt": "Illustrazione del dashboard European Match Predictor con probabilità e analisi calcistiche",
-          "caption": "Anteprima generata del progetto"
+          "alt": "European Match Predictor dashboard preview with probabilities and match analysis",
+          "caption": "Project preview"
         }
       ]
     },
@@ -72,16 +72,16 @@
       "order": 1,
       "eyebrow": "Scientific machine learning",
       "title": "Physics-Informed Neural Networks",
-      "description": "Codice e materiali della tesi triennale dedicata alle Physics-Informed Neural Networks per la risoluzione di equazioni differenziali.",
+      "description": "Code and materials from my bachelor's thesis on Physics-Informed Neural Networks for solving differential equations.",
       "year": 2025,
-      "tags": ["Python", "Deep learning", "Differential equations"],
+      "tags": ["AI", "Research"],
       "repoUrl": "https://github.com/FRAMAX444/PINNS.png",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/PINNS.png",
-          "alt": "Anteprima del repository Physics-Informed Neural Networks",
+          "alt": "Physics-Informed Neural Networks repository preview",
           "caption": "Repository overview"
         }
       ]
@@ -91,18 +91,18 @@
       "enabled": true,
       "section": "past",
       "order": 2,
-      "eyebrow": "Explainable AI",
+      "eyebrow": "Explainable AI · Seismology",
       "title": "CNN Explainability for Earthquakes",
-      "description": "Workflow di deep learning spiegabile per distinguere foreshock e aftershock a partire da spettrogrammi sismici.",
+      "description": "An explainable deep-learning workflow for distinguishing foreshocks and aftershocks from seismic spectrograms.",
       "year": 2025,
-      "tags": ["Python", "CNN", "SHAP", "Seismology"],
+      "tags": ["AI", "Research"],
       "repoUrl": "https://github.com/FRAMAX444/CNN-explainability-Earthquakes",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/SEISMOXAI.png",
-          "alt": "Anteprima del repository CNN Explainability for Earthquakes",
+          "alt": "CNN Explainability for Earthquakes repository preview",
           "caption": "Repository overview"
         }
       ]
@@ -114,15 +114,15 @@
       "order": 3,
       "eyebrow": "Large language models",
       "title": "Codenames LLM",
-      "description": "Valutazione di modelli linguistici e strategie di prompt engineering attraverso il gioco Codenames.",
-      "tags": ["LLM", "Prompt engineering", "Evaluation"],
+      "description": "An evaluation of language models and prompt-engineering strategies through the game Codenames.",
+      "tags": ["AI", "Research"],
       "repoUrl": "https://github.com/FRAMAX444/Codenames-LLM",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/CODENAMESLLM.png",
-          "alt": "Anteprima del repository Codenames LLM",
+          "alt": "Codenames LLM repository preview",
           "caption": "Repository overview"
         }
       ]
@@ -134,15 +134,15 @@
       "order": 4,
       "eyebrow": "Machine learning",
       "title": "Knowledge Distillation",
-      "description": "Esperimenti sul trasferimento di conoscenza da reti teacher più grandi a modelli student compatti.",
-      "tags": ["Python", "Deep learning", "Model compression"],
+      "description": "Experiments on transferring knowledge from larger teacher networks to compact student models.",
+      "tags": ["AI", "Research"],
       "repoUrl": "https://github.com/FRAMAX444/Knowledge-Distillation",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/KD.png",
-          "alt": "Anteprima del progetto Knowledge Distillation",
+          "alt": "Knowledge Distillation project preview",
           "caption": "Project overview"
         }
       ]
@@ -154,15 +154,15 @@
       "order": 5,
       "eyebrow": "AI for education",
       "title": "DoodleHTR",
-      "description": "Applicazione educativa che esplora il riconoscimento della scrittura e flussi di apprendimento assistiti dall'intelligenza artificiale.",
-      "tags": ["AI", "Education", "Handwriting recognition"],
+      "description": "An educational application exploring handwriting recognition and AI-assisted learning workflows.",
+      "tags": ["AI", "Software"],
       "repoUrl": "https://github.com/FRAMAX444/DoodleHTR-AI-for-Education-APP",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/DOODLEHTR.png",
-          "alt": "Anteprima del repository DoodleHTR",
+          "alt": "DoodleHTR application preview",
           "caption": "Application overview"
         }
       ]
@@ -172,17 +172,17 @@
       "enabled": true,
       "section": "past",
       "order": 6,
-      "eyebrow": "Data product",
+      "eyebrow": "Recommendation systems",
       "title": "Playlist Recommendation System",
-      "description": "Sistema di raccomandazione musicale per generare playlist utilizzando informazioni su utenti e tracce.",
-      "tags": ["Recommendation systems", "Data analysis", "Python"],
+      "description": "A music recommendation system for generating playlists from user and track information.",
+      "tags": ["AI", "Data"],
       "repoUrl": "https://github.com/FRAMAX444/Playlist-Recommendation-System",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/RECOMMENDER.png",
-          "alt": "Anteprima del Playlist Recommendation System",
+          "alt": "Playlist Recommendation System preview",
           "caption": "Project overview"
         }
       ]
@@ -194,15 +194,15 @@
       "order": 7,
       "eyebrow": "Numerical methods",
       "title": "QR Algorithms for Eigenvalue Problems",
-      "description": "Implementazioni ed esperimenti con algoritmi QR per il calcolo numerico degli autovalori.",
-      "tags": ["Numerical algebra", "QR algorithm", "Python"],
+      "description": "Implementations and numerical experiments with QR algorithms for computing eigenvalues.",
+      "tags": ["Research", "Software"],
       "repoUrl": "https://github.com/FRAMAX444/Numerical-Algebra-QR-Algorithms",
       "repoLabel": "Repository",
       "links": [],
       "media": [
         {
           "src": "data/pictures/projects-img/QR.png",
-          "alt": "Anteprima del progetto QR Algorithms",
+          "alt": "QR Algorithms project preview",
           "caption": "Repository overview"
         }
       ]
