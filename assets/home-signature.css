@@ -1,8 +1,8 @@
-/* Home composition: typography-first hero, portrait belongs to the About story. */
+/* Home composition: spacious desktop typography, narrative portrait, full-bleed mobile image. */
 
 .hero {
   position: relative;
-  padding: clamp(88px, 10vw, 132px) 0 clamp(76px, 8vw, 104px);
+  padding: clamp(86px, 9vw, 126px) 0 clamp(72px, 7vw, 96px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -13,55 +13,51 @@
 }
 
 .hero-copy {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  column-gap: clamp(42px, 8vw, 104px);
-  row-gap: clamp(38px, 5vw, 54px);
+  display: block;
   max-width: none;
   padding: 0;
 }
 
 .hero h1 {
-  grid-column: 1 / -1;
   max-width: none;
   margin: 0;
-  font-size: clamp(66px, 9.4vw, 114px);
+  font-size: clamp(70px, 9.6vw, 116px);
   line-height: .89;
   letter-spacing: -.058em;
 }
 
+/* On desktop the role is deliberately a full-width line of information. */
 .hero-role {
-  grid-column: 2;
   width: 100%;
   max-width: none;
-  margin: 0;
-  padding: 17px 0 0;
+  margin: clamp(38px, 4vw, 50px) 0 0;
+  padding: 20px 0 0;
   border-top: 1px solid var(--line-strong);
   color: var(--ink);
-  font-size: clamp(15.5px, 1.6vw, 18px);
-  line-height: 1.62;
-  letter-spacing: -.008em;
+  font-size: clamp(17px, 1.75vw, 21px);
+  line-height: 1.55;
+  letter-spacing: -.012em;
+  text-wrap: pretty;
 }
 
-/* The photo is intentionally absent from the masthead. */
+/* The portrait belongs to About, not to the masthead. */
 .hero .hero-photo-wrap {
   display: none;
 }
 
-/* About follows the hero and carries the portrait in a more natural context. */
 #about {
   background: var(--paper-2);
 }
 
 #about .section-head {
-  margin-bottom: clamp(34px, 5vw, 52px);
+  margin-bottom: clamp(34px, 4.5vw, 50px);
 }
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(190px, 238px) minmax(0, 1fr);
+  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
   align-items: start;
-  gap: clamp(46px, 7vw, 86px);
+  gap: clamp(52px, 7vw, 88px);
 }
 
 .about-layout .about-portrait {
@@ -70,10 +66,10 @@
   width: 100%;
   min-height: 0;
   height: auto;
-  aspect-ratio: auto;
+  aspect-ratio: 4 / 5;
   margin: 0;
   padding: 10px 0 0;
-  overflow: visible;
+  overflow: hidden;
   border: 0;
   border-top: 1px solid var(--ink);
   border-radius: 0;
@@ -88,10 +84,11 @@
 
 .about-layout .hero-photo {
   position: static;
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-height: none;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: auto;
   object-fit: cover;
   object-position: center 22%;
   border: 0;
@@ -100,7 +97,7 @@
 }
 
 .about-copy {
-  max-width: 690px;
+  max-width: 700px;
   padding: 0;
 }
 
@@ -108,7 +105,7 @@
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(19px, 2vw, 22px);
   line-height: 1.62;
   letter-spacing: -.014em;
 }
@@ -117,34 +114,30 @@
   margin-top: 1.25em;
 }
 
-/* Keep the next sections quieter after the stronger opening sequence. */
 #socials.home-section {
   padding-top: 54px;
   padding-bottom: 58px;
 }
 
-@media (max-width: 800px) {
+/* Tablet: retain the editorial split but reduce visual weight. */
+@media (max-width: 900px) {
   .hero {
-    padding: 72px 0 70px;
-  }
-
-  .hero-copy {
-    grid-template-columns: minmax(0, 1fr) minmax(250px, 360px);
-    column-gap: 44px;
-    row-gap: 38px;
+    padding: 72px 0 68px;
   }
 
   .hero h1 {
-    font-size: clamp(58px, 10.8vw, 82px);
+    font-size: clamp(58px, 10.4vw, 86px);
   }
 
   .hero-role {
-    font-size: 15.5px;
+    margin-top: 34px;
+    padding-top: 17px;
+    font-size: clamp(16px, 2.2vw, 18px);
   }
 
   .about-layout {
-    grid-template-columns: minmax(160px, 200px) minmax(0, 1fr);
-    gap: 42px;
+    grid-template-columns: minmax(190px, 235px) minmax(0, 1fr);
+    gap: 44px;
   }
 
   .about-copy p {
@@ -152,53 +145,68 @@
   }
 }
 
-@media (max-width: 620px) {
+/* Smartphone: text first, then a true edge-to-edge portrait moment. */
+@media (max-width: 680px) {
   .hero {
-    padding: 54px 0 56px;
-  }
-
-  .hero-copy {
-    display: block;
+    padding: 52px 0 54px;
   }
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(48px, 14.4vw, 64px);
+    font-size: clamp(48px, 14.2vw, 64px);
     line-height: .93;
   }
 
   .hero-role {
     width: 100%;
-    margin-top: 32px;
+    margin-top: 30px;
     padding-top: 15px;
-    font-size: 15px;
+    font-size: 15.5px;
     line-height: 1.58;
   }
 
+  #about.home-section {
+    padding-bottom: 0;
+  }
+
   #about .section-head {
-    margin-bottom: 28px;
+    margin-bottom: 27px;
   }
 
   .about-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 0;
   }
 
   .about-copy {
     order: 1;
+    width: 100%;
     max-width: none;
   }
 
   .about-copy p {
     font-size: 17.5px;
-    line-height: 1.64;
+    line-height: 1.66;
   }
 
   .about-layout .about-portrait {
     order: 2;
-    width: min(42vw, 152px);
-    margin: 34px 0 0 auto;
-    padding-top: 8px;
+    width: 100vw;
+    height: clamp(460px, 78svh, 680px);
+    aspect-ratio: auto;
+    margin: 40px 0 0 calc(50% - 50vw);
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: var(--paper);
+  }
+
+  .about-layout .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
   }
 
   #socials.home-section {
@@ -207,12 +215,35 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
+  .hero {
+    padding-top: 46px;
+  }
+
   .hero h1 {
-    font-size: 46px;
+    font-size: clamp(45px, 14.5vw, 58px);
+  }
+
+  .hero-role {
+    font-size: 15px;
   }
 
   .about-copy p {
     font-size: 17px;
+  }
+
+  .about-layout .about-portrait {
+    height: clamp(430px, 76svh, 610px);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .about-layout .about-portrait {
+    height: 70svh;
+    min-height: 410px;
   }
 }
