@@ -1,0 +1,178 @@
+/* Home hero: typography leads, portrait acts as a restrained visual signature. */
+
+.hero {
+  position: relative;
+  padding: clamp(74px, 8vw, 108px) 0 clamp(72px, 7vw, 92px);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  position: relative;
+  display: block;
+  min-height: 390px;
+  padding-right: clamp(190px, 22vw, 250px);
+}
+
+.hero-copy {
+  max-width: 860px;
+  padding: 0;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(62px, 8vw, 94px);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.hero-role {
+  width: min(100%, 650px);
+  margin: clamp(34px, 4vw, 46px) 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.55;
+  letter-spacing: -.008em;
+}
+
+.hero-photo-wrap {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(158px, 17vw, 190px);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  display: block;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-photo-wrap::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 10px -10px -10px 10px;
+  width: auto;
+  height: auto;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  pointer-events: none;
+}
+
+.hero-photo-wrap::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: -10px;
+  bottom: -10px;
+  width: 42px;
+  height: 2px;
+  background: var(--rust);
+}
+
+.hero-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center 22%;
+  border: 1px solid var(--line-strong);
+  filter: saturate(.94) contrast(1.01);
+}
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 66px 0 64px;
+  }
+
+  .hero-grid {
+    min-height: 350px;
+    padding-right: 190px;
+  }
+
+  .hero h1 {
+    max-width: 650px;
+    font-size: clamp(54px, 9.5vw, 74px);
+  }
+
+  .hero-role {
+    max-width: 520px;
+    margin-top: 32px;
+    font-size: 16px;
+  }
+
+  .hero-photo-wrap {
+    width: 145px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding: 50px 0 50px;
+  }
+
+  .hero-grid {
+    min-height: 0;
+    padding-right: 0;
+  }
+
+  .hero-copy {
+    max-width: none;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(47px, 14vw, 62px);
+    line-height: .95;
+  }
+
+  .hero-role {
+    width: 100%;
+    margin-top: 28px;
+    padding-top: 16px;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 112px;
+    margin: 34px 10px 10px auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero-photo-wrap::before {
+    inset: 7px -7px -7px 7px;
+  }
+
+  .hero-photo-wrap::after {
+    right: -7px;
+    bottom: -7px;
+    width: 34px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .hero-role {
+    font-size: 15px;
+  }
+
+  .hero-photo-wrap {
+    width: 104px;
+  }
+}
